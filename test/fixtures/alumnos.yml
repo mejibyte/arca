@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cuidados_especiales: MyText
+  fecha_ingreso: 2008-05-28
+  fecha_nacimiento: 2008-05-28
+
+two:
+  cuidados_especiales: MyText
+  fecha_ingreso: 2008-05-28
+  fecha_nacimiento: 2008-05-28

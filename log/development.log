@@ -1,0 +1,312 @@
+  [4;36;1mSQL (0.000914)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.012053)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001973)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000529)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePersonas (1)
+  [4;35;1mSQL (0.022502)[0m   [0mCREATE TABLE personas ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombres" varchar(255) DEFAULT NULL, "apellidos" varchar(255) DEFAULT NULL, "direccion" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.001989)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000528)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000685)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000195)[0m   [0mPRAGMA index_list(personas)[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-05-28 13:20:59) [GET]
+  Session ID: 88a2b0f489cb542a1c447b84c2179f15
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/alumnos" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-05-28 13:21:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/alumno" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mSQL (0.001631)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPersona Load (0.000363)[0m   [0mSELECT * FROM personas [0m
+  [4;36;1mAlumno Load (0.000364)[0m   [0;1mSELECT * FROM personas [0m
+  [4;35;1mPersona Load (0.000353)[0m   [0mSELECT * FROM personas [0m
+  [4;36;1mAlumno Load (0.000347)[0m   [0;1mSELECT * FROM personas [0m
+  [4;36;1mSQL (0.000759)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000566)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000505)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddTypeToPersona (2)
+  [4;35;1mSQL (0.005152)[0m   [0mALTER TABLE personas ADD "type" varchar(255)[0m
+  [4;36;1mSQL (0.010372)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.002222)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000499)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateAlumnos (3)
+  [4;35;1mSQL (0.003005)[0m   [0mCREATE TABLE alumnos ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cuidados_especiales" text DEFAULT NULL, "fecha_ingreso" date DEFAULT NULL, "fecha_nacimiento" date DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002483)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000523)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000746)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.003745)[0m   [0mPRAGMA index_list(alumnos)[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.001755)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAlumno Create (0.000830)[0m   [0mINSERT INTO personas ("updated_at", "nombres", "type", "direccion", "apellidos", "created_at") VALUES('2008-05-28 13:31:13', 'Andrés Asecas', 'Alumno', 'Calle 37 B Sur #28C 01', 'Mejía Posada', '2008-05-28 13:31:13')[0m
+  [4;36;1mSQL (0.000633)[0m   [0;1mSELECT count(*) AS count_all FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mSQL (0.000911)[0m   [0mSELECT count(*) AS count_all FROM personas [0m
+  [4;36;1mSQL (0.000917)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPersona Load (0.001041)[0m   [0mSELECT * FROM personas [0m
+  [4;36;1mAlumno Load (0.000847)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mAlumno Load (0.000812)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;36;1mAlumno Load (0.000922)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mSQL (0.000790)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000916)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000803)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000837)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000797)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001228)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAlumno Load (0.000804)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-05-28 13:43:19) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/alumnos" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+  [4;36;1mSQL (0.000762)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000533)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000505)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000500)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000627)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000804)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000189)[0m   [0;1mPRAGMA index_list(alumnos)[0m
+  [4;35;1mSQL (0.000185)[0m   [0mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.000738)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000520)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000608)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000488)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000518)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000815)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000191)[0m   [0mPRAGMA index_list(alumnos)[0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;35;1mSQL (0.000395)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: alumnos: DROP TABLE alumnos[0m
+  [4;35;1mSQL (0.004618)[0m   [0mCREATE TABLE alumnos ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cuidados_especiales" text DEFAULT NULL, "fecha_ingreso" date DEFAULT NULL, "fecha_nacimiento" date DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: personas: DROP TABLE personas[0m
+  [4;35;1mSQL (0.002638)[0m   [0mCREATE TABLE personas ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombres" varchar(255) DEFAULT NULL, "apellidos" varchar(255) DEFAULT NULL, "direccion" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "type" varchar(255) DEFAULT NULL) [0m
+  [4;36;1mSQL (0.018728)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002024)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.002032)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000760)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000521)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000535)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000666)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateAlumnos (3)
+  [4;36;1mSQL (0.005473)[0m   [0;1mDROP TABLE alumnos[0m
+  [4;35;1mSQL (0.002057)[0m   [0mUPDATE schema_info SET version = 2[0m
+Reached target version: 2
+  [4;36;1mSQL (0.000542)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000658)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.000804)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001014)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000519)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000501)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddInheritedDataOfAlumnoFromPersona (3)
+  [4;36;1mSQL (0.006935)[0m   [0;1mALTER TABLE personas ADD "cuidados_especiales" text[0m
+  [4;35;1mSQL (0.004943)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002513)[0m   [0;1mALTER TABLE personas ADD "fecha_ingreso" date[0m
+  [4;35;1mSQL (0.003840)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002950)[0m   [0;1mALTER TABLE personas ADD "fecha_nacimiento" date[0m
+  [4;35;1mSQL (0.006355)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002384)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000701)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000671)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000205)[0m   [0mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.001563)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAlumno Load (0.001039)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;36;1mAlumno Load (0.000910)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 1) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mAlumno Delete all (0.003773)[0m   [0mDELETE FROM personas WHERE ("id" IN (1)) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mSELECT count(*) AS count_all FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mSQL (0.000545)[0m   [0mSELECT count(*) AS count_all FROM personas [0m
+  [4;36;1mSQL (0.000699)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000689)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000697)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000569)[0m   [0mSELECT count(*) AS count_all FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+  [4;36;1mSQL (0.000570)[0m   [0;1mSELECT count(*) AS count_all FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mAlumno Create (0.000585)[0m   [0mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:24:31', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, -1998, 'Mejía Posada', '2008-05-28 14:24:31')[0m
+  [4;36;1mAlumno Create (0.000480)[0m   [0;1mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:25:18', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:25:18')[0m
+  [4;35;1mAlumno Create (0.000470)[0m   [0mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:25:21', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:25:21')[0m
+  [4;36;1mAlumno Create (0.000468)[0m   [0;1mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:25:25', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:25:25')[0m
+  [4;35;1mAlumno Create (0.000475)[0m   [0mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:43:45', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:43:45')[0m
+  [4;36;1mAlumno Create (0.000463)[0m   [0;1mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:43:46', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:43:46')[0m
+  [4;35;1mAlumno Create (0.000472)[0m   [0mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:43:50', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:43:50')[0m
+  [4;36;1mAlumno Create (0.000486)[0m   [0;1mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:46:16', 'Le gusta mucho tomar tetero.', 'Andrés', NULL, 'Alumno', NULL, '-4712-01-01', 'Mejía Posada', '2008-05-28 14:46:16')[0m
+  [4;36;1mAlumno Create (0.000858)[0m   [0;1mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:49:13', 'Ninguno en especial', 'Juan', '-4712-01-01', 'Alumno', 'Sur', '-4712-01-01', 'Mesa', '2008-05-28 14:49:13')[0m
+  [4;35;1mPersona Create (0.000478)[0m   [0mINSERT INTO personas ("updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "direccion", "fecha_nacimiento", "apellidos", "created_at") VALUES('2008-05-28 14:49:43', 'Ninguno en especial', 'Juan', '-4712-01-01', NULL, 'Sur', '-4712-01-01', 'Mesa', '2008-05-28 14:49:43')[0m
+  [4;36;1mPersona Load (0.001029)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 11) [0m
+  [4;35;1mSQL (0.000735)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mAlumno Load (0.000419)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 11) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;35;1mAlumno Load (0.000903)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 10) AND ( (personas."type" = 'Alumno' ) ) [0m
+  [4;36;1mSQL (0.001554)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m

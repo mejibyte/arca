@@ -1,0 +1,30 @@
+<h1>Listing alumnos</h1>
+
+<table>
+  <tr>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Direccion</th>
+    <th>Cuidados especiales</th>
+    <th>Fecha ingreso</th>
+    <th>Fecha nacimiento</th>
+  </tr>
+
+<% for alumno in @alumnos %>
+  <tr>
+    <td><%=h alumno.nombres %></td>
+    <td><%=h alumno.apellidos %></td>
+    <td><%=h alumno.direccion %></td>
+    <td><%=h alumno.cuidados_especiales %></td>
+    <td><%=h alumno.fecha_ingreso %></td>
+    <td><%=h alumno.fecha_nacimiento %></td>
+    <td><%= link_to 'Show', alumno %></td>
+    <td><%= link_to 'Edit', edit_alumno_path(alumno) %></td>
+    <td><%= link_to 'Destroy', alumno, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New alumno', new_alumno_path %>

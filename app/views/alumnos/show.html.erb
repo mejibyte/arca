@@ -1,0 +1,33 @@
+<p>
+  <b>Nombres:</b>
+  <%=h @alumno.nombres %>
+</p>
+
+<p>
+  <b>Apellidos:</b>
+  <%=h @alumno.apellidos %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%=h @alumno.direccion %>
+</p>
+
+<p>
+  <b>Cuidados especiales:</b>
+  <%=h @alumno.cuidados_especiales %>
+</p>
+
+<p>
+  <b>Fecha ingreso:</b>
+  <%=h @alumno.fecha_ingreso %>
+</p>
+
+<p>
+  <b>Fecha nacimiento:</b>
+  <%=h @alumno.fecha_nacimiento %>
+</p>
+
+
+<%= link_to 'Edit', edit_alumno_path(@alumno) %> |
+<%= link_to 'Back', alumnos_path %>

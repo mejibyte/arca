@@ -1,0 +1,42 @@
+<h1>Editing alumno</h1>
+
+<%= error_messages_for :alumno %>
+
+<% form_for(@alumno) do |f| %>
+  <p>
+    <b>Nombres</b><br />
+    <%= f.text_field :nombres %>
+  </p>
+
+  <p>
+    <b>Apellidos</b><br />
+    <%= f.text_field :apellidos %>
+  </p>
+
+  <p>
+    <b>Direccion</b><br />
+    <%= f.text_area :direccion %>
+  </p>
+
+  <p>
+    <b>Cuidados especiales</b><br />
+    <%= f.text_area :cuidados_especiales %>
+  </p>
+
+  <p>
+    <b>Fecha ingreso</b><br />
+    <%= f.date_select :fecha_ingreso %>
+  </p>
+
+  <p>
+    <b>Fecha nacimiento</b><br />
+    <%= f.date_select :fecha_nacimiento %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @alumno %> |
+<%= link_to 'Back', alumnos_path %>

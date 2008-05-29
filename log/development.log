@@ -945,3 +945,53 @@ Processing AlumnosController#index (for 127.0.0.1 at 2008-05-28 17:04:34) [GET]
 Rendering template within layouts/alumnos
 Rendering alumnos/index
 Completed in 0.03331 (30 reqs/sec) | Rendering: 0.00882 (26%) | DB: 0.00124 (3%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-28 23:28:22) [GET]
+  Session ID: 195c693e403b6853384fa97af6b41dde
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mAlumno Load (0.001287)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.10678 (9 reqs/sec) | Rendering: 0.06978 (65%) | DB: 0.00129 (1%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing AlumnosController#new (for 127.0.0.1 at 2008-05-28 23:28:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNjVlNTJmNzc5ZmYwODNjYzI3MDVlOTI5OGNkN2Zj%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--611bb2dda4ead94e77c8e23db8dad074f1437869
+  Parameters: {"action"=>"new", "controller"=>"alumnos"}
+Rendering template within layouts/alumnos
+Rendering alumnos/new
+Completed in 0.03569 (28 reqs/sec) | Rendering: 0.01546 (43%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/alumnos/new]
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-05-29 12:55:02) [GET]
+  Session ID: 396324ed8c8f127de874ca19ab600451
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+  [4;36;1mSQL (0.001497)[0m   [0;1mSELECT version FROM schema_info[0m
+Completed in 0.10520 (9 reqs/sec) | Rendering: 0.00173 (1%) | DB: 0.00150 (1%) | 200 OK [http://127.0.0.1/rails/info/properties]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-29 15:21:21) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;35;1mAlumno Load (0.001323)[0m   [0mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.10189 (9 reqs/sec) | Rendering: 0.04811 (47%) | DB: 0.00132 (1%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-29 15:27:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mAlumno Load (0.001465)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.03385 (29 reqs/sec) | Rendering: 0.01004 (29%) | DB: 0.00147 (4%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing AlumnosController#new (for 127.0.0.1 at 2008-05-29 15:27:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"new", "controller"=>"alumnos"}
+Rendering template within layouts/alumnos
+Rendering alumnos/new
+Completed in 0.03344 (29 reqs/sec) | Rendering: 0.01209 (36%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/alumnos/new]

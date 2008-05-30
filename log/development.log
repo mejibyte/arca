@@ -1812,3 +1812,12 @@ Completed in 0.03683 (27 reqs/sec) | Rendering: 0.01091 (29%) | DB: 0.00174 (4%)
   [4;36;1mFamilia Destroy (0.000239)[0m   [0;1m DELETE FROM familias
  WHERE "id" = 7
 [0m
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-29 19:40:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;35;1mAlumno Load (0.001724)[0m   [0mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.07438 (13 reqs/sec) | Rendering: 0.02236 (30%) | DB: 0.00172 (2%) | 200 OK [http://127.0.0.1/alumnos]

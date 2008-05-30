@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Cédula</th>
     <th>Nombres</th>
     <th>Apellidos</th>
     <th>Direccion</th>
@@ -12,6 +13,7 @@
 
 <% for alumno in @alumnos %>
   <tr>
+    <td><%=h alumno.cedula %></td>
     <td><%=h alumno.nombres %></td>
     <td><%=h alumno.apellidos %></td>
     <td><%=h alumno.direccion %></td>

@@ -9,12 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 6) do
 
-  create_table "ejemplos", :force => true do |t|
-    t.text     "texto"
-    t.date     "fecha_vida"
-    t.string   "nombre"
+  create_table "familias", :force => true do |t|
+    t.string   "codigo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +27,8 @@ ActiveRecord::Schema.define(:version => 4) do
     t.text     "cuidados_especiales"
     t.date     "fecha_ingreso"
     t.date     "fecha_nacimiento"
+    t.string   "cedula"
+    t.integer  "familia_id"
   end
 
 end

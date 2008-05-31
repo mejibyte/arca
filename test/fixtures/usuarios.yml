@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  clave_encriptada: MyString
+  palabra_random: MyString
+
+two:
+  nombre: MyString
+  clave_encriptada: MyString
+  palabra_random: MyString

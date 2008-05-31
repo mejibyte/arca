@@ -1,0 +1,22 @@
+<div class="arca-form">
+  <%= error_messages_for 'usuario' %>
+  <fieldset>
+    <legend>Ingrese los detalles del Usuario</legend>
+    <% form_for :usuario do |form| %>
+       <p>
+         <label for="usuario_nombre">Nombre:</label>
+         <%= form.text_field :nombre, :size => 40 %>
+       </p>
+       <p>
+         <label for="usuario_clave">Clave:</label>
+         <%= form.password_field :clave, :size => 40 %>
+       </p>
+       <p>
+         <label for="usuario_confirmacion_clave">Confirme la clave:</label>
+         <%= form.password_field :confirmacion_clave, :size => 40 %>
+       </p>
+       <%= submit_tag "Agregar Usuario", :class => "submit" %>
+    <% end %>
+  </fieldset>
+</div>
+

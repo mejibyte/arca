@@ -1,0 +1,18 @@
+<div class="arca-form">
+  <fieldset>
+    <legend>Log In</legend>
+    <% form_tag do %>
+       <p>
+         <label for="nombre">Nombre:</label>
+         <%= text_field_tag :nombre, params[:nombre] %>
+       </p>
+       <p>
+         <label for="clave">Clave:</label>
+         <%= password_field_tag :clave, params[:clave] %>
+       </p>
+       <p>
+         <%= submit_tag "Login" %>
+       </p>
+    <% end %>
+  </fieldset>
+</div>

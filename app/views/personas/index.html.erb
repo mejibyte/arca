@@ -1,0 +1,23 @@
+<h1>Listing personas</h1>
+
+<table>
+  <tr>
+    <th>Cédula</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Direccion</th>
+  </tr>
+
+<% for persona in @personas %>
+  <tr>
+    <td><%= h persona.cedula %></td>
+    <td><%= h persona.nombres %></td>
+    <td><%= h persona.apellidos %></td>
+    <td><%= h persona.direccion %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+ <%= link_to "New persona", new_persona_path %>

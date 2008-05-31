@@ -1,0 +1,28 @@
+<h1>New persona</h1>
+
+<%= error_messages_for :persona %>
+
+<% form_for(@persona) do |f| %>
+
+<p>
+  <b>Cédula</b><br />
+  <%= f.text_field :cedula %>
+</p>
+
+<p>
+  <b>Nombre</b> <br />
+  <%= f.text_field :nombres %>
+</p>
+
+<p>
+  <b>Apellidos</b><br />
+  <%= f.text_field :apellidos %>
+</p>
+
+<p>
+  <b>Direccion</b><br />
+  <%= f.text_area :direccion %>
+</p>
+
+  <%= f.submit "Create" %>
+<% end %>

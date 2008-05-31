@@ -1,6 +1,0 @@
-class Familiaridad < ActiveRecord::Base
-  belongs_to :familia
-  belongs_to :persona
-
-  validates_presence_of :tipo_de_miembro
-end

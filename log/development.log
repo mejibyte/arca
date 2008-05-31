@@ -1821,3 +1821,243 @@ Processing AlumnosController#index (for 127.0.0.1 at 2008-05-29 19:40:49) [GET]
 Rendering template within layouts/alumnos
 Rendering alumnos/index
 Completed in 0.07438 (13 reqs/sec) | Rendering: 0.02236 (30%) | DB: 0.00172 (2%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-29 19:51:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mAlumno Load (0.001692)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.03596 (27 reqs/sec) | Rendering: 0.01073 (29%) | DB: 0.00169 (4%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-05-29 19:52:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;35;1mFamilia Load (0.000637)[0m   [0mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.02102 (47 reqs/sec) | Rendering: 0.00749 (35%) | DB: 0.00064 (3%) | 200 OK [http://127.0.0.1/familias]
+
+
+Processing FamiliasController#new (for 127.0.0.1 at 2008-05-29 19:52:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNzg5NDdhZDU3ZjIzNGNkMzBhNWM4YjcwM2E5Y2Ey%0ANTgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--7b9fd7c536f0506bffe1286f432b32feffbd2cf5
+  Parameters: {"action"=>"new", "controller"=>"familias"}
+Rendering template within layouts/familias
+Rendering familias/new
+Completed in 0.11322 (8 reqs/sec) | Rendering: 0.09714 (85%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/familias/new]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-05-30 18:58:44) [GET]
+  Session ID: 85347d73f17657e28ea3777df0606d9b
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;36;1mFamilia Load (0.001233)[0m   [0;1mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.11690 (8 reqs/sec) | Rendering: 0.07443 (63%) | DB: 0.00123 (1%) | 200 OK [http://127.0.0.1/familias]
+  [4;36;1mSQL (0.001691)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000782)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000763)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAlumno Load (0.001012)[0m   [0mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) LIMIT 1[0m
+  [4;36;1mSQL (0.000765)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000769)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mFamilia Load (0.000374)[0m   [0;1mSELECT * FROM familias LIMIT 1[0m
+  [4;35;1mFamilia Load (0.000332)[0m   [0mSELECT * FROM familias [0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-05-30 20:05:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/products" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-30 20:05:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mAlumno Load (0.001726)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.08081 (12 reqs/sec) | Rendering: 0.05531 (68%) | DB: 0.00173 (2%) | 200 OK [http://127.0.0.1/alumnos]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-05-30 20:05:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;35;1mFamilia Load (0.000734)[0m   [0mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.02184 (45 reqs/sec) | Rendering: 0.00594 (27%) | DB: 0.00073 (3%) | 200 OK [http://127.0.0.1/familias]
+
+
+Processing FamiliasController#new (for 127.0.0.1 at 2008-05-30 20:05:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"new", "controller"=>"familias"}
+Rendering template within layouts/familias
+Rendering familias/new
+Completed in 0.03734 (26 reqs/sec) | Rendering: 0.02202 (58%) | DB: 0.00000 (0%) | 200 OK [http://127.0.0.1/familias/new]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-05-30 20:05:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;36;1mFamilia Load (0.000913)[0m   [0;1mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.01683 (59 reqs/sec) | Rendering: 0.00226 (13%) | DB: 0.00091 (5%) | 200 OK [http://127.0.0.1/familias]
+  [4;36;1mSQL (0.000781)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000874)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000531)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000496)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000524)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000567)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000499)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateProfesors (7)
+  [4;36;1mSQL (0.007879)[0m   [0;1mALTER TABLE personas ADD "salario" integer[0m
+  [4;35;1mSQL (0.008192)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002426)[0m   [0;1mUPDATE schema_info SET version = 7[0m
+  [4;35;1mSQL (0.000534)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000747)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000187)[0m   [0mPRAGMA index_list(familias)[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.001815)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPersona Load (0.001136)[0m   [0mSELECT * FROM personas WHERE (personas.cedula IS NULL) LIMIT 1[0m
+  [4;36;1mPersona Load (0.000399)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;35;1mProfesor Create (0.000828)[0m   [0mINSERT INTO personas ("cedula", "updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "familia_id", "direccion", "fecha_nacimiento", "apellidos", "created_at", "salario") VALUES('4', '2008-05-30 20:11:57', NULL, 'Margarita', NULL, 'Profesor', NULL, 'No me la sé', NULL, 'Velásquez', '2008-05-30 20:11:57', 3)[0m
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-05-30 20:13:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;35;1mFamilia Load (0.000646)[0m   [0mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.01628 (61 reqs/sec) | Rendering: 0.00219 (13%) | DB: 0.00065 (3%) | 200 OK [http://127.0.0.1/familias]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-05-30 20:13:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/profesor" with {:method=>:get}):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ProfesorsController#index (for 127.0.0.1 at 2008-05-30 20:13:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"profesors"}
+  [4;36;1mProfesor Load (0.000998)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Profesor' ) ) [0m
+Rendering template within layouts/profesors
+Rendering profesors/index
+Completed in 0.03522 (28 reqs/sec) | Rendering: 0.00982 (27%) | DB: 0.00100 (2%) | 200 OK [http://127.0.0.1/profesors]
+
+
+Processing ProfesorsController#show (for 127.0.0.1 at 2008-05-30 20:14:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"show", "id"=>"16", "controller"=>"profesors"}
+  [4;35;1mProfesor Load (0.001035)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 16) AND ( (personas."type" = 'Profesor' ) ) [0m
+Rendering template within layouts/profesors
+Rendering profesors/show
+Completed in 0.03231 (30 reqs/sec) | Rendering: 0.00725 (22%) | DB: 0.00103 (3%) | 200 OK [http://127.0.0.1/profesors/16]
+  [4;36;1mPersona Load (0.000969)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;35;1mPersona Load (0.001284)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;36;1mPersona Load (0.000982)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;35;1mPersona Load (0.000994)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;36;1mPersona Load (0.000988)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;35;1mPersona Load (0.001135)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = '4') LIMIT 1[0m
+  [4;36;1mPersona Load (0.000416)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '5') LIMIT 1[0m
+  [4;35;1mPersona Load (0.000397)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = '5') LIMIT 1[0m
+  [4;36;1mProfesor Create (0.000556)[0m   [0;1mINSERT INTO personas ("cedula", "updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "familia_id", "direccion", "fecha_nacimiento", "apellidos", "created_at", "salario") VALUES('5', '2008-05-30 20:17:08', NULL, 'Margarita', NULL, 'Profesor', NULL, 'No me la sé', NULL, 'Velásquez', '2008-05-30 20:17:08', 2000000)[0m
+  [4;35;1mPersona Load (0.002481)[0m   [0mSELECT * FROM personas [0m
+  [4;36;1mProfesor Load (0.001363)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Profesor' ) ) [0m

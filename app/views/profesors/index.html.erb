@@ -1,0 +1,20 @@
+<h1>Listing profesors</h1>
+
+<table>
+  <tr>
+    <th>Salario</th>
+  </tr>
+
+<% for profesor in @profesors %>
+  <tr>
+    <td><%=h profesor.salario %></td>
+    <td><%= link_to 'Show', profesor %></td>
+    <td><%= link_to 'Edit', edit_profesor_path(profesor) %></td>
+    <td><%= link_to 'Destroy', profesor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New profesor', new_profesor_path %>

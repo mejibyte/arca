@@ -1,0 +1,17 @@
+<h1>Editing profesor</h1>
+
+<%= error_messages_for :profesor %>
+
+<% form_for(@profesor) do |f| %>
+  <p>
+    <b>Salario</b><br />
+    <%= f.text_field :salario %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @profesor %> |
+<%= link_to 'Back', profesors_path %>

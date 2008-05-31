@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 7) do
 
   create_table "familias", :force => true do |t|
     t.string   "codigo"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 6) do
     t.date     "fecha_nacimiento"
     t.string   "cedula"
     t.integer  "familia_id"
+    t.integer  "salario"
   end
 
 end

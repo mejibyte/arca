@@ -5139,3 +5139,1364 @@ Processing PersonasController#index (for 127.0.0.1 at 2008-05-30 23:26:21) [GET]
 Rendering template within layouts/personas
 Rendering personas/index
 Completed in 0.12616 (7 reqs/sec) | Rendering: 0.01631 (12%) | DB: 0.00375 (2%) | 200 OK [http://127.0.0.1/personas]
+  [4;36;1mSQL (0.000427)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.011344)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002389)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePersonas (1)
+  [4;35;1mSQL (0.003484)[0m   [0mCREATE TABLE personas ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombres" varchar(255) DEFAULT NULL, "apellidos" varchar(255) DEFAULT NULL, "direccion" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002641)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000419)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTypeToPersona (2)
+  [4;36;1mSQL (0.002566)[0m   [0;1mALTER TABLE personas ADD "type" varchar(255)[0m
+  [4;35;1mSQL (0.004275)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003012)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000365)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddInheritedDataOfAlumnoFromPersona (3)
+  [4;36;1mSQL (0.002514)[0m   [0;1mALTER TABLE personas ADD "cuidados_especiales" text[0m
+  [4;35;1mSQL (0.004571)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003052)[0m   [0;1mALTER TABLE personas ADD "fecha_ingreso" date[0m
+  [4;35;1mSQL (0.004734)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003302)[0m   [0;1mALTER TABLE personas ADD "fecha_nacimiento" date[0m
+  [4;35;1mSQL (0.004626)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002820)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000396)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddCedulaToPersona (4)
+  [4;36;1mSQL (0.002786)[0m   [0;1mALTER TABLE personas ADD "cedula" varchar(255)[0m
+  [4;35;1mSQL (0.004159)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.002657)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000376)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateFamilias (5)
+  [4;36;1mSQL (0.003165)[0m   [0;1mCREATE TABLE familias ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002370)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000520)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddFamiliaIdToAlumno (6)
+  [4;35;1mSQL (0.002679)[0m   [0mALTER TABLE personas ADD "familia_id" integer[0m
+  [4;36;1mSQL (0.005118)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003234)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.000545)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProfesors (7)
+  [4;35;1mSQL (0.003002)[0m   [0mALTER TABLE personas ADD "salario" integer[0m
+  [4;36;1mSQL (0.093261)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003723)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000635)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsuarios (8)
+  [4;35;1mSQL (0.004258)[0m   [0mCREATE TABLE usuarios ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255) DEFAULT NULL, "clave_encriptada" varchar(255) DEFAULT NULL, "palabra_random" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003179)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000668)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001165)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000262)[0m   [0mPRAGMA index_list(familias)[0m
+  [4;36;1mSQL (0.000403)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;35;1mSQL (0.000233)[0m   [0mPRAGMA index_list(usuarios)[0m
+
+
+Processing LoginController#add_user (for 127.0.0.1 at 2008-05-31 15:02:17) [GET]
+  Session ID: 5d43299a7be6568e1ab97f0f9629376a
+  Parameters: {"action"=>"add_user", "controller"=>"login"}
+
+
+ActionController::UnknownAction (No action responded to add_user):
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:02:31) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+
+
+NameError (uninitialized constant LoginController::Usario):
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:478:in `const_missing'
+    /app/controllers/login_controller.rb:4:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:03:09) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--1d9c0f07b0ce8eb706ea62a39fd5878c95f448ad
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.03078 (32 reqs/sec) | Rendering: 0.00570 (18%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#add_user (for 127.0.0.1 at 2008-05-31 15:12:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"add_user", "controller"=>"login"}
+
+
+ActionController::UnknownAction (No action responded to add_user):
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:13:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01679 (59 reqs/sec) | Rendering: 0.00259 (15%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:13:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"root", "confirmacion_clave"=>"root", "clave"=>"root"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:00) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:22) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:30) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.02029 (49 reqs/sec) | Rendering: 0.00445 (21%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:39) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"add_user", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01596 (62 reqs/sec) | Rendering: 0.00243 (15%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01572 (63 reqs/sec) | Rendering: 0.00231 (14%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:17:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01784 (56 reqs/sec) | Rendering: 0.00378 (21%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:18:32) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"", "clave"=>""}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:19:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.03046 (32 reqs/sec) | Rendering: 0.00411 (13%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:19:22) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"", "clave"=>"a"}}
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.save):
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:21:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01845 (54 reqs/sec) | Rendering: 0.00203 (10%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:21:26) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+  [4;36;1mUsuario Load (0.000394)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre IS NULL) LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.02054 (48 reqs/sec) | Rendering: 0.00225 (10%) | DB: 0.00039 (1%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:29:14) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"t", "confirmacion_clave"=>"eweefe", "clave"=>"fe"}}
+  [4;35;1mUsuario Load (0.000323)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre IS NULL) LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.11315 (8 reqs/sec) | Rendering: 0.00209 (1%) | DB: 0.00032 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:32:39) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"t", "confirmacion_clave"=>"eweefe", "clave"=>"fe"}}
+  [4;36;1mUsuario Load (0.000373)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre IS NULL) LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.03633 (27 reqs/sec) | Rendering: 0.00493 (13%) | DB: 0.00037 (1%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:32:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01607 (62 reqs/sec) | Rendering: 0.00240 (14%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:32:49) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usario"=>{"nombre"=>"adfasf", "confirmacion_clave"=>"nowefi309ru", "clave"=>"msdf"}}
+  [4;35;1mUsuario Load (0.000527)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre IS NULL) LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.03659 (27 reqs/sec) | Rendering: 0.00460 (12%) | DB: 0.00053 (1%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:34:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.09310 (10 reqs/sec) | Rendering: 0.00591 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:34:52) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+  [4;36;1mUsuario Load (0.000500)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'admin') LIMIT 1[0m
+  [4;35;1mUsuario Create (0.000647)[0m   [0mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 15:34:52', 'admin', 'ffd8cc2edc20f2f5bac17d01c53e95851a697200', '-6091863680.525945276861156', '2008-05-31 15:34:52')[0m
+Rendering login/agregar_usuario
+Completed in 0.04665 (21 reqs/sec) | Rendering: 0.00353 (7%) | DB: 0.00115 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:37:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.03752 (26 reqs/sec) | Rendering: 0.01070 (28%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:38:04) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+  [4;36;1mUsuario Load (0.000685)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'admin') LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.03396 (29 reqs/sec) | Rendering: 0.00302 (8%) | DB: 0.00068 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:39:39) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNWNiMTUwMzlkZTAyYjY5MWEwMzVkNjE1YmQ1ZGY5%0ANmYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--3288a6d91969760c12760997badb450e4c7c82e9
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"07cae7c6beba5b28f415b6c284d1b955b53787ea", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"admin23", "confirmacion_clave"=>"admin", "clave"=>"admin12123123"}}
+  [4;35;1mUsuario Load (0.000317)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'admin23') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000467)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 15:39:39', 'admin23', '59cba700a8aa9497715bf8b7b41acadf51a2dd43', '-6086196280.173561965552543', '2008-05-31 15:39:39')[0m
+Rendering login/agregar_usuario
+Completed in 0.03197 (31 reqs/sec) | Rendering: 0.00231 (7%) | DB: 0.00078 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+  [4;36;1mSQL (0.000426)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.008408)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002924)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000572)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreatePersonas (1)
+  [4;35;1mSQL (0.003758)[0m   [0mCREATE TABLE personas ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombres" varchar(255) DEFAULT NULL, "apellidos" varchar(255) DEFAULT NULL, "direccion" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003075)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000500)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTypeToPersona (2)
+  [4;36;1mSQL (0.003072)[0m   [0;1mALTER TABLE personas ADD "type" varchar(255)[0m
+  [4;35;1mSQL (0.005543)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003223)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000510)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddInheritedDataOfAlumnoFromPersona (3)
+  [4;36;1mSQL (0.008465)[0m   [0;1mALTER TABLE personas ADD "cuidados_especiales" text[0m
+  [4;35;1mSQL (0.005829)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003544)[0m   [0;1mALTER TABLE personas ADD "fecha_ingreso" date[0m
+  [4;35;1mSQL (0.005819)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003573)[0m   [0;1mALTER TABLE personas ADD "fecha_nacimiento" date[0m
+  [4;35;1mSQL (0.005786)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003140)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000574)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddCedulaToPersona (4)
+  [4;36;1mSQL (0.003024)[0m   [0;1mALTER TABLE personas ADD "cedula" varchar(255)[0m
+  [4;35;1mSQL (0.012863)[0m   [0mVACUUM[0m
+  [4;36;1mSQL (0.003177)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000495)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateFamilias (5)
+  [4;36;1mSQL (0.003819)[0m   [0;1mCREATE TABLE familias ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002494)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000585)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddFamiliaIdToAlumno (6)
+  [4;35;1mSQL (0.003171)[0m   [0mALTER TABLE personas ADD "familia_id" integer[0m
+  [4;36;1mSQL (0.006654)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003285)[0m   [0mUPDATE schema_info SET version = 6[0m
+  [4;36;1mSQL (0.000530)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateProfesors (7)
+  [4;35;1mSQL (0.002927)[0m   [0mALTER TABLE personas ADD "salario" integer[0m
+  [4;36;1mSQL (0.006004)[0m   [0;1mVACUUM[0m
+  [4;35;1mSQL (0.003863)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000625)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsuarios (8)
+  [4;35;1mSQL (0.003917)[0m   [0mCREATE TABLE usuarios ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar(255) DEFAULT NULL, "clave_encriptada" varchar(255) DEFAULT NULL, "palabra_random" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002964)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000638)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000965)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000193)[0m   [0mPRAGMA index_list(familias)[0m
+  [4;36;1mSQL (0.000215)[0m   [0;1mPRAGMA index_list(personas)[0m
+  [4;35;1mSQL (0.000210)[0m   [0mPRAGMA index_list(usuarios)[0m
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:51:19) [GET]
+  Session ID: ac5442cafa9ad503dddf4884545db907
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.02827 (35 reqs/sec) | Rendering: 0.00415 (14%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:51:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMzZiZGU5NTFjOTc1YmE0NDEwNjVjNTA3MDIxMTM4%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--5ed2f5b2e11e5b451fe2291da41f376b269f9c0b
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"8ef129fce3dc3878bd0b832e42595334c14e5b8c", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"admin", "confirmacion_clave"=>"admin", "clave"=>"admin"}}
+  [4;35;1mUsuario Load (0.000580)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'admin') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000450)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 15:51:31', 'admin', '73c8c7b1c818855ecf4c08844c5b67b7365f0d9d', '-6100224980.76540035475212', '2008-05-31 15:51:31')[0m
+Rendering login/agregar_usuario
+Completed in 0.05055 (19 reqs/sec) | Rendering: 0.00252 (4%) | DB: 0.00103 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:58:21) [GET]
+  Session ID: 6972255bff0f590b671944b818d69d3c
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.03133 (31 reqs/sec) | Rendering: 0.00675 (21%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:58:35) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"f283fc00b3a94e94a4be9f0973a577c942168b31", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebastian", "confirmacion_clave"=>"sebastian", "clave"=>"sebastian"}}
+  [4;35;1mUsuario Load (0.000374)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebastian') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000511)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 15:58:35', 'sebastian', '0175b50e932a4e7159ec75c0a0cb427f68c7e484', '-6087085480.123493302677245', '2008-05-31 15:58:35')[0m
+Rendering login/agregar_usuario
+Completed in 0.03307 (30 reqs/sec) | Rendering: 0.00337 (10%) | DB: 0.00089 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:59:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.02551 (39 reqs/sec) | Rendering: 0.00902 (35%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:59:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.01822 (54 reqs/sec) | Rendering: 0.00443 (24%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 15:59:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"action"=>"index", "controller"=>"login"}
+Rendering login/index
+Completed in 0.00534 (187 reqs/sec) | Rendering: 0.00174 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 15:59:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.02097 (47 reqs/sec) | Rendering: 0.00436 (20%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:00:01) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"f283fc00b3a94e94a4be9f0973a577c942168b31", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebastian", "confirmacion_clave"=>"saeesf", "clave"=>"sebastia"}}
+  [4;36;1mUsuario Load (0.000682)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebastian') LIMIT 1[0m
+Rendering login/agregar_usuario
+Completed in 0.02476 (40 reqs/sec) | Rendering: 0.00303 (12%) | DB: 0.00068 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:00:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTEzMTBkZjcxZjJjMGQwMGNiY2QwYmFkNTZiZDk2%0AZTciCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--1d94672690d2ea7484b72763e3162e2c88e6ec57
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"f283fc00b3a94e94a4be9f0973a577c942168b31", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebastian2", "confirmacion_clave"=>"saeesf", "clave"=>"sebastiawqewqewqrwqfrwfasfcsdvb dfb b df fdbdfbgfdsg"}}
+  [4;35;1mUsuario Load (0.000597)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebastian2') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000717)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 16:00:24', 'sebastian2', '809d25689c65d6174254e54de1be1885bea1bfd1', '-6089545980.900324720765137', '2008-05-31 16:00:24')[0m
+Rendering login/agregar_usuario
+Completed in 0.05095 (19 reqs/sec) | Rendering: 0.00299 (5%) | DB: 0.00131 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:09:03) [GET]
+  Session ID: e70b26ca98a9e63d6d18474a5f904d82
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering login/agregar_usuario
+Completed in 0.02373 (42 reqs/sec) | Rendering: 0.00630 (26%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 16:09:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDNhZDVjN2Q1ZDFlYjhmZjJlZDY0ZGU0YjZiYjFl%0AZWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--2806f013bee50f2cf61d950f15f5a97b72a26720
+  Parameters: {"action"=>"index", "controller"=>"login"}
+Rendering login/index
+Completed in 0.00883 (113 reqs/sec) | Rendering: 0.00182 (20%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:09:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDNhZDVjN2Q1ZDFlYjhmZjJlZDY0ZGU0YjZiYjFl%0AZWUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--2806f013bee50f2cf61d950f15f5a97b72a26720
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering login/login
+Completed in 0.01390 (71 reqs/sec) | Rendering: 0.00683 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:09:25) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--18d61dbd3a16c299234e5b12257a21667084d3f3
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"ade"}
+  [4;35;1mUsuario Load (0.000681)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+
+
+NoMethodError (undefined method `salt' for #<Usuario:0xb7700bb8>):
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:205:in `method_missing'
+    /app/models/usuario.rb:13:in `authenticate'
+    /app/controllers/login_controller.rb:13:in `login'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:12:46) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--18d61dbd3a16c299234e5b12257a21667084d3f3
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering login/login
+Completed in 0.00564 (177 reqs/sec) | Rendering: 0.00207 (36%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:12:49) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--18d61dbd3a16c299234e5b12257a21667084d3f3
+  Parameters: {"commit"=>"Login", "nombre"=>"ad", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>""}
+  [4;36;1mUsuario Load (0.000354)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'ad') LIMIT 1[0m
+Rendering login/login
+Completed in 0.01713 (58 reqs/sec) | Rendering: 0.00197 (11%) | DB: 0.00035 (2%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:12:56) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIoQ29tYmluYWNpw7NuIGludmFs%0AaWRhIHVzdWFyaW8vY2xhdmUGOgpAdXNlZHsGOwhU--2d8c5f83702804c48f23c90f0f137af28196d257
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"asdw"}
+  [4;35;1mUsuario Load (0.000762)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Rendering login/login
+Completed in 0.02210 (45 reqs/sec) | Rendering: 0.00220 (9%) | DB: 0.00076 (3%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:13:23) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIoQ29tYmluYWNpw7NuIGludmFs%0AaWRhIHVzdWFyaW8vY2xhdmUGOgpAdXNlZHsGOwhU--2d8c5f83702804c48f23c90f0f137af28196d257
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;36;1mUsuario Load (0.001188)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.03553 (28 reqs/sec) | DB: 0.00119 (3%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 16:13:23) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"action"=>"index", "controller"=>"login"}
+Rendering login/index
+Completed in 0.00427 (234 reqs/sec) | Rendering: 0.00090 (21%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:21:55) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03752 (26 reqs/sec) | Rendering: 0.01142 (30%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:22:06) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"admin", "confirmacion_clave"=>"asfasdf", "clave"=>"safsadf"}}
+  [4;35;1mUsuario Load (0.000793)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'admin') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.09748 (10 reqs/sec) | Rendering: 0.00427 (4%) | DB: 0.00079 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:22:29) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"sdfefegfsfafasf", "clave"=>"sebas"}}
+  [4;36;1mUsuario Load (0.000440)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+  [4;35;1mUsuario Create (0.000552)[0m   [0mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-05-31 16:22:29', 'sebas', '7db55178a44e9f7f44ded5399ee00132fa999599', '-6088702280.694949612991807', '2008-05-31 16:22:29')[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.04109 (24 reqs/sec) | Rendering: 0.00353 (8%) | DB: 0.00099 (2%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:32:15) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiGVVzdWFyaW8gc2ViYXMgY3Jl%0AYWRvBjoKQHVzZWR7BjsIVA%3D%3D--c14f336252c6b5dc89c856fa8b18b171cd707b54
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01228 (81 reqs/sec) | Rendering: 0.00513 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:32:27) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--18d61dbd3a16c299234e5b12257a21667084d3f3
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"asdqw32fvg"}
+  [4;36;1mUsuario Load (0.000653)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.08810 (11 reqs/sec) | Rendering: 0.00289 (3%) | DB: 0.00065 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:32:38) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIoQ29tYmluYWNpw7NuIGludmFs%0AaWRhIHVzdWFyaW8vY2xhdmUGOgpAdXNlZHsGOwhU--2d8c5f83702804c48f23c90f0f137af28196d257
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;35;1mUsuario Load (0.000793)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.09415 (10 reqs/sec) | DB: 0.00079 (0%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 16:32:39) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"action"=>"index", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.00568 (176 reqs/sec) | Rendering: 0.00184 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:33:28) [GET]
+  Session ID: BAh7CDoPdXN1YXJpb19pZGkGOgxjc3JmX2lkIiVkM2FkNWM3ZDVkMWViOGZm%0AMmVkNjRkZTRiNmJiMWVlZSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--01fec5ba821962aad4a01022b88064bd74231989
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01214 (82 reqs/sec) | Rendering: 0.00505 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:33:35) [POST]
+  Session ID: BAh7CDoPdXN1YXJpb19pZDA6DGNzcmZfaWQiJWQzYWQ1YzdkNWQxZWI4ZmYy%0AZWQ2NGRlNGI2YmIxZWVlIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--18d61dbd3a16c299234e5b12257a21667084d3f3
+  Parameters: {"commit"=>"Login", "nombre"=>"sefafn", "authenticity_token"=>"6e04952c258c9b8f8960e20bc0d8244a053e5c7a", "action"=>"login", "controller"=>"login", "clave"=>"dw"}
+  [4;36;1mUsuario Load (0.000374)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'sefafn') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01834 (54 reqs/sec) | Rendering: 0.00280 (15%) | DB: 0.00037 (2%) | 200 OK [http://localhost/login/login]
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: no such table: sessions: DELETE FROM sessions[0m
+  [4;36;1mSQL (0.000424)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000430)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000299)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000329)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000324)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000307)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateSessions (9)
+  [4;36;1mSQL (0.008205)[0m   [0;1mCREATE TABLE sessions ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003271)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON sessions ("session_id")[0m
+  [4;36;1mSQL (0.003712)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON sessions ("updated_at")[0m
+  [4;35;1mSQL (0.002219)[0m   [0mUPDATE schema_info SET version = 9[0m
+  [4;36;1mSQL (0.000415)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000672)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000116)[0m   [0;1mPRAGMA index_list(familias)[0m
+  [4;35;1mSQL (0.000185)[0m   [0mPRAGMA index_list(personas)[0m
+  [4;36;1mSQL (0.000482)[0m   [0;1mPRAGMA index_list(sessions)[0m
+  [4;35;1mSQL (0.000342)[0m   [0mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;36;1mSQL (0.000369)[0m   [0;1mPRAGMA index_info('index_sessions_on_session_id')[0m
+  [4;35;1mSQL (0.000172)[0m   [0mPRAGMA index_list(usuarios)[0m
+  [4;36;1mSQL (0.013986)[0m   [0;1mDELETE FROM sessions[0m
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:44:55) [GET]
+  Session ID: 75c646b251262edd9f51be057d2c1833
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.04164 (24 reqs/sec) | Rendering: 0.02648 (63%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:45:47) [POST]
+  Session ID: 75c646b251262edd9f51be057d2c1833
+  Parameters: {"commit"=>"Agregar Usuario", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"sdf", "clave"=>"saf"}}
+  [4;36;1mUsuario Load (0.001181)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03787 (26 reqs/sec) | Rendering: 0.00621 (16%) | DB: 0.00118 (3%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 16:51:29) [GET]
+  Session ID: c841aca5f806e0a1302e50aebd5db16a
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000415)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/login/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb74d69c8 @filter=:authorize>] rendered_or_redirected.
+Completed in 0.01489 (67 reqs/sec) | DB: 0.00042 (2%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:51:29) [GET]
+  Session ID: c841aca5f806e0a1302e50aebd5db16a
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.00928 (107 reqs/sec) | Rendering: 0.00583 (62%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:51:41) [POST]
+  Session ID: c841aca5f806e0a1302e50aebd5db16a
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"2ad6d95238130607b37d320b3de27ed3d8067829", "action"=>"login", "controller"=>"login", "clave"=>"adasda"}
+  [4;35;1mUsuario Load (0.000698)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01990 (50 reqs/sec) | Rendering: 0.00283 (14%) | DB: 0.00070 (3%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 16:51:46) [POST]
+  Session ID: c841aca5f806e0a1302e50aebd5db16a
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"2ad6d95238130607b37d320b3de27ed3d8067829", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;36;1mUsuario Load (0.001179)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.03201 (31 reqs/sec) | DB: 0.00118 (3%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 16:51:47) [GET]
+  Session ID: c841aca5f806e0a1302e50aebd5db16a
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000739)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.01994 (50 reqs/sec) | Rendering: 0.00272 (13%) | DB: 0.00074 (3%) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 17:00:38) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mSQL (0.001070)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000981)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+NoMethodError (undefined method `validates_confirmacion_of' for #<Class:0xb7611a40>):
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1532:in `method_missing'
+    /app/models/usuario.rb:6
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:203:in `load_without_new_constant_marking'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:203:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:202:in `load_file'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:94:in `require_or_load'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:248:in `load_missing_constant'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:471:in `send'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:471:in `const_missing'
+    /app/controllers/application.rb:19:in `authorize'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `send!'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:469:in `call'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:441:in `run'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:716:in `run_before_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:695:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 17:01:51) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000577)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/login/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb7480bf4 @filter=:authorize>] rendered_or_redirected.
+Completed in 0.02215 (45 reqs/sec) | DB: 0.00058 (2%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:01:51) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.00794 (125 reqs/sec) | Rendering: 0.00330 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:01:56) [POST]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"fbbf6ffbea075bf72d630663273f3cd34f68b418", "action"=>"login", "controller"=>"login", "clave"=>""}
+  [4;35;1mUsuario Load (0.000720)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.02027 (49 reqs/sec) | Rendering: 0.00298 (14%) | DB: 0.00072 (3%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:02:04) [POST]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"fbbf6ffbea075bf72d630663273f3cd34f68b418", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;36;1mUsuario Load (0.000700)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.01731 (57 reqs/sec) | DB: 0.00070 (4%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-05-31 17:02:05) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000577)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.01519 (65 reqs/sec) | Rendering: 0.00160 (10%) | DB: 0.00058 (3%) | 200 OK [http://localhost/login]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-31 17:05:47) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mUsuario Load (0.000762)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mAlumno Load (0.000470)[0m   [0mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.11238 (8 reqs/sec) | Rendering: 0.00624 (5%) | DB: 0.00123 (1%) | 200 OK [http://localhost/alumnos]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 17:07:49) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.001159)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03543 (28 reqs/sec) | Rendering: 0.00714 (20%) | DB: 0.00116 (3%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 17:08:05) [GET]
+  Session ID: b87c26324f9e2f596c661254c6d20737
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000757)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.02424 (41 reqs/sec) | Rendering: 0.00526 (21%) | DB: 0.00076 (3%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-05-31 17:09:44) [GET]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000302)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/login/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb7a3ac5c @filter=:authorize>] rendered_or_redirected.
+Completed in 0.02090 (47 reqs/sec) | DB: 0.00030 (1%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:09:44) [GET]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01668 (59 reqs/sec) | Rendering: 0.00281 (16%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-31 17:09:52) [GET]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;35;1mUsuario Load (0.000407)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" IS NULL) LIMIT 1[0m
+Redirected to http://localhost:3000/login/login
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb7736b8c @filter=:authorize>] rendered_or_redirected.
+Completed in 0.01257 (79 reqs/sec) | DB: 0.00041 (3%) | 302 Found [http://localhost/alumnos]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:09:52) [GET]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"action"=>"login", "controller"=>"login"}
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.00688 (145 reqs/sec) | Rendering: 0.00293 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-05-31 17:10:06) [POST]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"11d62de8b332d68bf14edc8641f22d6b87850edf", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;36;1mUsuario Load (0.001137)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/alumnos
+Completed in 0.03124 (32 reqs/sec) | DB: 0.00114 (3%) | 302 Found [http://localhost/login/login]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-05-31 17:10:07) [GET]
+  Session ID: 71ba2638c138813b3afc841ec72711a6
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;35;1mUsuario Load (0.000848)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mAlumno Load (0.000376)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.11587 (8 reqs/sec) | Rendering: 0.00175 (1%) | DB: 0.00122 (1%) | 200 OK [http://localhost/alumnos]

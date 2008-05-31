@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
-
-  create_table "familiaridads", :force => true do |t|
-    t.integer  "familia_id"
-    t.integer  "persona_id"
-    t.string   "tipo_de_miembro"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "familias", :force => true do |t|
     t.string   "codigo"
@@ -38,6 +30,24 @@ ActiveRecord::Schema.define(:version => 8) do
     t.string   "cedula"
     t.integer  "familia_id"
     t.integer  "salario"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+
+  create_table "usuarios", :force => true do |t|
+    t.string   "nombre"
+    t.string   "clave_encriptada"
+    t.string   "palabra_random"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

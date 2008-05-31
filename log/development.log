@@ -2061,3 +2061,141 @@ Completed in 0.03231 (30 reqs/sec) | Rendering: 0.00725 (22%) | DB: 0.00103 (3%)
   [4;36;1mProfesor Create (0.000556)[0m   [0;1mINSERT INTO personas ("cedula", "updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "familia_id", "direccion", "fecha_nacimiento", "apellidos", "created_at", "salario") VALUES('5', '2008-05-30 20:17:08', NULL, 'Margarita', NULL, 'Profesor', NULL, 'No me la sé', NULL, 'Velásquez', '2008-05-30 20:17:08', 2000000)[0m
   [4;35;1mPersona Load (0.002481)[0m   [0mSELECT * FROM personas [0m
   [4;36;1mProfesor Load (0.001363)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Profesor' ) ) [0m
+  [4;36;1mSQL (0.000817)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000536)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000505)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000499)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000495)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000508)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000565)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateFamiliaridads (8)
+  [4;35;1mSQL (0.006395)[0m   [0mCREATE TABLE familiaridads ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "familia_id" integer DEFAULT NULL, "persona_id" integer DEFAULT NULL, "tipo_de_miembro" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.005495)[0m   [0;1mUPDATE schema_info SET version = 8[0m
+  [4;35;1mSQL (0.000532)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.001605)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000204)[0m   [0mPRAGMA index_list(familiaridads)[0m
+  [4;36;1mSQL (0.000191)[0m   [0;1mPRAGMA index_list(familias)[0m
+  [4;35;1mSQL (0.000193)[0m   [0mPRAGMA index_list(personas)[0m
+  [4;35;1mSQL (0.001704)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000899)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000892)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000928)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001036)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.061353)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000929)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000922)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000908)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001190)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.001326)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.001284)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000932)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000930)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000909)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000909)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mFamilia Load (0.000368)[0m   [0mSELECT * FROM familias LIMIT 1[0m
+  [4;36;1mPersona Load (0.001041)[0m   [0;1mSELECT * FROM personas LIMIT 1[0m
+  [4;36;1mSQL (0.000835)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000523)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000508)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+Reached target version: 7
+  [4;35;1mSQL (0.000531)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000931)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000216)[0m   [0mPRAGMA index_list(familiaridads)[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mPRAGMA index_list(familias)[0m
+  [4;35;1mSQL (0.000195)[0m   [0mPRAGMA index_list(personas)[0m
+  [4;35;1mSQL (0.001105)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mPersona Load (0.001014)[0m   [0;1mSELECT * FROM personas LIMIT 1[0m
+  [4;35;1mPersona Load (0.001014)[0m   [0mSELECT * FROM personas WHERE (personas.cedula IS NULL AND personas.id <> 12) LIMIT 1[0m
+  [4;36;1mPersona Load (0.000682)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '6' AND personas.id <> 12) LIMIT 1[0m
+  [4;35;1mPersona Load (0.000407)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = '6' AND personas.id <> 12) LIMIT 1[0m
+  [4;36;1mAlumno Update (0.000509)[0m   [0;1mUPDATE personas SET "created_at" = '2008-05-28 15:52:07', "cuidados_especiales" = 'Le gusta mucho tomar tetero pero suele asfixiarse con el chupo.', "direccion" = 'Calle 37 B Sur #28C 01', "cedula" = '6', "fecha_ingreso" = '2008-05-28', "salario" = NULL, "apellidos" = 'Vélez Restrepo', "nombres" = 'Laura Simona', "familia_id" = NULL, "fecha_nacimiento" = '2007-01-10', "updated_at" = '2008-05-30 21:10:06', "type" = 'Alumno' WHERE "id" = 12[0m
+  [4;35;1mFamilia Load (0.000357)[0m   [0mSELECT * FROM familias WHERE (familias.codigo = '6') LIMIT 1[0m
+  [4;36;1mFamilia Create (0.000436)[0m   [0;1mINSERT INTO familias ("updated_at", "codigo", "created_at") VALUES('2008-05-30 21:10:48', '6', '2008-05-30 21:10:48')[0m
+  [4;35;1mFamilia Load (0.000681)[0m   [0mSELECT * FROM familias LIMIT 1[0m
+  [4;36;1mPersona Load (0.000439)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = '6' AND personas.id <> 12) LIMIT 1[0m
+  [4;35;1mAlumno Update (0.000458)[0m   [0mUPDATE personas SET "created_at" = '2008-05-28 15:52:07', "cuidados_especiales" = 'Le gusta mucho tomar tetero pero suele asfixiarse con el chupo.', "direccion" = 'Calle 37 B Sur #28C 01', "cedula" = '6', "fecha_ingreso" = '2008-05-28', "salario" = NULL, "apellidos" = 'Vélez Restrepo', "nombres" = 'Laura Simona', "familia_id" = 8, "fecha_nacimiento" = '2007-01-10', "updated_at" = '2008-05-30 21:11:10', "type" = 'Alumno' WHERE "id" = 12[0m
+  [4;36;1mPersona Load (0.000998)[0m   [0;1mSELECT * FROM personas WHERE (personas.familia_id = 8) [0m
+  [4;35;1mFamilia Load (0.000412)[0m   [0mSELECT * FROM familias WHERE (familias.codigo = '6' AND familias.id <> 8) LIMIT 1[0m
+  [4;36;1mFamilia Load (0.000360)[0m   [0;1mSELECT * FROM familias WHERE (familias.codigo = '6' AND familias.id <> 8) LIMIT 1[0m
+  [4;35;1mFamilia Update (0.000430)[0m   [0mUPDATE familias SET "created_at" = '2008-05-30 21:10:48', "codigo" = '6', "updated_at" = '2008-05-30 21:11:14' WHERE "id" = 8[0m
+
+
+Processing ProfesorsController#index (for 127.0.0.1 at 2008-05-30 21:12:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"profesors"}
+  [4;36;1mProfesor Load (0.001381)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Profesor' ) ) [0m
+Rendering template within layouts/profesors
+Rendering profesors/index
+Completed in 0.03581 (27 reqs/sec) | Rendering: 0.00839 (23%) | DB: 0.00138 (3%) | 200 OK [http://127.0.0.1/profesors]
+
+
+Processing ProfesorsController#index (for 127.0.0.1 at 2008-05-30 21:12:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2QyMjQ2Mzc2ZGY3MmU0M2FkMWU0MjEzOWMzNzZk%0AY2YiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--b79e8ab8c1cf9a69359ea81b2363fa4b276745d5
+  Parameters: {"action"=>"index", "controller"=>"profesors"}
+  [4;35;1mProfesor Load (0.001352)[0m   [0mSELECT * FROM personas WHERE ( (personas."type" = 'Profesor' ) ) [0m
+Rendering template within layouts/profesors
+Rendering profesors/index
+Completed in 0.04021 (24 reqs/sec) | Rendering: 0.00747 (18%) | DB: 0.00135 (3%) | 200 OK [http://127.0.0.1/profesors]

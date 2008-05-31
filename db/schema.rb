@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
+
+  create_table "familiaridads", :force => true do |t|
+    t.integer  "familia_id"
+    t.integer  "persona_id"
+    t.string   "tipo_de_miembro"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "familias", :force => true do |t|
     t.string   "codigo"

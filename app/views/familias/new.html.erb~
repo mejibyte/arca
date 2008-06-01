@@ -1,11 +1,11 @@
-<h1>Crear nueva familia</h1>
+<h1>New familia</h1>
 
 <%= error_messages_for :familia %>
 
 <% form_for(@familia) do |f| %>
   <p>
-    <b>Nombre</b><br />
-    <%= f.text_field :nombre %>
+    <b>Codigo</b><br />
+    <%= f.text_field :codigo %>
   </p>
 
   <p>

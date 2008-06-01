@@ -1,20 +1,14 @@
-<h1>Listing familias</h1>
+<h1>Lista de familias</h1>
 
 <table>
   <tr>
-    <th>Codigo</th>
+    <th>Nombre</th>
   </tr>
 
-<% for familia in @familias %>
-  <tr>
-    <td><%=h familia.codigo %></td>
-    <td><%= link_to 'Show', familia %></td>
-    <td><%= link_to 'Edit', edit_familia_path(familia) %></td>
-    <td><%= link_to 'Destroy', familia, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render(:partial => "familia", :collection => @familias)%>
+
 </table>
 
 <br />
 
-<%= link_to 'New familia', new_familia_path %>
+<%= link_to 'Agregar nueva familia', new_familia_path %>

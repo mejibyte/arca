@@ -1,0 +1,5 @@
+  <tr>
+    <td><%= link_to familia.nombre, familia %></td>
+    <td><%= link_to 'Edit', edit_familia_path(familia) %></td>
+    <td><%= link_to 'Destroy', familia, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

@@ -82,22 +82,4 @@ class FamiliasController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  def agregar_alumnos
-    if request.get?
-      @familia = Familia.find(params[:id])
-      @alumnos = Alumno.alumnos_sin_familia
-    end
-
-    if request.put?
-      @familia = Familia.find(params[:familia_id])
-      @alumnos = Alumno.find(params[:alumno_ids])
-      for a in @alumnos
-        @familia.alumnos << a
-      end
-      flash[:notice] = "Se agregaron los alumnos a la familia" if @familia.save
-      redirect_to familia_path(@familia.id)
-    end
-  end
-
 end

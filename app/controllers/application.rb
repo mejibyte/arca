@@ -3,6 +3,7 @@
 
 class ApplicationController < ActionController::Base
   before_filter  :authorize, :except => :login
+
   session :session_key => '_arca_session_id' 
   helper :all # include all helpers, all the time
 
@@ -15,11 +16,21 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
  
   protected
+  
   def authorize
-    unless Usuario.find_by_id(session[:usuario_id])
+    unless Usuario.find_by_id(session[:usuario_id]) or Usuario.count == 0
       session[:original_uri] = request.request_uri
       flash[:notice] = "Please log in"
       redirect_to(:controller => "login" , :action => "login" )
+    end
+    
+    if Usuario.count == 0
+      if request.path_parameters[:action]=="agregar_usuario" and request.path_parameters[:controller]=="login"
+        #nothing
+      else
+        flash[:notice] = "Esta es la primera vez que a iniciado la aplicación, por favor cree un usuario"
+        redirect_to(:controller => "login" , :action => "agregar_usuario" )
+      end
     end
   end
 end

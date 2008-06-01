@@ -1,0 +1,15 @@
+<h1>Administrators</h1>
+<ul>
+  <% for user in @todos_usuarios %>
+    <li><%= link_to "[X]", { # link_to options
+                             :controller => 'login', 
+                             :action => 'borrar_usuario',
+                             :id => usuario},
+                           { # html options
+                             :method  => :post,
+                             :confirm => "Seguro que desea borrar el usuario #{usuario.nombre}?"
+                           } %>
+        <%= h(usuario.nombre) %>
+    </li>
+  <% end %>
+</ul>

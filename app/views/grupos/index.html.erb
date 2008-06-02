@@ -1,0 +1,22 @@
+<h1>Listing grupos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Jornada</th>
+  </tr>
+
+<% for grupo in @grupos %>
+  <tr>
+    <td><%=h grupo.nombre %></td>
+    <td><%=h grupo.jornada %></td>
+    <td><%= link_to 'Show', grupo %></td>
+    <td><%= link_to 'Edit', edit_grupo_path(grupo) %></td>
+    <td><%= link_to 'Destroy', grupo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New grupo', new_grupo_path %>

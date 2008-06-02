@@ -9,12 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 10) do
+ActiveRecord::Schema.define(:version => 11) do
 
   create_table "familias", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nombre"
+  end
+
+  create_table "grupos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "jornada"
+    t.integer  "profesor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "personas", :force => true do |t|

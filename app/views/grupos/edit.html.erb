@@ -1,0 +1,22 @@
+<h1>Editing grupo</h1>
+
+<%= error_messages_for :grupo %>
+
+<% form_for(@grupo) do |f| %>
+  <p>
+    <b>Nombre</b><br />
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <b>Jornada</b><br />
+    <%= f.text_field :jornada %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @grupo %> |
+<%= link_to 'Back', grupos_path %>

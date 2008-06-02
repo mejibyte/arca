@@ -3,4 +3,8 @@ class Persona < ActiveRecord::Base
   validates_uniqueness_of :cedula
 
   belongs_to :familia
+
+  def self.personas_sin_familia
+    Persona.find :all, :conditions => { :type => nil, :familia_id => nil}
+  end
 end

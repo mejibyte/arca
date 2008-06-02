@@ -100,4 +100,21 @@ class FamiliasController < ApplicationController
     end
   end
 
+    def agregar_personas
+    if request.get?
+      @familia = Familia.find(params[:id])
+      @personas = Persona.personas_sin_familia
+    end
+
+    if request.put?
+      @familia = Familia.find(params[:familia_id])
+      @personas = Persona.find(params[:persona_ids])
+      for p in @personas
+        @familia.personas << p
+      end
+      flash[:notice] = "Se agregaron las personas a la familia" if @familia.save
+      redirect_to familia_path(@familia.id)
+    end
+  end
+
 end

@@ -6,7 +6,7 @@
   <h3>Personas</h3>
   <%= render(:partial => "persona", :collection => @personas) %>
   <br \>
-  <%= link_to 'Agregar nueva persona'%>
+  <%= link_to 'Agregar nueva persona', agregar_personas_familia_path(@familia), :method => :get%>
 </p>
 
 <p>

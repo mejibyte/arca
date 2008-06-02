@@ -1,0 +1,18 @@
+<h1>Agregar personas a la <%= link_to "familia " +  @familia.nombre, familia_path %></h1>
+
+
+
+<% form_tag agregar_personas_familias_path, :method => :put do %>
+<ul>
+  <% for persona in @personas %>
+  <li>
+    <%= check_box_tag "persona_ids[]", persona.id %>
+    <%= persona.nombres + " " + persona.apellidos %>
+  </li>
+  <% end %>
+</ul>
+<%= hidden_field_tag "familia_id", @familia.id %>
+<%= submit_tag "Agregar" %> <br />
+<%= link_to 'Crear una nueva persona', new_persona_path %>
+<% end %>
+

@@ -14,6 +14,9 @@
     <td><%= h persona.nombres %></td>
     <td><%= h persona.apellidos %></td>
     <td><%= h persona.direccion %></td>
+    <td><%= link_to 'Show', persona %></td>
+    <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
+    <td><%= link_to 'Destroy', persona, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

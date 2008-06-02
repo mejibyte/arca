@@ -1364,3 +1364,185 @@ Processing PersonasController#index (for 127.0.0.1 at 2008-06-02 15:05:45) [GET]
 Rendering template within layouts/personas
 Rendering personas/index
 Completed in 0.04613 (21 reqs/sec) | Rendering: 0.01411 (30%) | DB: 0.00211 (4%) | 200 OK [http://127.0.0.1/personas]
+
+
+Processing PersonasController#index (for 127.0.0.1 at 2008-06-02 15:27:34) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"index", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.002843)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000537)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.000399)[0m   [0mSELECT * FROM personas WHERE (personas."type" IS NULL) [0m
+Rendering template within layouts/personas
+Rendering personas/index
+Completed in 0.06596 (15 reqs/sec) | Rendering: 0.00227 (3%) | DB: 0.00378 (5%) | 200 OK [http://127.0.0.1/personas]
+
+
+Processing PersonasController#new (for 127.0.0.1 at 2008-06-02 15:32:17) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"new", "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000769)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000536)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/personas
+Rendering personas/new
+Completed in 0.04405 (22 reqs/sec) | Rendering: 0.00865 (19%) | DB: 0.00130 (2%) | 200 OK [http://127.0.0.1/personas/new]
+
+
+Processing PersonasController#create (for 127.0.0.1 at 2008-06-02 15:32:21) [POST]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"a0c9ab7faf80ebc42df3763409b4d1868b9640a9", "action"=>"create", "persona"=>{"cedula"=>"adsf", "nombres"=>"df", "direccion"=>"dfsaa", "apellidos"=>"saa"}, "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000854)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000544)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mPersona Load (0.000387)[0m   [0;1mSELECT * FROM personas WHERE (personas.cedula = 'adsf') LIMIT 1[0m
+  [4;35;1mPersona Create (0.000773)[0m   [0mINSERT INTO personas ("cedula", "updated_at", "cuidados_especiales", "nombres", "fecha_ingreso", "type", "familia_id", "direccion", "fecha_nacimiento", "apellidos", "created_at", "salario") VALUES('adsf', '2008-06-02 15:32:21', NULL, 'df', NULL, NULL, NULL, 'dfsaa', NULL, 'saa', '2008-06-02 15:32:21', NULL)[0m
+Redirected to http://127.0.0.1:3000/personas
+Completed in 0.14650 (6 reqs/sec) | DB: 0.00256 (1%) | 302 Found [http://127.0.0.1/personas]
+
+
+Processing PersonasController#index (for 127.0.0.1 at 2008-06-02 15:32:21) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"index", "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000784)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000540)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mPersona Load (0.000996)[0m   [0;1mSELECT * FROM personas WHERE (personas."type" IS NULL) [0m
+Rendering template within layouts/personas
+Rendering personas/index
+Completed in 0.05113 (19 reqs/sec) | Rendering: 0.01579 (30%) | DB: 0.00232 (4%) | 200 OK [http://127.0.0.1/personas]
+
+
+Processing PersonasController#edit (for 127.0.0.1 at 2008-06-02 15:32:23) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.000749)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.002776)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.000973)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+Rendering template within layouts/personas
+Rendering personas/edit
+Completed in 0.04582 (21 reqs/sec) | Rendering: 0.00841 (18%) | DB: 0.00450 (9%) | 200 OK [http://127.0.0.1/personas/2/edit]
+
+
+Processing PersonasController#update (for 127.0.0.1 at 2008-06-02 15:32:26) [PUT]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"a0c9ab7faf80ebc42df3763409b4d1868b9640a9", "_method"=>"put", "action"=>"update", "persona"=>{"cedula"=>"adsf", "nombres"=>"df", "direccion"=>"dfsaaas", "apellidos"=>"saa"}, "id"=>"2", "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000781)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000545)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mPersona Load (0.000981)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+  [4;35;1mPersona Load (0.000410)[0m   [0mSELECT * FROM personas WHERE (personas.cedula = 'adsf' AND personas.id <> 2) LIMIT 1[0m
+  [4;36;1mPersona Update (0.000466)[0m   [0;1mUPDATE personas SET "created_at" = '2008-06-02 15:32:21', "cuidados_especiales" = NULL, "direccion" = 'dfsaaas', "cedula" = 'adsf', "fecha_ingreso" = NULL, "salario" = NULL, "apellidos" = 'saa', "nombres" = 'df', "familia_id" = NULL, "fecha_nacimiento" = NULL, "updated_at" = '2008-06-02 15:32:26', "type" = NULL WHERE "id" = 2[0m
+Redirected to http://127.0.0.1:3000/personas/2
+Completed in 0.06332 (15 reqs/sec) | DB: 0.00318 (5%) | 302 Found [http://127.0.0.1/personas/2]
+
+
+Processing PersonasController#show (for 127.0.0.1 at 2008-06-02 15:32:26) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.000775)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000540)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.001307)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+Rendering template within layouts/personas
+Rendering personas/show
+Completed in 0.05287 (18 reqs/sec) | Rendering: 0.00766 (14%) | DB: 0.00262 (4%) | 200 OK [http://127.0.0.1/personas/2]
+
+
+Processing PersonasController#index (for 127.0.0.1 at 2008-06-02 15:33:22) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"index", "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000988)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000536)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mPersona Load (0.000974)[0m   [0;1mSELECT * FROM personas WHERE (personas."type" IS NULL) [0m
+Rendering template within layouts/personas
+Rendering personas/index
+Completed in 0.04243 (23 reqs/sec) | Rendering: 0.01157 (27%) | DB: 0.00250 (5%) | 200 OK [http://127.0.0.1/personas]
+
+
+Processing PersonasController#show (for 127.0.0.1 at 2008-06-02 15:33:26) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.001067)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000586)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.001346)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+Rendering template within layouts/personas
+Rendering personas/show
+Completed in 0.05259 (19 reqs/sec) | Rendering: 0.01243 (23%) | DB: 0.00300 (5%) | 200 OK [http://127.0.0.1/personas/2]
+
+
+Processing AlumnosController#edit (for 127.0.0.1 at 2008-06-02 15:33:28) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"alumnos"}
+  [4;36;1mUsuario Load (0.001405)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000554)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mAlumno Load (0.000527)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 2) AND ( (personas."type" = 'Alumno' ) ) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Alumno with ID=2):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1267:in `find_one'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1250:in `find_from_ids'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:504:in `find'
+    /app/controllers/alumnos_controller.rb:37:in `edit'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing PersonasController#show (for 127.0.0.1 at 2008-06-02 15:34:19) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.001060)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000523)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.002407)[0m   [0mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+Rendering template within layouts/personas
+Rendering personas/show
+Completed in 0.15882 (6 reqs/sec) | Rendering: 0.00869 (5%) | DB: 0.00399 (2%) | 200 OK [http://127.0.0.1/personas/2]
+
+
+Processing PersonasController#edit (for 127.0.0.1 at 2008-06-02 15:34:21) [GET]
+  Session ID: 861aee7045c03a49ef3d336427708615
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"personas"}
+  [4;36;1mUsuario Load (0.000781)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000549)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mPersona Load (0.001023)[0m   [0;1mSELECT * FROM personas WHERE (personas."id" = 2) [0m
+Rendering template within layouts/personas
+Rendering personas/edit
+Completed in 0.04445 (22 reqs/sec) | Rendering: 0.00859 (19%) | DB: 0.00235 (5%) | 200 OK [http://127.0.0.1/personas/2/edit]

@@ -14,6 +14,7 @@ class ProfesorsController < ApplicationController
   # GET /profesors/1.xml
   def show
     @profesor = Profesor.find(params[:id])
+    @grupos = Grupo.find_all_by_profesor_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

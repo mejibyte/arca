@@ -1,8 +1,34 @@
-<p>
-  <b>Salario:</b>
-  <%=h @profesor.salario %>
-</p>
 
+ <p>
+   <h1><%= @profesor.nombres + " " + @profesor.apellidos %></h1>
+   <b>Cédula:</b>
+   <%=h @profesor.cedula %>
+ </p>
 
-<%= link_to 'Edit', edit_profesor_path(@profesor) %> |
-<%= link_to 'Back', profesors_path %>
+ <p>
+   <b>Direccion:</b>
+   <%=h @profesor.direccion %>
+ </p>
+ <p>
+   <b>Salario:</b>
+   <%=h @profesor.salario %>
+ </p>
+
+ <p>
+ <h2>Grupos</h2>
+ <% if @grupos.size > 0 %>
+ <% for g in @grupos do %>
+ <%= link_to g.nombre, grupo_path(g) %> <br />
+ <% end %>
+ <% else %>
+ <p>
+   Ninguno
+ </p>
+ <% end %>
+ <%= link_to 'Control de grupos', grupos_path %>
+ </p>
+ <br />
+ <br />
+
+ <%= link_to 'Edit', edit_profesor_path(@profesor) %> |
+ <%= link_to 'Back', profesors_path %>

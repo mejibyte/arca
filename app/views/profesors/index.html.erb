@@ -2,12 +2,20 @@
 
 <table>
   <tr>
+    <th>Cédula</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Direccion</th>
     <th>Salario</th>
   </tr>
 
 <% for profesor in @profesors %>
   <tr>
-    <td><%=h profesor.salario %></td>
+    <td><%= h profesor.cedula %></td>
+    <td><%= h profesor.nombres %></td>
+    <td><%= h profesor.apellidos %></td>
+    <td><%= h profesor.direccion %></td>
+    <td><%= h profesor.salario %></td>
     <td><%= link_to 'Show', profesor %></td>
     <td><%= link_to 'Edit', edit_profesor_path(profesor) %></td>
     <td><%= link_to 'Destroy', profesor, :confirm => 'Are you sure?', :method => :delete %></td>

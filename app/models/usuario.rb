@@ -2,8 +2,12 @@ require 'digest/sha1'
 class Usuario < ActiveRecord::Base
   validates_presence_of           :nombre
   validates_uniqueness_of         :nombre
+  validates_presence_of :clave
+  validates_presence_of :confirmacion_clave
+  validate :coincidencia_de_claves
   attr_accessor :confirmacion_clave
-  validates_confirmation_of :clave
+  #validates_confirmation_of :clave
+  
   def validate
     errors.add_to_base("Falta clave" ) if clave_encriptada.blank?
   end
@@ -39,5 +43,11 @@ private
   def self.encriptar_clave(clave, palabra_random)
     string_to_hash = clave + "wibble" + palabra_random
     Digest::SHA1.hexdigest(string_to_hash)
+  end
+
+  protected
+  def coincidencia_de_claves
+      errors.add(:clave, ':la clave de confirmación debe de coincidir con la inicial') if clave  !=confirmacion_clave
+
   end
 end

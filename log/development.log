@@ -536,3 +536,626 @@ Processing AlumnosController#index (for 127.0.0.1 at 2008-06-02 09:44:57) [GET]
 Rendering template within layouts/alumnos
 Rendering alumnos/index
 Completed in 0.07037 (14 reqs/sec) | Rendering: 0.01549 (22%) | DB: 0.00184 (2%) | 200 OK [http://localhost/alumnos]
+
+
+Processing AlumnosController#index (for 127.0.0.1 at 2008-06-02 10:08:21) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"alumnos"}
+  [4;36;1mUsuario Load (0.000887)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000593)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mAlumno Load (0.000369)[0m   [0;1mSELECT * FROM personas WHERE ( (personas."type" = 'Alumno' ) ) [0m
+Rendering template within layouts/alumnos
+Rendering alumnos/index
+Completed in 0.05776 (17 reqs/sec) | Rendering: 0.01952 (33%) | DB: 0.00185 (3%) | 200 OK [http://localhost/alumnos]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-06-02 10:08:34) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;35;1mUsuario Load (0.000942)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000604)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mFamilia Load (0.002432)[0m   [0mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.07497 (13 reqs/sec) | Rendering: 0.04172 (55%) | DB: 0.00398 (5%) | 200 OK [http://localhost/familias]
+
+
+Processing FamiliasController#new (for 127.0.0.1 at 2008-06-02 10:08:38) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"new", "controller"=>"familias"}
+  [4;36;1mUsuario Load (0.000836)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000578)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/familias
+Rendering familias/new
+Completed in 0.03278 (30 reqs/sec) | Rendering: 0.00635 (19%) | DB: 0.00141 (4%) | 200 OK [http://localhost/familias/new]
+
+
+Processing FamiliasController#index (for 127.0.0.1 at 2008-06-02 10:08:40) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"familias"}
+  [4;36;1mUsuario Load (0.000792)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.001290)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mFamilia Load (0.000408)[0m   [0;1mSELECT * FROM familias [0m
+Rendering template within layouts/familias
+Rendering familias/index
+Completed in 0.03461 (28 reqs/sec) | Rendering: 0.00224 (6%) | DB: 0.00249 (7%) | 200 OK [http://localhost/familias]
+
+
+Processing PersonasController#index (for 127.0.0.1 at 2008-06-02 10:08:47) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"personas"}
+  [4;35;1mUsuario Load (0.000824)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000512)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mPersona Load (0.000531)[0m   [0mSELECT * FROM personas WHERE (personas."type" IS NULL) [0m
+Rendering template within layouts/personas
+Rendering personas/index
+Completed in 0.03916 (25 reqs/sec) | Rendering: 0.00588 (15%) | DB: 0.00187 (4%) | 200 OK [http://localhost/personas]
+
+
+Processing LoginController#logout (for 127.0.0.1 at 2008-06-02 10:09:02) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"logout", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000751)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000503)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/login
+Completed in 0.01933 (51 reqs/sec) | DB: 0.00125 (6%) | 302 Found [http://localhost/login/logout]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:09:03) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"login", "controller"=>"login"}
+  [4;36;1mSQL (0.000457)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.11939 (8 reqs/sec) | Rendering: 0.10114 (84%) | DB: 0.00046 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:09:09) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;35;1mSQL (0.000585)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000752)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.01996 (50 reqs/sec) | DB: 0.00134 (6%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-06-02 10:09:09) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.001096)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000562)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.04510 (22 reqs/sec) | Rendering: 0.02711 (60%) | DB: 0.00166 (3%) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:09:16) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000861)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000509)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.04511 (22 reqs/sec) | Rendering: 0.02755 (61%) | DB: 0.00137 (3%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:09:27) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"sebas", "clave"=>"sebas"}}
+  [4;35;1mUsuario Load (0.000628)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000379)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000612)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000399)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-06-02 10:09:27', 'sebas', '0e24bef60de3a13044a7f3321beb81ec1e9cfc19', '-6089153780.849991431062548', '2008-06-02 10:09:27')[0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03234 (30 reqs/sec) | DB: 0.00202 (6%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:09:27) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.001634)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.001345)[0m   [0mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.04119 (24 reqs/sec) | Rendering: 0.01131 (27%) | DB: 0.00362 (8%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#logout (for 127.0.0.1 at 2008-06-02 10:09:36) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"logout", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000637)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000539)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/login
+Completed in 0.01767 (56 reqs/sec) | DB: 0.00118 (6%) | 302 Found [http://localhost/login/logout]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:09:36) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"login", "controller"=>"login"}
+  [4;36;1mSQL (0.000456)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.08770 (11 reqs/sec) | Rendering: 0.00293 (3%) | DB: 0.00046 (0%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:09:41) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Login", "nombre"=>"sebas", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"login", "controller"=>"login", "clave"=>"sebas"}
+  [4;35;1mSQL (0.002513)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000836)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'sebas') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.03397 (29 reqs/sec) | DB: 0.00335 (9%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-06-02 10:09:41) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000771)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.01975 (50 reqs/sec) | Rendering: 0.00254 (12%) | DB: 0.00115 (5%) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:09:46) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.001227)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000820)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03558 (28 reqs/sec) | Rendering: 0.00510 (14%) | DB: 0.00205 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:09:54) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"purito", "confirmacion_clave"=>"po", "clave"=>"pu"}}
+  [4;35;1mUsuario Load (0.000634)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000391)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000307)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'purito') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000384)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-06-02 10:09:54', 'purito', '1cc327387bf0a3798a8715f0e270fe51ebabe1a0', '-6087131880.161788917694646', '2008-06-02 10:09:54')[0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.02534 (39 reqs/sec) | DB: 0.00172 (6%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:09:54) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000825)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000570)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.001348)[0m   [0mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.02884 (34 reqs/sec) | Rendering: 0.00596 (20%) | DB: 0.00274 (9%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#borrar_usuario (for 127.0.0.1 at 2008-06-02 10:10:01) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"borrar_usuario", "id"=>"3", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000692)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.000602)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000708)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 3) [0m
+  [4;35;1mUsuario Destroy (0.000448)[0m   [0m DELETE FROM usuarios
+ WHERE "id" = 3
+[0m
+  [4;36;1mSQL (0.000421)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03244 (30 reqs/sec) | DB: 0.00287 (8%) | 302 Found [http://localhost/login/borrar_usuario/3]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:10:01) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000717)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000547)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000795)[0m   [0mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.02009 (49 reqs/sec) | Rendering: 0.00371 (18%) | DB: 0.00206 (10%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#borrar_usuario (for 127.0.0.1 at 2008-06-02 10:10:04) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"borrar_usuario", "id"=>"2", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000857)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;35;1mSQL (0.000502)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000850)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 2) [0m
+  [4;35;1mUsuario Destroy (0.000455)[0m   [0m DELETE FROM usuarios
+ WHERE "id" = 2
+[0m
+  [4;36;1mSQL (0.000465)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03053 (32 reqs/sec) | DB: 0.00313 (10%) | 302 Found [http://localhost/login/borrar_usuario/2]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:10:04) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000551)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.000556)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/login
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb7629a00 @filter=:authorize>] rendered_or_redirected.
+Completed in 0.01580 (63 reqs/sec) | DB: 0.00111 (7%) | 302 Found [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:10:04) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"login", "controller"=>"login"}
+  [4;36;1mSQL (0.000394)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01565 (63 reqs/sec) | Rendering: 0.00246 (15%) | DB: 0.00039 (2%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:10:12) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Login", "nombre"=>"admin", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"login", "controller"=>"login", "clave"=>"admin"}
+  [4;35;1mSQL (0.000695)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.002846)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'admin') LIMIT 1[0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.09724 (10 reqs/sec) | DB: 0.00354 (3%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:10:12) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.001057)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000765)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000790)[0m   [0mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.02477 (40 reqs/sec) | Rendering: 0.00447 (18%) | DB: 0.00261 (10%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:13:31) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.001265)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000841)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03295 (30 reqs/sec) | Rendering: 0.00514 (15%) | DB: 0.00211 (6%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:13:39) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebastian2", "confirmacion_clave"=>"owerewrwerewrwer", "clave"=>"seb"}}
+  [4;36;1mUsuario Load (0.000659)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000540)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000343)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebastian2') LIMIT 1[0m
+  [4;35;1mUsuario Create (0.000450)[0m   [0mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-06-02 10:13:39', 'sebastian2', 'db3ae3e0854733d8a5244e313b4ba076acdb03f1', '-6077660080.630129230418983', '2008-06-02 10:13:39')[0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03036 (32 reqs/sec) | DB: 0.00199 (6%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:13:39) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000666)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000427)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000808)[0m   [0;1mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.02240 (44 reqs/sec) | Rendering: 0.00397 (17%) | DB: 0.00190 (8%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#borrar_usuario (for 127.0.0.1 at 2008-06-02 10:13:43) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"borrar_usuario", "id"=>"4", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000840)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000587)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000706)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 4) [0m
+  [4;36;1mUsuario Destroy (0.000484)[0m   [0;1m DELETE FROM usuarios
+ WHERE "id" = 4
+[0m
+  [4;35;1mSQL (0.000509)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03130 (31 reqs/sec) | DB: 0.00313 (9%) | 302 Found [http://localhost/login/borrar_usuario/4]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:13:43) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000727)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000424)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000587)[0m   [0;1mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.01954 (51 reqs/sec) | Rendering: 0.00336 (17%) | DB: 0.00174 (8%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:13:50) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000730)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000498)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.02261 (44 reqs/sec) | Rendering: 0.00511 (22%) | DB: 0.00123 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:13:59) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sefe", "confirmacion_clave"=>"", "clave"=>"sewd"}}
+  [4;35;1mUsuario Load (0.000693)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000297)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sefe') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.02230 (44 reqs/sec) | Rendering: 0.00309 (13%) | DB: 0.00137 (6%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:20:58) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sefe", "confirmacion_clave"=>"", "clave"=>"sewd"}}
+  [4;36;1mUsuario Load (0.000765)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000598)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+
+
+NoMethodError (undefined method `confirmacion_clave=' for #<Usuario:0xb74dbb1c>):
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:200:in `method_missing'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2117:in `send'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2117:in `attributes='
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2116:in `each'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2116:in `attributes='
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1926:in `initialize'
+    /app/controllers/login_controller.rb:5:in `new'
+    /app/controllers/login_controller.rb:5:in `agregar_usuario'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:21:43) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000869)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000561)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+
+
+ActionView::TemplateError (undefined method `confirmacion_clave' for #<Usuario:0xb776872c>) on line #16 of login/agregar_usuario.html.erb:
+13:        </p>
+14:        <p>
+15:          <label for="usuario_confirmacion_clave">Confirme la clave:</label>
+16:          <%= form.password_field :confirmacion_clave, :size => 40 %>
+17:        </p>
+18:        <%= submit_tag "Agregar Usuario", :class => "submit" %>
+19:     <% end %>
+
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:205:in `method_missing'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:562:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:562:in `value_before_type_cast'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:550:in `value_before_type_cast'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:465:in `to_input_field_tag'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:311:in `password_field'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:640:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:640:in `password_field'
+    app/views/login/agregar_usuario.html.erb:16:in `_run_erb_47app47views47login47agregar_usuario46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/login/agregar_usuario.html.erb:5:in `_run_erb_47app47views47login47agregar_usuario46html46erb'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /var/lib/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /var/lib/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /var/lib/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /var/lib/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:23:07) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000944)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000512)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03188 (31 reqs/sec) | Rendering: 0.00539 (16%) | DB: 0.00146 (4%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:23:16) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"seb", "clave"=>"sebas88"}}
+  [4;36;1mUsuario Load (0.000600)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000373)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000289)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.02199 (45 reqs/sec) | Rendering: 0.00311 (14%) | DB: 0.00126 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:25:41) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.001157)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000797)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03266 (30 reqs/sec) | Rendering: 0.00510 (15%) | DB: 0.00195 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:25:51) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"sadfefe", "clave"=>"seba"}}
+  [4;35;1mUsuario Load (0.038916)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000445)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000287)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.07479 (13 reqs/sec) | Rendering: 0.01032 (13%) | DB: 0.03965 (53%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:26:24) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"agregar_usuario", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000829)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000681)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.02629 (38 reqs/sec) | Rendering: 0.00539 (20%) | DB: 0.00151 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:26:31) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"seba", "clave"=>"sebas"}}
+  [4;36;1mUsuario Load (0.000825)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000575)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000363)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+Rendering template within layouts/login
+Rendering login/agregar_usuario
+Completed in 0.03232 (30 reqs/sec) | Rendering: 0.00352 (10%) | DB: 0.00176 (5%) | 200 OK [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#agregar_usuario (for 127.0.0.1 at 2008-06-02 10:26:38) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Agregar Usuario", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"agregar_usuario", "controller"=>"login", "usuario"=>{"nombre"=>"sebas", "confirmacion_clave"=>"tico", "clave"=>"tico"}}
+  [4;35;1mUsuario Load (0.000825)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000606)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000358)[0m   [0mSELECT * FROM usuarios WHERE (usuarios.nombre = 'sebas') LIMIT 1[0m
+  [4;36;1mUsuario Create (0.000449)[0m   [0;1mINSERT INTO usuarios ("updated_at", "nombre", "clave_encriptada", "palabra_random", "created_at") VALUES('2008-06-02 10:26:38', 'sebas', '9638a00d4c42f4fc13b88acda762b5ac8582d9aa', '-6102107180.791963350207849', '2008-06-02 10:26:38')[0m
+Redirected to http://localhost:3000/login/lista_usuarios
+Completed in 0.03610 (27 reqs/sec) | DB: 0.00224 (6%) | 302 Found [http://localhost/login/agregar_usuario]
+
+
+Processing LoginController#lista_usuarios (for 127.0.0.1 at 2008-06-02 10:26:38) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"lista_usuarios", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000664)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.000423)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;35;1mUsuario Load (0.000988)[0m   [0mSELECT * FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/lista_usuarios
+Completed in 0.02161 (46 reqs/sec) | Rendering: 0.00473 (21%) | DB: 0.00207 (9%) | 200 OK [http://localhost/login/lista_usuarios]
+
+
+Processing LoginController#logout (for 127.0.0.1 at 2008-06-02 10:26:48) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"logout", "controller"=>"login"}
+  [4;36;1mUsuario Load (0.000760)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000501)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+Redirected to http://localhost:3000/login/login
+Completed in 0.01823 (54 reqs/sec) | DB: 0.00126 (6%) | 302 Found [http://localhost/login/logout]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:26:48) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"login", "controller"=>"login"}
+  [4;36;1mSQL (0.000553)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/login
+Completed in 0.01971 (50 reqs/sec) | Rendering: 0.00438 (22%) | DB: 0.00055 (2%) | 200 OK [http://localhost/login/login]
+
+
+Processing LoginController#login (for 127.0.0.1 at 2008-06-02 10:26:53) [POST]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"commit"=>"Login", "nombre"=>"sebas", "authenticity_token"=>"a9e2f5bef5b31b01a040b9f9bdc23e39ebbd31ee", "action"=>"login", "controller"=>"login", "clave"=>"tico"}
+  [4;35;1mSQL (0.000553)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000702)[0m   [0;1mSELECT * FROM usuarios WHERE (usuarios."nombre" = 'sebas') LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Completed in 0.02345 (42 reqs/sec) | DB: 0.00125 (5%) | 302 Found [http://localhost/login/login]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2008-06-02 10:26:54) [GET]
+  Session ID: abb1a95537eca7533a2437017f952d44
+  Parameters: {"action"=>"index", "controller"=>"login"}
+  [4;35;1mUsuario Load (0.000640)[0m   [0mSELECT * FROM usuarios WHERE (usuarios."id" = 5) LIMIT 1[0m
+  [4;36;1mSQL (0.000385)[0m   [0;1mSELECT count(*) AS count_all FROM usuarios [0m
+Rendering template within layouts/login
+Rendering login/index
+Completed in 0.08913 (11 reqs/sec) | Rendering: 0.00177 (1%) | DB: 0.00102 (1%) | 200 OK [http://localhost/login]

@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
       if request.path_parameters[:action]=="agregar_usuario" and request.path_parameters[:controller]=="login"
         #nothing
       else
+        session[:original_uri] = request.request_uri
         flash[:notice] = "Esta es la primera vez que ha iniciado la aplicación, por favor cree un usuario"
         redirect_to(:controller => "login" , :action => "agregar_usuario" )
       end

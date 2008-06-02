@@ -6,7 +6,8 @@ class LoginController < ApplicationController
     if request.post? and @usuario.save
       flash[:notice] = "Usuario #{@usuario.nombre} creado"
       @usuario = Usuario.new
-      redirect_to( :action => "lista_usuarios" )
+      uri = session[:original_uri]
+      redirect_to( uri ||{ :action => "lista_usuarios"} )
     end
     
   end

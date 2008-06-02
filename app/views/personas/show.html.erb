@@ -1,0 +1,22 @@
+<p>
+  <b>Cédula:</b>
+  <%=h @persona.cedula %>
+</p>
+
+<p>
+  <b>Nombres:</b>
+  <%=h @persona.nombres %>
+</p>
+
+<p>
+  <b>Apellidos:</b>
+  <%=h @persona.apellidos %>
+</p>
+
+<p>
+  <b>Direccion:</b>
+  <%=h @persona.direccion %>
+</p>
+
+<%= link_to 'Edit', edit_alumno_path(@persona) %> |
+<%= link_to 'Back', personas_path %>

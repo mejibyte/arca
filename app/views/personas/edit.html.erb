@@ -1,0 +1,33 @@
+<h1>Editing persona</h1>
+
+<%= error_messages_for :persona %>
+
+<% form_for(@persona) do |f| %>
+
+<p>
+  <b>Cédula</b><br />
+  <%= f.text_field :cedula %>
+</p>
+
+<p>
+  <b>Nombres</b><br />
+  <%= f.text_field :nombres %>
+</p>
+
+<p>
+  <b>Apellidos</b><br />
+  <%= f.text_field :apellidos %>
+</p>
+
+<p>
+  <b>Direccion</b><br />
+  <%= f.text_area :direccion %>
+</p>
+
+<p>
+  <%= f.submit "Update" %>
+</p>
+<% end %>
+
+<%= link_to 'Show', @persona %> |
+<%= link_to 'Back', personas_path %>

@@ -1,0 +1,22 @@
+<h1>Listing falta_de_asistencias</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Motivo</th>
+  </tr>
+
+<% for falta_de_asistencia in @falta_de_asistencias %>
+  <tr>
+    <td><%=h falta_de_asistencia.fecha %></td>
+    <td><%=h falta_de_asistencia.motivo %></td>
+    <td><%= link_to 'Show', [@alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Edit', [:edit, @alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Destroy', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New falta_de_asistencia', new_alumno_falta_de_asistencia_path(@alumno) %>

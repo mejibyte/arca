@@ -4,6 +4,7 @@ class Persona < ActiveRecord::Base
 
   belongs_to :familia
   has_many :telefonos, :dependent => :destroy
+  has_many :falta_de_asistencias, :dependent => :destroy
 
   def self.personas_sin_familia
     Persona.find :all, :conditions => { :type => nil, :familia_id => nil}

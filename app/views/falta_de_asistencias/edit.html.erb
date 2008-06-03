@@ -1,0 +1,8 @@
+<h1>Editing falta_de_asistencia</h1>
+
+<%= error_messages_for :falta_de_asistencia %>
+
+<%= render :partial => @comment, :locals => {:button_name => "Update"} %>
+
+<%= link_to 'Show', [@alumno, @falta_de_asistencia] %> |
+<%= link_to 'Back', alumno_falta_de_asistencias_path(@alumno) %>

@@ -2,7 +2,11 @@ class TelefonosController < ApplicationController
   before_filter :load_persona
 
   def load_persona
-    @persona = Persona.find(params[:persona_id])
+    if params[:persona_id].nil?
+      redirect_to personas_path
+    else
+      @persona = Persona.find(params[:persona_id])
+    end
   end
 
   # GET /telefonos

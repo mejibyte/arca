@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha: 2008-06-03
+  motivo: MyText
+  persona: 
+
+two:
+  fecha: 2008-06-03
+  motivo: MyText
+  persona: 

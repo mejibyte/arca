@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :familias, :member => { :quitar_alumnos => :get, :quitar_personas => :get }
   map.resources :familias, :member => { :quitar_alumnos => :put, :quitar_personas => :put }
 
-  map.resources :alumnos
+  map.resources :alumnos, :has_many => [:falta_de_asistencias]
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,0 +1,14 @@
+<% form_for([@alumno, @falta_de_asistencia]) do |f| %>
+<p>
+  <b>Fecha</b><br />
+  <%=  f.date_select :fecha %>
+</p>
+<p>
+  <b>Motivo</b><br />
+  <%= f.text_area :motivo %>
+</p>
+
+<p>
+  <%= f.submit button_name %>
+</p>
+<% end %>

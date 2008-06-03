@@ -1,0 +1,12 @@
+<p>
+  <b>Fecha:</b>
+  <%=h @falta_de_asistencia.fecha %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%=h @falta_de_asistencia.motivo %>
+</p>
+
+<%= link_to 'Edit', [:edit, @alumno, @falta_de_asistencia] %> |
+<%= link_to 'Back', alumno_falta_de_asistencias_path(@alumno) %>

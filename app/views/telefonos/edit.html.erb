@@ -1,0 +1,8 @@
+<h1>Editing telefono</h1>
+
+<%= error_messages_for :telefono %>
+
+<%= render :partial => @telefono, :locals => {:button_name => "Update" } %>
+
+<%= link_to 'Show', [@persona, @telefono] %> |
+<%= link_to 'Back', persona_telefonos_path(@persona) %>

@@ -1,0 +1,10 @@
+<% form_for([@persona, @telefono]) do |f| %>
+  <p>
+    <b>Número</b><br />
+    <%= f.text_field :numero %>
+  </p>
+
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

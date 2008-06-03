@@ -17,6 +17,16 @@
   <b>Direccion:</b>
   <%=h @persona.direccion %>
 </p>
-
+<p>
+  <b>Teléfonos:</b><br />
+  <% if @persona.telefonos.nil? or @persona.telefonos.size == 0 -%>
+  Ninguno | <%= link_to "Agregar teléfono", new_persona_telefono_path(@persona) %> <br />
+  <% else -%>
+  <% for t in @persona.telefonos -%>
+  <%= h t.numero %> <br />
+  <% end -%>
+  <% end -%>
+  <%= link_to "Control de teléfonos", persona_telefonos_path(@persona) %>
+</p>
 <%= link_to 'Edit', edit_persona_path(@persona) %> |
 <%= link_to 'Back', personas_path %>

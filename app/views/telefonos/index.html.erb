@@ -1,0 +1,20 @@
+<h1>Teléfonos de <%= link_to @persona.nombre_completo, persona_path(@persona) %> </h1>
+
+<table>
+  <tr>
+    <th>Numero</th>
+  </tr>
+
+<% for telefono in @telefonos %>
+  <tr>
+    <td><%=h telefono.numero %></td>
+    <td><%= link_to 'Show', [@persona, telefono] %></td>
+    <td><%= link_to 'Edit', [:edit, @persona, telefono] %></td>
+    <td><%= link_to 'Destroy', [@persona, telefono], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New telefono', new_persona_telefono_path(@persona) %> | <%= link_to 'Back', persona_path(@persona) %>

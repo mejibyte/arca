@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :grupos, :member => { :quitar_profesor => :put, :agregar_profesor => :put, :agregar_alumnos => :put, :quitar_alumnos => :put }
   map.resources :grupos, :member => { :agregar_profesor => :get, :agregar_alumnos => :get, :quitar_alumnos => :get }
 
-  map.resources :personas
+  map.resources :personas, :has_many => [:telefonos ]
 
   map.resources :profesors
 

@@ -1,0 +1,8 @@
+<p>
+  <b>Numero:</b>
+  <%=h @telefono.numero %>
+</p>
+
+
+<%= link_to 'Edit', [:edit, @persona, @telefono] %> |
+<%= link_to 'Back', persona_telefonos_path(@persona) %>

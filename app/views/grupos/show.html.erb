@@ -12,5 +12,13 @@
 <% end -%>
 </p>
 
+<p>
+<h3>Alumnos</h3>
+<%=  render( :partial => "alumno", :collection => @alumnos ) %>
+</p>
+<br />
+<%= link_to "Agregar alumnos", agregar_alumnos_grupo_path, :method => :get %> | <%= link_to "Quitar alumnos", quitar_alumnos_grupo_path, :method => :get %><br />
+
+<br />
 <%= link_to 'Edit', edit_grupo_path(@grupo) %> |
 <%= link_to 'Back', grupos_path %>

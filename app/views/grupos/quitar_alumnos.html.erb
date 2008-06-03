@@ -1,0 +1,9 @@
+<h1>Quitar alumnos del grupo <%= link_to @grupo.nombre_completo, grupo_path %></h1>
+
+<% form_tag quitar_alumnos_grupo_path, :method => :put do %>
+<ul>
+  <%=  render(:partial => "alumno_checkbox", :collection => @alumnos) %>
+</ul>
+<%= hidden_field_tag "id", @grupo.id %>
+<%= submit_tag "Quitar" %> <br />
+<% end %>

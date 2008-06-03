@@ -18,13 +18,14 @@
  <h2>Grupos</h2>
  <% if @grupos.size > 0 %>
  <% for g in @grupos do %>
- <%= link_to g.nombre, grupo_path(g) %> <br />
+ <%= link_to g.nombre_completo, grupo_path(g) %> <br />
  <% end %>
  <% else %>
  <p>
    Ninguno
  </p>
  <% end %>
+ <br />
  <%= link_to 'Control de grupos', grupos_path %>
  </p>
  <br />

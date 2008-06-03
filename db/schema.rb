@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 12) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "exalumnos", :force => true do |t|
     t.date     "fecha_retiro"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 12) do
     t.string   "cedula"
     t.integer  "familia_id"
     t.integer  "salario"
+    t.integer  "grupo_id"
+    t.integer  "exalumno_id"
   end
 
   create_table "sessions", :force => true do |t|

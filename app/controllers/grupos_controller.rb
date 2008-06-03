@@ -15,6 +15,7 @@ class GruposController < ApplicationController
   def show
     @grupo = Grupo.find(params[:id])
     @profesor = @grupo.profesor
+    @alumnos =  @grupo.alumnos
 
     respond_to do |format|
       format.html # show.html.erb
@@ -105,6 +106,37 @@ class GruposController < ApplicationController
       redirect_to grupo_path(@grupo)
     end
   end
+
+  def agregar_alumnos
+    @grupo = Grupo.find(params[:id])
+    if request.get?
+      @alumnos = Alumno.alumnos_sin_grupo
+    end
+    if request.put?
+      @alumnos = Alumno.find(params[:alumno_ids])
+      for a in @alumnos
+        @grupo.alumnos << a
+      end
+      flash[:notice] = "Se agregaron los alumnos al grupo" if @grupo.save
+      redirect_to grupo_path(@grupo)
+    end
+  end
+
+  def quitar_alumnos
+    @grupo = Grupo.find(params[:id])
+    if request.get?
+      @alumnos = @grupo.alumnos
+    end
+    if request.put?
+      @alumnos = Alumno.find(params[:alumno_ids])
+      for a in @alumnos
+        @grupo.alumnos.delete(a)
+      end
+      flash[:notice] = "Se quitaron los alumnos del grupo" if @grupo.save
+      redirect_to grupo_path(@grupo)
+    end
+  end
+
 
 end
 

@@ -1,4 +1,5 @@
 class ExalumnosController < ApplicationController
+  before_filter :traer_datos_alumno
   # GET /exalumnos
   # GET /exalumnos.xml
   def index
@@ -71,6 +72,30 @@ class ExalumnosController < ApplicationController
     end
   end
 
+  def agregar_estado
+    @exalumno = Exalumno.find(params[:id])
+    if request.get?
+      @alumno = Alumno.find(:all)
+    end
+    if request.put?
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @exalumno.alumnos << a
+        end
+        flash[:notice] = "Se a retirado exitosamente al alumno #{@exalumno.alumno.nombre_completo}" if @exalumno.save
+      end
+      redirect_to agregar_estado_path(@exalumno)
+    end
+  end
+
+  def traer_datos_alumno
+    if params[:alumno_id].nil?
+      redirect_to alumnos_path
+    else
+    @exalumno.alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"})
+    end
+  end
   # DELETE /exalumnos/1
   # DELETE /exalumnos/1.xml
   def destroy
@@ -82,5 +107,5 @@ class ExalumnosController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
+  
 end

@@ -140,7 +140,5 @@ class GruposController < ApplicationController
       redirect_to grupo_path(@grupo)
     end
   end
-
-
 end
 

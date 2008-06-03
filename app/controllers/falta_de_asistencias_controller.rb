@@ -1,6 +1,5 @@
 class FaltaDeAsistenciasController < ApplicationController
   before_filter :load_alumno
-
   def load_alumno
     if params[:alumno_id].nil?
       redirect_to alumnos_path

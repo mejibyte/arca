@@ -1,0 +1,14 @@
+<% form_for( alumno_exalumno_path(@alumno) ) do |f| %>
+<p>
+  <b>Fecha de retiro</b><br />
+  <%= f.date_select :fecha_retiro %>
+</p>
+  <p>
+    <b>Motivo</b><br />
+    <%= f.text_area :motivo %>
+  </p>
+
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

@@ -9,13 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 15) do
+ActiveRecord::Schema.define(:version => 16) do
 
   create_table "exalumnos", :force => true do |t|
     t.date     "fecha_retiro"
     t.text     "motivo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "persona_id"
   end
 
   create_table "falta_de_asistencias", :force => true do |t|
@@ -54,7 +55,6 @@ ActiveRecord::Schema.define(:version => 15) do
     t.integer  "familia_id"
     t.integer  "salario"
     t.integer  "grupo_id"
-    t.integer  "exalumno_id"
   end
 
   create_table "sessions", :force => true do |t|

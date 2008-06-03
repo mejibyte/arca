@@ -94,6 +94,10 @@ class FaltaDeAsistenciasController < ApplicationController
 
   def index_all
     @falta_de_asistencias = FaltaDeAsistencia.find :all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @falta_de_asistencias }
+    end
   end
 
 end

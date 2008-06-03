@@ -5,18 +5,19 @@
     <th>Fecha retiro</th>
     <th>Motivo</th>
   </tr>
-
-<% for exalumno in @exalumnos %>
+  <% if @exalumno.nil? %>
+  Ninguno <br />
+  <% else %>
   <tr>
-    <td><%=h exalumno.fecha_retiro %></td>
-    <td><%=h exalumno.motivo %></td>
-    <td><%= link_to 'Show', exalumno %></td>
-    <td><%= link_to 'Edit', edit_exalumno_path(exalumno) %></td>
-    <td><%= link_to 'Destroy', exalumno, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h @exalumno.fecha_retiro %></td>
+    <td><%=h @exalumno.motivo %></td>
+    <td><%= link_to 'Show', @exalumno %></td>
+    <td><%= link_to 'Edit', [:edit, @alumno, @exalumno] %></td>
+    <td><%= link_to 'Destroy', @exalumno, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New exalumno', new_exalumno_path %>
+<%= link_to 'New exalumno', new_alumno_exalumno_path(@alumno) %>

@@ -2,20 +2,6 @@
 
 <%= error_messages_for :exalumno %>
 
-<% form_for(@exalumno) do |f| %>
-  <p>
-    <b>Fecha retiro</b><br />
-    <%= f.date_select :fecha_retiro %>
-  </p>
+<%= render (:partial => @exalumno, :locals => { :button_name => "Create" } ) %>
 
-  <p>
-    <b>Motivo</b><br />
-    <%= f.text_area :motivo %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', exalumnos_path %>
+<%= link_to 'Back', alumno_path(@alumno) %>

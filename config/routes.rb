@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :familias, :member => { :quitar_alumnos => :put, :quitar_personas => :put }
 
   map.resources :alumnos, :has_many => [:falta_de_asistencias]
+  map.resources :alumnos, :has_one => [:exalumno]
 
   map.resources :falta_de_asistencias, :collection => { :index_all => :get }
 

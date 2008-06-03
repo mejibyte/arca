@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :profesors
 
   map.resources :familias, :member => { :agregar_alumnos => :get, :agregar_personas => :get }, :collection  => { :agregar_alumnos => :put, :agregar_personas => :put}
+  map.resources :familias, :member => { :quitar_alumnos => :get, :quitar_personas => :get }
+  map.resources :familias, :member => { :quitar_alumnos => :put, :quitar_personas => :put }
 
   map.resources :alumnos
 

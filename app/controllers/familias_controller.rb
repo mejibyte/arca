@@ -91,16 +91,38 @@ class FamiliasController < ApplicationController
 
     if request.put?
       @familia = Familia.find(params[:familia_id])
-      @alumnos = Alumno.find(params[:alumno_ids])
-      for a in @alumnos
-        @familia.alumnos << a
+      unless params[:alumno_ids].nil?
+
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @familia.alumnos << a
+        end
+        flash[:notice] = "Se agregaron los alumnos a la familia" if @familia.save
       end
-      flash[:notice] = "Se agregaron los alumnos a la familia" if @familia.save
       redirect_to familia_path(@familia.id)
     end
   end
 
-    def agregar_personas
+    def quitar_alumnos
+    if request.get?
+      @familia = Familia.find(params[:id])
+      @alumnos = @familia.alumnos
+    end
+
+    if request.put?
+      @familia = Familia.find(params[:familia_id])
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @familia.alumnos.delete(a)
+        end
+        flash[:notice] = "Se quitaron los alumnos de la familia" if @familia.save
+      end
+      redirect_to familia_path(@familia.id)
+    end
+  end
+
+  def agregar_personas
     if request.get?
       @familia = Familia.find(params[:id])
       @personas = Persona.personas_sin_familia
@@ -108,13 +130,36 @@ class FamiliasController < ApplicationController
 
     if request.put?
       @familia = Familia.find(params[:familia_id])
-      @personas = Persona.find(params[:persona_ids])
-      for p in @personas
-        @familia.personas << p
+      unless params[:persona_ids].nil?
+
+        @personas = Persona.find(params[:persona_ids])
+        for p in @personas
+          @familia.personas << p
+        end
+        flash[:notice] = "Se agregaron las personas a la familia" if @familia.save
       end
-      flash[:notice] = "Se agregaron las personas a la familia" if @familia.save
       redirect_to familia_path(@familia.id)
     end
   end
+
+    def quitar_personas
+    if request.get?
+      @familia = Familia.find(params[:id])
+      @personas = Persona.find(:all, :conditions => {:type => nil, :familia_id => @familia.id } )
+    end
+
+    if request.put?
+      @familia = Familia.find(params[:familia_id])
+      unless params[:persona_ids].nil?
+        @personas = Persona.find(params[:persona_ids])
+        for p in @personas
+          @familia.personas.delete(p)
+        end
+        flash[:notice] = "Se quitaron las personas de la familia" if @familia.save
+      end
+      redirect_to familia_path(@familia.id)
+    end
+  end
+
 
 end

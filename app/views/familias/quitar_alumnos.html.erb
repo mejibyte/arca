@@ -1,0 +1,10 @@
+<h1>Quitar alumnos de la <%= link_to "familia " +  @familia.nombre, familia_path %></h1>
+
+<% form_tag quitar_alumnos_familia_path, :method => :put do %>
+<ul>
+  <%= render(:partial => "alumno_checkbox", :collection => @alumnos ) %>
+</ul>
+<%= hidden_field_tag "familia_id", @familia.id %>
+<%= submit_tag "Quitar" %> <br />
+<% end %>
+

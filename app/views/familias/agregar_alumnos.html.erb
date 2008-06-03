@@ -1,15 +1,8 @@
 <h1>Agregar alumnos a la <%= link_to "familia " +  @familia.nombre, familia_path %></h1>
 
-
-
 <% form_tag agregar_alumnos_familias_path, :method => :put do %>
 <ul>
-  <% for alumno in @alumnos %>
-  <li>
-    <%= check_box_tag "alumno_ids[]", alumno.id %>
-    <%= alumno.nombres + " " + alumno.apellidos %>
-  </li>
-  <% end %>
+  <%= render(:partial => "alumno_checkbox", :collection => @alumnos ) %>
 </ul>
 <%= hidden_field_tag "familia_id", @familia.id %>
 <%= submit_tag "Agregar" %> <br />

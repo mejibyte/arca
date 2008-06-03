@@ -113,11 +113,13 @@ class GruposController < ApplicationController
       @alumnos = Alumno.alumnos_sin_grupo
     end
     if request.put?
-      @alumnos = Alumno.find(params[:alumno_ids])
-      for a in @alumnos
-        @grupo.alumnos << a
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @grupo.alumnos << a
+        end
+        flash[:notice] = "Se agregaron los alumnos al grupo" if @grupo.save
       end
-      flash[:notice] = "Se agregaron los alumnos al grupo" if @grupo.save
       redirect_to grupo_path(@grupo)
     end
   end
@@ -128,11 +130,13 @@ class GruposController < ApplicationController
       @alumnos = @grupo.alumnos
     end
     if request.put?
-      @alumnos = Alumno.find(params[:alumno_ids])
-      for a in @alumnos
-        @grupo.alumnos.delete(a)
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @grupo.alumnos.delete(a)
+        end
+        flash[:notice] = "Se quitaron los alumnos del grupo" if @grupo.save
       end
-      flash[:notice] = "Se quitaron los alumnos del grupo" if @grupo.save
       redirect_to grupo_path(@grupo)
     end
   end

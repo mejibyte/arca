@@ -6,14 +6,16 @@
   <h3>Personas</h3>
   <%= render(:partial => "persona", :collection => @personas) %>
   <br \>
-  <%= link_to 'Agregar nueva persona', agregar_personas_familia_path(@familia), :method => :get%>
+  <%= link_to "Agregar personas", agregar_personas_familia_path(@familia), :method => :get %> |
+  <%= link_to "Quitar personas", quitar_personas_familia_path(@familia), :method => :get %>
 </p>
 
 <p>
   <h3>Alumnos</h3>
   <%= render(:partial => "persona", :collection => @familia.alumnos) %>
   <br \>
-  <%= link_to 'Agregar nuevo alumno', agregar_alumnos_familia_path(@familia), :method => :get %>
+  <%= link_to "Agregar alumnos", agregar_alumnos_familia_path(@familia), :method => :get %> |
+  <%= link_to "Quitar alumnos", quitar_alumnos_familia_path(@familia), :method => :get %>
 </p>
 
 <p>

@@ -1,13 +1,16 @@
-<p>
-  <b>Nombre:</b>
-  <%=h @grupo.nombre %>
-</p>
+<h1> <%= h("#{@grupo.nombre} (#{@grupo.jornada})")  %> </h1>
 
 <p>
-  <b>Jornada:</b>
-  <%=h @grupo.jornada %>
+<h3>Profesor</h3>
+<% if @profesor.nil? -%>
+<p>
+  Ninguno | <%= link_to 'Asignar', agregar_profesor_grupo_path(@grupo), :id => @grupo.id, :method => :get %> <br />
 </p>
-
+<% else -%>
+<%= link_to (@profesor.nombres + " " +@profesor.apellidos, profesor_path(@profesor) )  %>
+ | <%= link_to 'Cambiar', agregar_profesor_grupo_path(@grupo) %> | <%= link_to 'Quitar', quitar_profesor_grupo_path(@profesor), :method => :put %><br />
+<% end -%>
+</p>
 
 <%= link_to 'Edit', edit_grupo_path(@grupo) %> |
 <%= link_to 'Back', grupos_path %>

@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :grupos
+  map.resources :grupos, :member => { :quitar_profesor => :put, :agregar_profesor => :put }
+  map.resources :grupos, :member => { :agregar_profesor => :get }
 
   map.resources :personas
 

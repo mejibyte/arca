@@ -3,14 +3,7 @@
 <%= error_messages_for :familia %>
 
 <% form_for(@familia) do |f| %>
-  <p>
-    <b>Codigo</b><br />
-    <%= f.text_field :codigo %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+<%= render( :partial => "form", :locals => {:f => f} %>
 <% end %>
 
 <%= link_to 'Show', @familia %> |

@@ -1,0 +1,11 @@
+<h1>Agregar profesor al grupo  <%= link_to @grupo.nombre_completo, grupo_path(@grupo) %></h1>
+
+<% for profesor in @profesores %>
+<% form_tag agregar_profesor_grupo_path, :method => :put do  -%>
+<%= link_to profesor.nombre_completo, profesor_path(profesor) %>
+<%= hidden_field_tag "profesor_id", profesor.id %>
+<%= hidden_field_tag "id", @grupo.id %>
+<%= submit_tag "Agregar" %>
+<% end -%>
+<% end %>
+

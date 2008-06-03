@@ -14,6 +14,7 @@ class GruposController < ApplicationController
   # GET /grupos/1.xml
   def show
     @grupo = Grupo.find(params[:id])
+    @profesor = @grupo.profesor
 
     respond_to do |format|
       format.html # show.html.erb
@@ -82,4 +83,28 @@ class GruposController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def quitar_profesor
+    @grupo = Grupo.find(params[:id])
+    if request.put?
+      @grupo.profesor = nil
+      flash[:notice] = "Se quitó el profesor del grupo #{@grupo.nombre_completo})" if @grupo.save
+      redirect_to grupo_path(@grupo)
+    end
+  end
+
+  def agregar_profesor
+    @grupo = Grupo.find(params[:id])
+    if request.get?
+      @profesores = Profesor.find(:all)
+    end
+    if request.put?
+      @profesor = Profesor.find(params[:profesor_id])
+      @grupo.profesor = @profesor
+      flash[:notice] = "Se modificó el profesor al grupo #{@grupo.nombre_completo}" if @grupo.save
+      redirect_to grupo_path(@grupo)
+    end
+  end
+
 end
+

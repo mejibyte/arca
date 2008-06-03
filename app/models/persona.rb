@@ -7,4 +7,8 @@ class Persona < ActiveRecord::Base
   def self.personas_sin_familia
     Persona.find :all, :conditions => { :type => nil, :familia_id => nil}
   end
+
+  def nombre_completo
+    "#{nombres} #{apellidos}"
+  end
 end

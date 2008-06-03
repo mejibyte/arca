@@ -1,0 +1,13 @@
+  <p>
+    <b>Nombre</b><br />
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <b>Jornada</b><br />
+    <%= f.select ( :jornada, {"Mañana" => "Mañana", "Tarde" => "Tarde"}) %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>

@@ -8,7 +8,7 @@
 </p>
 <% else -%>
 <%= link_to (@profesor.nombres + " " +@profesor.apellidos, profesor_path(@profesor) )  %>
- | <%= link_to 'Cambiar', agregar_profesor_grupo_path(@grupo) %> | <%= link_to 'Quitar', quitar_profesor_grupo_path(@profesor), :method => :put %><br />
+ | <%= link_to 'Cambiar', agregar_profesor_grupo_path(@grupo) %> | <%= link_to 'Quitar', quitar_profesor_grupo_path(@grupo), :method => :put %><br />
 <% end -%>
 </p>
 

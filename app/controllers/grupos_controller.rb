@@ -88,7 +88,7 @@ class GruposController < ApplicationController
     @grupo = Grupo.find(params[:id])
     if request.put?
       @grupo.profesor = nil
-      flash[:notice] = "Se quitó el profesor del grupo #{@grupo.nombre_completo})" if @grupo.save
+      flash[:notice] = "Se quitó el profesor del grupo #{@grupo.nombre_completo}" if @grupo.save
       redirect_to grupo_path(@grupo)
     end
   end

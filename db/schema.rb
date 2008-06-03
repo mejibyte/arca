@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 11) do
+ActiveRecord::Schema.define(:version => 12) do
+
+  create_table "exalumnos", :force => true do |t|
+    t.date     "fecha_retiro"
+    t.text     "motivo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "familias", :force => true do |t|
     t.datetime "created_at"

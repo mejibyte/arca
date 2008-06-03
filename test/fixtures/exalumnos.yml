@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha_retiro: 2008-06-02
+  motivo: MyText
+
+two:
+  fecha_retiro: 2008-06-02
+  motivo: MyText

@@ -1,0 +1,2 @@
+class Exalumno < ActiveRecord::Base
+end

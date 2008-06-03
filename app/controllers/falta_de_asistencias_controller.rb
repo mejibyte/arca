@@ -1,21 +1,21 @@
 class FaltaDeAsistenciasController < ApplicationController
   before_filter :load_alumno
   def load_alumno
-    if params[:alumno_id].nil?
-      redirect_to alumnos_path
-    else
-    @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"})
-    end
+    @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"}) unless params[:alumno_id].nil?
   end
 
   # GET /falta_de_asistencias
   # GET /falta_de_asistencias.xml
   def index
-    @falta_de_asistencias = @alumno.falta_de_asistencias.find(:all)
+    if params[:alumno_id].nil?
+      redirect_to index_all_falta_de_asistencias_path
+    else
+      @falta_de_asistencias = @alumno.falta_de_asistencias.find(:all)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @falta_de_asistencias }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @falta_de_asistencias }
+      end
     end
   end
 
@@ -91,4 +91,9 @@ class FaltaDeAsistenciasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def index_all
+    @falta_de_asistencias = FaltaDeAsistencia.find :all
+  end
+
 end

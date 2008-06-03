@@ -1,13 +1,16 @@
-<h1>Faltas de asistencia de <%= link_to @alumno.nombre_completo, alumno_path(@alumno) %> </h1>
+<h1>Faltas de asistencia de <%= link_to "todos los alumnos", alumnos_path %> </h1>
 
 <table>
   <tr>
+    <th>Alumno</th>
     <th>Fecha</th>
     <th>Motivo</th>
   </tr>
 
 <% for falta_de_asistencia in @falta_de_asistencias %>
   <tr>
+    <% @alumno = Alumno.find(falta_de_asistencia.persona.id)  %>
+    <td><%= link_to @alumno.nombre_completo, alumno_path(@alumno) %></td>
     <td><%=h falta_de_asistencia.fecha %></td>
     <td><%=h falta_de_asistencia.motivo %></td>
     <td><%= link_to 'Show', [@alumno, falta_de_asistencia] %></td>
@@ -19,4 +22,4 @@
 
 <br />
 
-<%= link_to 'New falta_de_asistencia', new_alumno_falta_de_asistencia_path(@alumno) %>
+<%= link_to 'Ir a alumnos', alumnos_path %>

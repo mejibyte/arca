@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :alumnos, :has_many => [:falta_de_asistencias]
 
+  map.resources :falta_de_asistencias, :collection => { :index_all => :get }
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

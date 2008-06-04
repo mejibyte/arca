@@ -1,5 +1,10 @@
 <h1>Lista de familias</h1>
 
+<% form_tag familias_path, :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
+
 <table>
   <tr>
     <th>Nombre</th>
@@ -12,3 +17,9 @@
 <br />
 
 <%= link_to 'Agregar nueva familia', new_familia_path %>
+
+
+
+
+
+

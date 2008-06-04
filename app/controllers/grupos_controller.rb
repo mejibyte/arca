@@ -2,7 +2,7 @@ class GruposController < ApplicationController
   # GET /grupos
   # GET /grupos.xml
   def index
-    @grupos = Grupo.find(:all)
+    @grupos = Grupo.search(params[:buscar])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,7 +97,7 @@ class GruposController < ApplicationController
   def agregar_profesor
     @grupo = Grupo.find(params[:id])
     if request.get?
-      @profesores = Profesor.find(:all)
+      @profesores = Profesor.search(params[:buscar])
     end
     if request.put?
       @profesor = Profesor.find(params[:profesor_id])

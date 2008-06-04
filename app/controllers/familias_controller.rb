@@ -2,8 +2,7 @@ class FamiliasController < ApplicationController
   # GET /familias
   # GET /familias.xml
   def index
-    @familias = Familia.find(:all)
-
+    @familias = Familia.search(params[:buscar])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @familias }
@@ -125,7 +124,7 @@ class FamiliasController < ApplicationController
   def agregar_personas
     if request.get?
       @familia = Familia.find(params[:id])
-      @personas = Persona.personas_sin_familia
+      @personas = Persona.personas_sin_familia(params[:buscar])
     end
 
     if request.put?

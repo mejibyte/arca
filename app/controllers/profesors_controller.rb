@@ -2,7 +2,7 @@ class ProfesorsController < ApplicationController
   # GET /profesors
   # GET /profesors.xml
   def index
-    @profesors = Profesor.find(:all)
+    @profesors = Profesor.search(params[:buscar])
 
     respond_to do |format|
       format.html # index.html.erb

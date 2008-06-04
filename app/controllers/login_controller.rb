@@ -18,7 +18,7 @@ class LoginController < ApplicationController
     if Usuario.count == 0
       redirect_to(:action => 'agregar_usuario')
     elsif request.post?
-    #if request.post?
+      #if request.post?
       usuario = Usuario.authenticate(params[:nombre], params[:clave])
       if usuario
         session[:usuario_id] = usuario.id
@@ -35,7 +35,8 @@ class LoginController < ApplicationController
   def logout
     session[:usuario_id] = nil
     flash[:notice] = "Logged out"
-    redirect_to(:action => "login")
+    uri= session[:original_uri]
+    redirect_to(uri ||{:action => "login"})
   end
 
   def index

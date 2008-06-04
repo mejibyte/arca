@@ -1,5 +1,8 @@
 <h1>Agregar alumnos al grupo <%= link_to @grupo.nombre_completo, grupo_path %></h1>
-
+<% form_tag agregar_alumnos_grupo_path, :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
 <% form_tag agregar_alumnos_grupo_path, :method => :put do %>
 <ul>
   <%=  render(:partial => "alumno_checkbox", :collection => @alumnos) %>

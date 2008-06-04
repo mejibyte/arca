@@ -110,7 +110,7 @@ class GruposController < ApplicationController
   def agregar_alumnos
     @grupo = Grupo.find(params[:id])
     if request.get?
-      @alumnos = Alumno.alumnos_sin_grupo
+      @alumnos = Alumno.alumnos_sin_grupo(params[:buscar])#Alumno.alumnos_sin_grupo
     end
     if request.put?
       unless params[:alumno_ids].nil?

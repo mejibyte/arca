@@ -86,7 +86,7 @@ class FamiliasController < ApplicationController
   def agregar_alumnos
     if request.get?
       @familia = Familia.find(params[:id])
-      @alumnos = Alumno.alumnos_sin_familia
+      @alumnos = Alumno.alumnos_sin_familia(params[:buscar])
     end
 
     if request.put?

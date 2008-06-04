@@ -57,6 +57,7 @@ class FaltaDeAsistenciasController < ApplicationController
         format.html { redirect_to([@alumno, @falta_de_asistencia]) }
         format.xml  { render :xml => @falta_de_asistencia, :status => :created, :location => @falta_de_asistencia }
       else
+        flash[:error] = "Hubo un error agregando la falta de asistencia"
         format.html { render :action => "new" }
         format.xml  { render :xml => @falta_de_asistencia.errors, :status => :unprocessable_entity }
       end
@@ -74,6 +75,7 @@ class FaltaDeAsistenciasController < ApplicationController
         format.html { redirect_to([@alumno, @falta_de_asistencia]) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error editando la falta de asistencia"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @falta_de_asistencia.errors, :status => :unprocessable_entity }
       end

@@ -50,6 +50,7 @@ class GruposController < ApplicationController
         format.html { redirect_to(@grupo) }
         format.xml  { render :xml => @grupo, :status => :created, :location => @grupo }
       else
+        flash[:error] = "Hubo un error creando el grupo."
         format.html { render :action => "new" }
         format.xml  { render :xml => @grupo.errors, :status => :unprocessable_entity }
       end
@@ -67,6 +68,7 @@ class GruposController < ApplicationController
         format.html { redirect_to(@grupo) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error actualizando el grupo."
         format.html { render :action => "edit" }
         format.xml  { render :xml => @grupo.errors, :status => :unprocessable_entity }
       end

@@ -10,7 +10,7 @@ class LoginController < ApplicationController
       session[:original_uri] = nil
       redirect_to( uri ||{ :action => "lista_usuarios"} )
     end
-    
+
   end
 
   def login
@@ -27,11 +27,11 @@ class LoginController < ApplicationController
         redirect_to(uri || { :action => "index" })
 
       else
-        flash[:notice] = "Combinación invalida usuario/clave"
+        flash[:error] = "Combinación invalida usuario/clave"
       end
     end
   end
-    
+
   def logout
     session[:usuario_id] = nil
     flash[:notice] = "Logged out"
@@ -39,7 +39,7 @@ class LoginController < ApplicationController
   end
 
   def index
-    
+
   end
 
   def borrar_usuario
@@ -49,7 +49,7 @@ class LoginController < ApplicationController
         usuario.destroy
         flash[:notice] = "Usuario #{usuario.nombre} borrado"
       rescue Exception => e
-        flash[:notice] = e.message
+        flash[:error] = e.message
       end
     end
     redirect_to(:action => :lista_usuarios)

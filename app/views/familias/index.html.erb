@@ -1,5 +1,9 @@
 <h1>Lista de familias</h1>
 
+<% content_for :title do -%>
+Lista de familias
+<% end -%>
+
 <% form_tag familias_path, :method => :get do %>
 <%= text_field_tag :buscar, params[:buscar] %>
 <%= submit_tag "Buscar", :name => nil %>

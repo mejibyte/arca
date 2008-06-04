@@ -47,6 +47,7 @@ class AlumnosController < ApplicationController
         format.html { redirect_to(@alumno) }
         format.xml  { render :xml => @alumno, :status => :created, :location => @alumno }
       else
+        flash[:error] = "Hubo un error creando el alumno"
         format.html { render :action => "new" }
         format.xml  { render :xml => @alumno.errors, :status => :unprocessable_entity }
       end
@@ -64,6 +65,7 @@ class AlumnosController < ApplicationController
         format.html { redirect_to(@alumno) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error actualizando el alumno"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @alumno.errors, :status => :unprocessable_entity }
       end

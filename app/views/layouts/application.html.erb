@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title><%= ""  %></title>
+  <%= stylesheet_link_tag 'arca' %>
+  <%= yield(:head) %>
+</head>
+<body>
+<div id="sidebar">
+  <h3>Menú</h3>
+  <ul>
+    <li><%= link_to "Alumnos", alumnos_path %> </li>
+    <li><%= link_to "Personas", personas_path %> </li>
+    <li><%= link_to "Familias", familias_path %> </li>
+    <li><%= link_to "Profesores", profesors_path %> </li>
+    <li><%= link_to "Grupos", grupos_path %> </li>
+    <li><%= link_to "Exalumnos", exalumnos_path %> </li>
+    <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
+  </ul>
+</div>
+<div id="main">
+  <div id="container">
+    <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end -%>
+    <%= yield  %>
+  </div>
+</div>
+</body>
+</html>

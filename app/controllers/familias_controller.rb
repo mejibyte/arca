@@ -47,6 +47,7 @@ class FamiliasController < ApplicationController
         format.html { redirect_to(@familia) }
         format.xml  { render :xml => @familia, :status => :created, :location => @familia }
       else
+        flash[:error] = "Hubo un error creando la familia."
         format.html { render :action => "new" }
         format.xml  { render :xml => @familia.errors, :status => :unprocessable_entity }
       end
@@ -64,6 +65,7 @@ class FamiliasController < ApplicationController
         format.html { redirect_to(@familia) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error actualizando la familia."
         format.html { render :action => "edit" }
         format.xml  { render :xml => @familia.errors, :status => :unprocessable_entity }
       end

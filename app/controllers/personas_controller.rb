@@ -44,6 +44,7 @@ class PersonasController < ApplicationController
         format.html { redirect_to(personas_path) }
         format.xml  { render :xml => @persona, :status => :created, :location => @persona }
       else
+        flash[:error] = "Hubo un error creando la persona."
         format.html { render :action => "new" }
         format.xml  { render :xml => @persona.errors, :status => :unprocessable_entity }
       end
@@ -62,6 +63,7 @@ class PersonasController < ApplicationController
         format.html { redirect_to(@persona) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error editando la persona."
         format.html { render :action => "edit" }
         format.xml  { render :xml => @persona.errors, :status => :unprocessable_entity }
       end

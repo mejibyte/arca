@@ -58,6 +58,7 @@ class TelefonosController < ApplicationController
         format.html { redirect_to([@persona, @telefono]) }
         format.xml  { render :xml => @telefono, :status => :created, :location => @telefono }
       else
+        flash[:error] = "Hubo un error creando el teléfono"
         format.html { render :action => "new" }
         format.xml  { render :xml => @telefono.errors, :status => :unprocessable_entity }
       end
@@ -75,6 +76,7 @@ class TelefonosController < ApplicationController
         format.html { redirect_to([@persona, @telefono]) }
         format.xml  { head :ok }
       else
+        flash[:error] = "Hubo un error actualizando el teléfono"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @telefono.errors, :status => :unprocessable_entity }
       end

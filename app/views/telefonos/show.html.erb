@@ -3,6 +3,9 @@
   <%=h @telefono.numero %>
 </p>
 
-
+<p>
+  <b>Tipo:</b>
+  <%= @telefono.tipo %>
+</p>
 <%= link_to 'Editar', [:edit, @persona, @telefono] %> |
 <%= link_to 'Regresar a la lista de telefonos de la persona', persona_telefonos_path(@persona) %>

@@ -9,32 +9,34 @@
   <%= yield(:head) %>
 </head>
 <body>
-<div id="sidebar">
-  <h3>Menú</h3>
-  <ul>
-    <li><%= link_to "Alumnos", alumnos_path %> </li>
-    <li><%= link_to "Personas", personas_path %> </li>
-    <li><%= link_to "Familias", familias_path %> </li>
-    <li><%= link_to "Profesores", profesors_path %> </li>
-    <li><%= link_to "Grupos", grupos_path %> </li>
-    <li><%= link_to "Exalumnos", exalumnos_path %> </li>
-    <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
-    <li><%= link_to "Administrar Usuarios", :controller => "login",:action => "lista_usuarios" %>
-    <% if session[:usuario_id].nil? -%>
-    <% else -%>
-    <li>
-      <%= link_to "Log out",:controller => "login",:action => "logout" %>
-    </li>
-    <% end -%>
-  </ul>
-</div>
-<div id="main">
-  <div id="container">
-    <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end -%>
-    <%= yield  %>
-  </div>
-</div>
-</body>
+  <div id="sidebar">
+    <h3>Menú</h3>
+    <ul>
+      <li><%= link_to "Alumnos", alumnos_path %> </li>
+      <li><%= link_to "Personas", personas_path %> </li>
+      <li><%= link_to "Familias", familias_path %> </li>
+      <li><%= link_to "Profesores", profesors_path %> </li>
+      <li><%= link_to "Grupos", grupos_path %> </li>
+      <li><%= link_to "Exalumnos", exalumnos_path %> </li>
+      <li><%= link_to "Transportadores", transportadors_path %> </li>
+      <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
+      <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
+      <li><%= link_to "Administrar Usuarios", :controller => "login",:action => "lista_usuarios" %>
+	<% if session[:usuario_id].nil? -%>
+	<% else -%>
+      <li>
+	<%= link_to "Log out",:controller => "login",:action => "logout" %>
+      </li>
+      <% end -%>
+      </ul>
+    </div>
+    <div id="main">
+      <div id="container">
+	<% flash.each do |name, msg| -%>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end -%>
+	<%= yield  %>
+      </div>
+    </div>
+  </body>
 </html>

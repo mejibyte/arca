@@ -73,18 +73,18 @@ div.progressBar div.background {
 }
 #container{
     width: 80%;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
+    padding: 20px 40px;
     text-align: left;
     background-color: #FFFFFF;
     border: 1px solid black;
 }
 
 #left {
-	float:left;
-	width:250px;
-	background-color:#FFFFFF;
-	color:black;
+        float:left;
+        width:250px;
+        background-color:#FFFFFF;
+        color:black;
 }
 
 
@@ -94,16 +94,16 @@ div.progressBar div.background {
     font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 .right {
-	color:gray;
-	background-color:#FFFFFF;
-	float:right;
-	font-size:100%;
-	margin-top:5px;
+        color:gray;
+        background-color:#FFFFFF;
+        float:right;
+        font-size:100%;
+        margin-top:5px;
 }
 .left {
-	color:gray;
-	background-color:#FFFFFF;
-	float:left;
-	font-size:100%;
-	margin-top:5px;
+        color:gray;
+        background-color:#FFFFFF;
+        float:left;
+        font-size:100%;
+        margin-top:5px;
 }

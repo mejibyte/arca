@@ -1,62 +1,83 @@
-body {
-	font-family:arial, verdana, helvetica, sans-serif;
-	font-size:12px;
-	cursor:default;
-	background-color:#FFFFFF
+body { background-color: #4682B4; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
 }
-* {
-	margin: 0px;
-	padding: 0px;
-	text-decoration: none;
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
 }
-html {
-	height:100%;
-	margin-bottom:1px;
+
+a { color: blue; }
+a:visited { color: #444; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
 }
-#container {
-	width: 80%;
-	margin-right: auto;
-	margin-left: auto;
-	text-align: left;
-	background-color: #FFFFFF;
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
 }
-#header {
-	width:100%;
-	padding-top:15px;
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
 }
-.spacer {
-	width:100%;
-	height:15px;
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
 }
-hr {
-	border:0px;
-	color:#CCCCCC;
-	background-color:#CDCDCD;
-	height: 1px;
-	width: 100%;
-	text-align: left;
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
 }
-h1 {
-	font-size:28px;
-	color:#cc0000;
-	background-color:#FFFFFF;
-	font-family:Arial, Verdana, Helvetica, sans-serif;
-	font-weight:300;
+
+div.uploadStatus {
+  margin: 5px;
 }
-h2 {
-	font-size:15px;
-	color:gray;
-	font-family:Arial, Verdana, Helvetica, sans-serif;
-	font-weight:300;
-	background-color:#FFFFFF;
+
+div.progressBar {
+  margin: 5px;
 }
-h3 {
-	color:#cc0000;
-	font-size:15px;
-	text-align:left;
-	font-weight:300;
-	padding:5px;
-	margin-top:5px;
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+#container{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    background-color: #FFFFFF;
+    border: 1px solid black;
 }
 
 #left {
@@ -66,31 +87,11 @@ h3 {
 	color:black;
 }
 
-#main {
-	margin					: 5px 5px 5px 260px;
-	padding					: 15px;
-	border-left				: 1px solid silver;
-}
-p {
-	color:black;
-	background-color:#FFFFFF;
-	line-height:20px;
-	padding:5px;
-}
-a {
-	color:#cc0000;
-	background-color:#FFFFFF;
-	text-decoration:none;
-}
-a:hover {
-	color:#cc0000;
-	background-color:#FFFFFF;
-	text-decoration:underline;
-}
+
 #footer {
-	clear:both;
-	font-size:12px;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+    clear:both;
+    font-size:12px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 .right {
 	color:gray;

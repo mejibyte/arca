@@ -33,7 +33,17 @@
   <%=h @alumno.fecha_nacimiento %>
 </p>
 
-<%= link_to "Faltas de asistencia", alumno_falta_de_asistencias_path(@alumno) %> |
-<%= link_to "Exalumno", alumno_exalumno_path(@alumno) %> |
+<p>
+  <b>Marcado como exalumno:</b>
+  <% if @alumno.exalumno.nil? -%>
+  No | <%= link_to "Marcar como exalumno", new_alumno_exalumno_path(@alumno) %>
+  <% else -%>
+  <%= link_to "Si", alumno_exalumno_path(@alumno)  %> | <%= link_to "Quitar marca de exalumno", alumno_exalumno_path(@alumno), :method => :delete, :confirm => "¿Está seguro?" %>
+  <% end -%>
+</p>
+
+<p>
+<b><%= link_to "Faltas de asistencia", alumno_falta_de_asistencias_path(@alumno) %> </b>
+</p>
 <%= link_to 'Edit', edit_alumno_path(@alumno) %> |
 <%= link_to 'Back', alumnos_path %>

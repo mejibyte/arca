@@ -1,8 +1,20 @@
 <h1>Editing exalumno</h1>
 
 <%= error_messages_for :exalumno %>
+<% form_tag( alumno_exalumno_path(@alumno), :method => :put ) do %>
+  <p>
+    <b>Fecha de retiro</b><br />
+    <%= date_select "exalumno", "fecha_retiro" %>
+  </p>
+  <p>
+    <b>Motivo</b><br />
+    <%= text_area_tag "exalumno[motivo]" %>
+  </p>
 
-<%= render (:partial => @exalumno, :locals => { :button_name => "Update" } ) %>
+  <p>
+    <%= submit_tag "Actualizar" %>
+  </p>
+<% end %>
 
-<%= link_to 'Show', [@alumno, @exalumno] %> |
+<%= link_to 'Show', alumno_exalumno_path(@alumno) %> |
 <%= link_to 'Back', alumno_path(@alumno) %>

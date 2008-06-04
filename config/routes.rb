@@ -1,7 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :exalumnos, :member => {:agregar_estado => :put}
-
-  map.resources :exalumnos, :member => {:agregar_estado => :get}
 
   map.resources :grupos, :member => { :quitar_profesor => :put, :agregar_profesor => :put, :agregar_alumnos => :put, :quitar_alumnos => :put }
   map.resources :grupos, :member => { :agregar_profesor => :get, :agregar_alumnos => :get, :quitar_alumnos => :get }
@@ -16,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :alumnos, :has_many => [:falta_de_asistencias]
   map.resources :alumnos, :has_one => [:exalumno]
+  map.resources :exalumnos
 
   map.resources :falta_de_asistencias, :collection => { :index_all => :get }
 

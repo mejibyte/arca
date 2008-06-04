@@ -6,6 +6,7 @@
 
 <table>
   <tr>
+    <th>Exalumno</th>
     <th>Cédula</th>
     <th>Nombres</th>
     <th>Apellidos</th>
@@ -17,6 +18,7 @@
 
 <% for alumno in @alumnos %>
   <tr>
+    <td><%= alumno.exalumno.nil? ? "No" : "Sí" %></td>
     <td><%=h alumno.cedula %></td>
     <td><%=h alumno.nombres %></td>
     <td><%=h alumno.apellidos %></td>

@@ -14,19 +14,20 @@ class Alumno < Persona
     s = limpiar_string_buscadora(campo)
     @alumnos = Alumno.find(:all,
                            :conditions => ["grupo_id IS NULL AND LOWER(nombres || apellidos) LIKE ?","%#{s}%"] )
-
-    
+    @alumnos.delete_if{ |a| not a.exalumno.nil? }
   end
+
   def self.search(campo)
     s = limpiar_string_buscadora(campo)
     @alumnos = Alumno.find(:all,
-                             :conditions => ["LOWER(nombres || apellidos) LIKE ?",
-                                             "%#{s}%"] )
+                           :conditions => ["LOWER(nombres || apellidos) LIKE ?",
+                                             "%#{s}%"],
+                           :order => "apellidos, nombres ASC")
   end
-  
+
   def self.limpiar_string_buscadora(s)
     s ||= ""
     s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
   end
-  
+
 end

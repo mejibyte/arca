@@ -2,6 +2,23 @@
 
 <%= error_messages_for :exalumno %>
 
-<%= render (:partial => @exalumno, :locals => { :button_name => "Create" } ) %>
+<% if not @alumno.grupo.nil? %>
+<b>Nota:</b> Esta acción removerá la relación entre <%= @alumno.nombre_completo %> y su grupo <%= @alumno.grupo.nombre_completo %>. <br />
+<% end %>
+
+<% form_tag( alumno_exalumno_path(@alumno), :method => :post ) do %>
+  <p>
+    <b>Fecha de retiro</b><br />
+    <%= date_select "exalumno", "fecha_retiro" %>
+  </p>
+  <p>
+    <b>Motivo</b><br />
+    <%= text_area_tag "exalumno[motivo]" %>
+  </p>
+
+  <p>
+    <%= submit_tag "Crear" %>
+  </p>
+<% end %>
 
 <%= link_to 'Back', alumno_path(@alumno) %>

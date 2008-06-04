@@ -1,6 +1,5 @@
 <% if @exalumno.nil? %>
 Ninguno <br />
-<%= link_to 'Edit', new_alumno_exalumno_path(@alumno) %> |
 <% else %>
 <p>
   <b>Fecha retiro:</b>
@@ -11,7 +10,7 @@ Ninguno <br />
   <b>Motivo:</b>
   <%=h @exalumno.motivo %>
 </p>
-<%= link_to 'Edit', [:edit, @alumno, @exalumno] %> | 
+<%= link_to 'Edit', edit_alumno_exalumno_path(@alumno) %> |
 <% end %>
 
 

@@ -1,5 +1,10 @@
 <h1>Listing profesors</h1>
 
+<% form_tag profesors_path, :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
+
 <table>
   <tr>
     <th>Cédula</th>
@@ -26,3 +31,4 @@
 <br />
 
 <%= link_to 'New profesor', new_profesor_path %>
+

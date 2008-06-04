@@ -6,8 +6,10 @@ class Persona < ActiveRecord::Base
   has_many :telefonos, :dependent => :destroy
   has_many :falta_de_asistencias, :dependent => :destroy
 
-  def self.personas_sin_familia
-    Persona.find :all, :conditions => { :type => nil, :familia_id => nil}
+  def self.personas_sin_familia(persona)
+    s = limpiar_string_buscadora(persona)
+    @personas = Persona.find(:all,
+                             :conditions => ["type IS NULL AND familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?","%#{s}%"] )
   end
 
   def nombre_completo
@@ -15,10 +17,15 @@ class Persona < ActiveRecord::Base
   end
 
   def self.search(campo)
-    campo ||= ""
-    s = campo.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
+    s = limpiar_string_buscadora(campo)
     @personas = Persona.find(:all,
                              :conditions => ["type IS NULL AND LOWER(nombres || apellidos) LIKE ?",
                                              "%#{s}%"] )
   end
+
+  def self.limpiar_string_buscadora(s)
+    s ||= ""
+    s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
+  end
+  
 end

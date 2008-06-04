@@ -1,5 +1,10 @@
 <h1>Agregar personas a la <%= link_to "familia " +  @familia.nombre, familia_path %></h1>
 
+<% form_tag agregar_personas_familia_path(@familia), :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil%>
+<% end %>
+
 <% form_tag agregar_personas_familias_path, :method => :put do %>
 <ul>
   <%=  render(:partial => "persona_checkbox", :collection => @personas ) %>
@@ -8,4 +13,6 @@
 <%= submit_tag "Agregar" %> <br />
 <%= link_to 'Crear una nueva persona', new_persona_path %>
 <% end %>
+
+
 

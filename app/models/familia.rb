@@ -7,4 +7,17 @@ class Familia < ActiveRecord::Base
   def personas_no_alumno
     personas.find :all, :conditions => { :type => nil }
   end
+  
+  def self.search(familia)
+    s=limpiar_string_buscadora(familia)
+    @familias = Familia.find(:all,
+                             :conditions => ["LOWER(nombre) LIKE ?",
+                                             "%#{s}%"] )
+  end
+
+  def self.limpiar_string_buscadora(s)
+    s ||= ""
+    s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
+   
+  end
 end

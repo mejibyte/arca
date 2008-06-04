@@ -53,7 +53,7 @@ class FaltaDeAsistenciasController < ApplicationController
 
     respond_to do |format|
       if @falta_de_asistencia.save
-        flash[:notice] = 'FaltaDeAsistencia was successfully created.'
+        flash[:notice] = 'Se ha agregado correctamente la falta de asistencia al alumno #{@alumno.nombre_completo}.'
         format.html { redirect_to([@alumno, @falta_de_asistencia]) }
         format.xml  { render :xml => @falta_de_asistencia, :status => :created, :location => @falta_de_asistencia }
       else
@@ -70,7 +70,7 @@ class FaltaDeAsistenciasController < ApplicationController
 
     respond_to do |format|
       if @falta_de_asistencia.update_attributes(params[:falta_de_asistencia])
-        flash[:notice] = 'FaltaDeAsistencia was successfully updated.'
+        flash[:notice] = 'Los datos de la falta de asistencia se han.'
         format.html { redirect_to([@alumno, @falta_de_asistencia]) }
         format.xml  { head :ok }
       else

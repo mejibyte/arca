@@ -3,8 +3,7 @@ class PersonasController < ApplicationController
   def index
     #Muestra únicamente las personas "puras",
     #no las heredadas, por eso el :type => nil
-    @personas = Persona.find(:all, :conditions => { :type => nil } )
-
+    @personas = Persona.search((params[:buscar]))
     respond_to do |format|
       format.html
       format.xml { render :xml => @personas }

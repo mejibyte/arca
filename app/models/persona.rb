@@ -13,4 +13,12 @@ class Persona < ActiveRecord::Base
   def nombre_completo
     "#{nombres} #{apellidos}"
   end
+
+  def self.search(campo)
+    campo ||= ""
+    s = campo.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
+    @personas = Persona.find(:all,
+                             :conditions => ["type IS NULL AND LOWER(nombres || apellidos) LIKE ?",
+                                             "%#{s}%"] )
+  end
 end

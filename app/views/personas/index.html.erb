@@ -1,5 +1,11 @@
 <h1>Listing personas</h1>
 
+<% form_tag personas_path, :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
+
+
 <table>
   <tr>
     <th>Cédula</th>

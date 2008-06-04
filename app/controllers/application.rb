@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def authorize
     unless Usuario.find_by_id(session[:usuario_id]) or Usuario.count == 0
       session[:original_uri] = request.request_uri
-      flash[:notice] = "Please log in"
+      flash[:notice] = "Por favor autentiquese en el sistema"
       redirect_to(:controller => "login" , :action => "login" )
     end
 

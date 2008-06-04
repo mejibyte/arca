@@ -18,9 +18,9 @@
     <td><%= h transportador.direccion %></td>
     <td><%= h transportador.tarifa_mensual %></td>
     <td><%= h transportador.tarifa_individual %></td>
-    <td><%= link_to 'Show', transportador %></td>
-    <td><%= link_to 'Edit', edit_transportador_path(transportador) %></td>
-    <td><%= link_to 'Destroy', transportador, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "Ver", transportador %></td>
+    <td><%= link_to "Editar", edit_transportador_path(transportador) %></td>
+    <td><%= link_to "Eliminar", transportador, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

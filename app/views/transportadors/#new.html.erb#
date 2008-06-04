@@ -1,9 +1,0 @@
-<h1>New transportador</h1>
-
-<%= error_messages_for :transportador %>
-
-<% form_for(@transportador) do |f| %>
-<%= render :partial => "form", :locals => { :f => f, :button_name => "Crear"} %>
-<% end %>
-
-<%= link_to 'Ir a lista de transportadores', transportadors_path %>

@@ -14,6 +14,26 @@
 </p>
 
 <p>
+  <b>Familia:</b>
+  <% if @familia.nil? -%>
+  Ninguna
+  <% else -%>
+  <%= link_to ("Familia "+@familia.nombre) , familia_path(@familia) %> 
+  <% end -%>
+  | <%= link_to "Control de familias", familias_path %>
+</p>
+
+<p>
+  <b>Grupo:</b>
+  <% if @grupo.nil? -%>
+Ninguno
+  <% else -%>
+  <%= link_to ("Grupo "+@grupo.nombre) , grupo_path(@grupo) %>
+  <% end -%>
+  | <%= link_to "Control de grupos", grupos_path %>
+</p>
+
+<p>
   <b>Direccion:</b>
   <%=h @alumno.direccion %>
 </p>

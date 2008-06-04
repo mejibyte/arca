@@ -1,3 +1,4 @@
+
 class AlumnosController < ApplicationController
   # GET /alumnos
   # GET /alumnos.xml
@@ -13,7 +14,8 @@ class AlumnosController < ApplicationController
   # GET /alumnos/1.xml
   def show
     @alumno = Alumno.find(params[:id])
-
+    @grupo = Grupo.find(@alumno.grupo_id) unless @alumno.grupo_id.nil?
+    @familia = Familia.find(@alumno.familia_id) unless @alumno.familia_id.nil?
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @alumno }

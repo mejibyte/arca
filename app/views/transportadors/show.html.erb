@@ -1,0 +1,24 @@
+ <p>
+   <h1><%= @transportador.nombre_completo %></h1>
+   <b>Cédula:</b>
+   <%=h @transportador.cedula %>
+ </p>
+
+ <p>
+   <b>Direccion:</b>
+   <%=h @transportador.direccion %>
+ </p>
+
+<p>
+  <b>Tarifa mensual:</b>
+  <%=h @transportador.tarifa_mensual %>
+</p>
+
+<p>
+  <b>Tarifa individual:</b>
+  <%=h @transportador.tarifa_individual %>
+</p>
+
+
+<%= link_to 'Editar', edit_transportador_path(@transportador) %> |
+<%= link_to 'Regresar a la lista de transportadores', transportadors_path %>

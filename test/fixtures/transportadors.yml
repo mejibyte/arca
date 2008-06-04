@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tarifa_mensual: 1
+  tarifa_individual: 1
+
+two:
+  tarifa_mensual: 1
+  tarifa_individual: 1

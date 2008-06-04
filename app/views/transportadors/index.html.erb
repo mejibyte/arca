@@ -1,0 +1,30 @@
+<h1>Lista de transportadores</h1>
+
+<table>
+  <tr>
+    <th>Cédula</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Direccion</th>
+    <th>Tarifa mensual</th>
+    <th>Tarifa individual</th>
+  </tr>
+
+<% for transportador in @transportadors %>
+  <tr>
+    <td><%= h transportador.cedula %></td>
+    <td><%= h transportador.nombres %></td>
+    <td><%= h transportador.apellidos %></td>
+    <td><%= h transportador.direccion %></td>
+    <td><%= h transportador.tarifa_mensual %></td>
+    <td><%= h transportador.tarifa_individual %></td>
+    <td><%= link_to 'Show', transportador %></td>
+    <td><%= link_to 'Edit', edit_transportador_path(transportador) %></td>
+    <td><%= link_to 'Destroy', transportador, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Nuevo transportador", new_transportador_path %>

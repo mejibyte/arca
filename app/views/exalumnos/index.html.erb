@@ -1,4 +1,4 @@
-<h1>Listing exalumnos</h1>
+<h1>Lista de exalumnos</h1>
 
 <table>
   <tr>
@@ -11,7 +11,7 @@
     <td><%=link_to exalumno.alumno.nombre_completo, exalumno.alumno %></td>
     <td><%=h exalumno.fecha_retiro %></td>
     <td><%=h exalumno.motivo %></td>
-    <td><%= link_to 'Destroy', alumno_exalumno_path(exalumno.alumno), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Eliminar', alumno_exalumno_path(exalumno.alumno), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>
 </table>

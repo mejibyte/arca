@@ -1,8 +1,8 @@
-<h1>Editing telefono</h1>
+<h1>Editando telefonos de <%= h @persona.nombre_completo %></h1>
 
 <%= error_messages_for :telefono %>
 
 <%= render :partial => @telefono, :locals => {:button_name => "Update" } %>
 
-<%= link_to 'Show', [@persona, @telefono] %> |
-<%= link_to 'Back', persona_telefonos_path(@persona) %>
+<%= link_to 'Ver', [@persona, @telefono] %> |
+<%= link_to 'Regresar a la lista de telefonos de la persona', persona_telefonos_path(@persona) %>

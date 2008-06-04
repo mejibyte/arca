@@ -45,7 +45,7 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       if @profesor.save
-        flash[:notice] = 'Profesor was successfully created.'
+        flash[:notice] = " El Profesor #{@profesor.nombre_completo} fue creado exitosamente."
         format.html { redirect_to(@profesor) }
         format.xml  { render :xml => @profesor, :status => :created, :location => @profesor }
       else
@@ -62,7 +62,7 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       if @profesor.update_attributes(params[:profesor])
-        flash[:notice] = 'Profesor was successfully updated.'
+        flash[:notice] = "Los datos del Profesor #{@profesor.nombre_completo} se han actualizado."
         format.html { redirect_to(@profesor) }
         format.xml  { head :ok }
       else

@@ -1,7 +1,7 @@
-<h1>New telefono</h1>
+<h1>Nuevo telefono para <%= h @persona.nombre_completo %></h1>
 
 <%= error_messages_for :telefono %>
 
 <%= render :partial => @telefono, :locals => {:button_name => "Create" } %>
 
-<%= link_to 'Back', persona_telefonos_path(@persona) %>
+<%= link_to 'Regresar a la lista de telefonos de la persona', persona_telefonos_path(@persona) %>

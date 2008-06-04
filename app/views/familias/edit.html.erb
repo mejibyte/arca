@@ -1,4 +1,4 @@
-<h1>Editing familia</h1>
+<h1>Editando la familia <%= h @familia.nombre %></h1>
 
 <%= error_messages_for :familia %>
 
@@ -6,5 +6,5 @@
 <%= render( :partial => "form", :locals => {:f => f} ) %>
 <% end %>
 
-<%= link_to 'Show', @familia %> |
-<%= link_to 'Back', familias_path %>
+<%= link_to 'Ver', @familia %> |
+<%= link_to 'Regresar a la lista de familias', familias_path %>

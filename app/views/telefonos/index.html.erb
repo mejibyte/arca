@@ -8,13 +8,13 @@
 <% for telefono in @telefonos %>
   <tr>
     <td><%=h telefono.numero %></td>
-    <td><%= link_to 'Show', [@persona, telefono] %></td>
-    <td><%= link_to 'Edit', [:edit, @persona, telefono] %></td>
-    <td><%= link_to 'Destroy', [@persona, telefono], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', [@persona, telefono] %></td>
+    <td><%= link_to 'Editar', [:edit, @persona, telefono] %></td>
+    <td><%= link_to 'Eliminar', [@persona, telefono], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New telefono', new_persona_telefono_path(@persona) %> | <%= link_to 'Back', persona_path(@persona) %>
+<%= link_to 'Nuevo telefono', new_persona_telefono_path(@persona) %> | <%= link_to 'Back', persona_path(@persona) %>

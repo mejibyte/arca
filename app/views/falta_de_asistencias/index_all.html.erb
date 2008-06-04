@@ -13,9 +13,9 @@
     <td><%= link_to @alumno.nombre_completo, alumno_path(@alumno) %></td>
     <td><%=h falta_de_asistencia.fecha %></td>
     <td><%=h falta_de_asistencia.motivo %></td>
-    <td><%= link_to 'Show', [@alumno, falta_de_asistencia] %></td>
-    <td><%= link_to 'Edit', [:edit, @alumno, falta_de_asistencia] %></td>
-    <td><%= link_to 'Destroy', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', [@alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Editar', [:edit, @alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Eliminar', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

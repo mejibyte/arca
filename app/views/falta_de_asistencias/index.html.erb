@@ -10,13 +10,13 @@
   <tr>
     <td><%=h falta_de_asistencia.fecha %></td>
     <td><%=h falta_de_asistencia.motivo %></td>
-    <td><%= link_to 'Show', [@alumno, falta_de_asistencia] %></td>
-    <td><%= link_to 'Edit', [:edit, @alumno, falta_de_asistencia] %></td>
-    <td><%= link_to 'Destroy', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', [@alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Editar', [:edit, @alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Eliminar', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New falta_de_asistencia', new_alumno_falta_de_asistencia_path(@alumno) %>
+<%= link_to 'Nueva falta de asistencia', new_alumno_falta_de_asistencia_path(@alumno) %>

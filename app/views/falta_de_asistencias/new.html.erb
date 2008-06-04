@@ -1,7 +1,7 @@
-<h1>New falta_de_asistencia</h1>
+<h1>Nueva falta de asistencia para el alumno <%= h @alumno.nombre_completo%></h1>
 
 <%= error_messages_for :falta_de_asistencia %>
 
-<%= render :partial => @falta_de_asistencia, :locals => {:button_name => "Create" } %>
+<%= render :partial => @falta_de_asistencia, :locals => {:button_name => "Agregar" } %>
 
-<%= link_to 'Back', alumno_falta_de_asistencias_path(@alumno) %>
+<%= link_to 'Regresar a las faltas de asistencia del alumno', alumno_falta_de_asistencias_path(@alumno) %>

@@ -1,4 +1,4 @@
-<h1>Editing alumno</h1>
+<h1>Editando los datos del alumno <%= h  @alumno.nombre_completo %></h1>
 
 <%= error_messages_for :alumno %>
 
@@ -40,9 +40,9 @@
 </p>
 
 <p>
-  <%= f.submit "Update" %>
+  <%= f.submit "Actualizar" %>
 </p>
 <% end %>
 
-<%= link_to 'Show', @alumno %> |
-<%= link_to 'Back', alumnos_path %>
+<%= link_to 'Ver', @alumno %> |
+<%= link_to 'Regresar a lista de alumnos', alumnos_path %>

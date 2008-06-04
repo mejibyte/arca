@@ -1,12 +1,14 @@
-  <tr>
-    <td>
-      <p>
+<tr>
+  <td>
+    <p>
       <div>
-     <h3><%= link_to familia.nombre, familia %></h3>
-     </div>
-     <%= link_to 'Edit', edit_familia_path(familia) %>
-     <%= link_to 'Destroy', familia, :confirm => 'Are you sure?', :method => :delete %>
-     </p>
-    </td>
-
-  </tr>
+	<h3><%= link_to familia.nombre, familia %></h3>
+      </div>
+	<%= link_to 'Editar', edit_familia_path(familia) %>
+	<%= link_to 'Eliminar', familia, :confirm => 'Are you sure?', :method => :delete %>
+    
+      
+    </p>
+  </td>
+  
+</tr>

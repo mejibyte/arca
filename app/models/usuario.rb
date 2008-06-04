@@ -47,7 +47,7 @@ private
 
   protected
   def coincidencia_de_claves
-      errors.add(:clave, ':la clave de confirmación debe de coincidir con la inicial') if clave  !=confirmacion_clave
+      errors.add(:clave, 'la confirmación debe de coincidir con la inicial') if clave  !=confirmacion_clave
 
   end
 end

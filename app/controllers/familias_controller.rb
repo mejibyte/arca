@@ -43,7 +43,7 @@ class FamiliasController < ApplicationController
 
     respond_to do |format|
       if @familia.save
-        flash[:notice] = 'Familia was successfully created.'
+        flash[:notice] = "La Familia #{@familia.nombre} fue creada exitosamente."
         format.html { redirect_to(@familia) }
         format.xml  { render :xml => @familia, :status => :created, :location => @familia }
       else
@@ -60,7 +60,7 @@ class FamiliasController < ApplicationController
 
     respond_to do |format|
       if @familia.update_attributes(params[:familia])
-        flash[:notice] = 'Familia was successfully updated.'
+        flash[:notice] = "Los datos de la Familia #{@familia.nombre} se han actualizado."
         format.html { redirect_to(@familia) }
         format.xml  { head :ok }
       else

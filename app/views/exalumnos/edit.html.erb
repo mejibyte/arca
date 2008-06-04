@@ -1,4 +1,4 @@
-<h1>Editing exalumno</h1>
+<h1>Editar los datos del exalumno <%= h @alumno.nombre_completo%> </h1>
 
 <%= error_messages_for :exalumno %>
 <% form_tag( alumno_exalumno_path(@alumno), :method => :put ) do %>
@@ -16,5 +16,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', alumno_exalumno_path(@alumno) %> |
-<%= link_to 'Back', alumno_path(@alumno) %>
+<%= link_to 'Ver', alumno_exalumno_path(@alumno) %> |
+<%= link_to "Regresar al alumno @alumno.nombre_completo", alumno_path(@alumno) %>

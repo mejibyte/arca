@@ -1,4 +1,4 @@
-<h1>Editing persona</h1>
+<h1>Editando los datos <%= h @persona.nombre_completo %></h1>
 
 <%= error_messages_for :persona %>
 
@@ -25,9 +25,9 @@
 </p>
 
 <p>
-  <%= f.submit "Update" %>
+  <%= f.submit "Actualizar" %>
 </p>
 <% end %>
 
-<%= link_to 'Show', @persona %> |
-<%= link_to 'Back', personas_path %>
+<%= link_to 'Ver', @persona %> |
+<%= link_to 'Regresar a la lista de personas', personas_path %>

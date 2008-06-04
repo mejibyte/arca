@@ -54,7 +54,7 @@ class TelefonosController < ApplicationController
 
     respond_to do |format|
       if @telefono.save
-        flash[:notice] = 'Telefono was successfully created.'
+        flash[:notice] = "El Telefono #{@telefono.numero.to_s} se le ha agregado a #{@persona.nombre_completo}."
         format.html { redirect_to([@persona, @telefono]) }
         format.xml  { render :xml => @telefono, :status => :created, :location => @telefono }
       else
@@ -71,7 +71,7 @@ class TelefonosController < ApplicationController
 
     respond_to do |format|
       if @telefono.update_attributes(params[:telefono])
-        flash[:notice] = 'Telefono was successfully updated.'
+        flash[:notice] = "El Telefono #{@telefono.numero.to_s} de #{@persona.nombre_completo} se ha actualizado."
         format.html { redirect_to([@persona, @telefono]) }
         format.xml  { head :ok }
       else

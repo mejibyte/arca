@@ -1,4 +1,4 @@
-<h1>Editing profesor</h1>
+<h1>Editando los datos del profesor <%= h @profesor.nombre_completo %></h1>
 
 <%= error_messages_for :profesor %>
 
@@ -9,9 +9,9 @@
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Actualizar" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @profesor %> |
-<%= link_to 'Back', profesors_path %>
+<%= link_to 'Ver', @profesor %> |
+<%= link_to 'Regresar a la lista de los profesores', profesors_path %>

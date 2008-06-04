@@ -18,7 +18,7 @@
   <% if @familia.nil? -%>
   Ninguna
   <% else -%>
-  <%= link_to ("Familia "+@familia.nombre) , familia_path(@familia) %> 
+  <%= link_to ("Familia "+@familia.nombre) , familia_path(@familia) %>
   <% end -%>
   | <%= link_to "Control de familias", familias_path %>
 </p>
@@ -26,9 +26,9 @@
 <p>
   <b>Grupo:</b>
   <% if @grupo.nil? -%>
-Ninguno
+  <%= @alumno.exalumno.nil? ? "Ninguno" : "Exalumnos" %>
   <% else -%>
-  <%= link_to ("Grupo "+@grupo.nombre) , grupo_path(@grupo) %>
+  <%= link_to (@grupo.nombre_completo) , grupo_path(@grupo) %>
   <% end -%>
   | <%= link_to "Control de grupos", grupos_path %>
 </p>

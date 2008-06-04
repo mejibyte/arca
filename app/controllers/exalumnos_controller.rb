@@ -4,11 +4,11 @@ class ExalumnosController < ApplicationController
   def load_alumno
     @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"})  unless params[:alumno_id].nil?
   end
-  
+
   # GET /exalumnos
   # GET /exalumnos.xml
   def index
-    @exalumno = @alumno.exalumno
+    @exalumnos = Exalumno.find :all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,5 +91,5 @@ class ExalumnosController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
 end

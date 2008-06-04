@@ -2,15 +2,16 @@
 
 <table>
   <tr>
+    <th>Alumno</th>
     <th>Fecha retiro</th>
     <th>Motivo</th>
   </tr>
   <% for exalumno in @exalumnos -%>
   <tr>
+    <td><%=link_to exalumno.alumno.nombre_completo, exalumno.alumno %></td>
     <td><%=h exalumno.fecha_retiro %></td>
     <td><%=h exalumno.motivo %></td>
     <td><%= link_to 'Show', exalumno %></td>
-    <td><%= link_to 'Edit', edit_exalumno_path(exalumno) %> </td>
     <td><%= link_to 'Destroy', exalumno, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <% end %>

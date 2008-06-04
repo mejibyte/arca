@@ -70,7 +70,7 @@ class FaltaDeAsistenciasController < ApplicationController
 
     respond_to do |format|
       if @falta_de_asistencia.update_attributes(params[:falta_de_asistencia])
-        flash[:notice] = 'Los datos de la falta de asistencia se han.'
+        flash[:notice] = 'Los datos de la falta de asistencia se han actualizado.'
         format.html { redirect_to([@alumno, @falta_de_asistencia]) }
         format.xml  { head :ok }
       else

@@ -11,4 +11,13 @@ class Alumno < Persona
   def self.alumnos_sin_grupo
     Alumno.find_all_by_grupo_id(nil, :order => "apellidos ASC")
   end
+  def self.search(campo)
+    campo ||= ""
+    s = campo.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
+    @alumnos = Alumno.find(:all,
+                             :conditions => ["LOWER(nombres || apellidos) LIKE ?",
+                                             "%#{s}%"] )
+
+  end
+  
 end

@@ -2,8 +2,7 @@ class AlumnosController < ApplicationController
   # GET /alumnos
   # GET /alumnos.xml
   def index
-    @alumnos = Alumno.find(:all)
-
+    @alumnos = Alumno.search((params[:buscar]))
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @alumnos }
@@ -44,7 +43,7 @@ class AlumnosController < ApplicationController
 
     respond_to do |format|
       if @alumno.save
-        flash[:notice] = 'El alumno #{@alumno.nombre_completo} fue creado exitosamente'
+        flash[:notice] = "El alumno #{@alumno.nombre_completo} fue creado exitosamente"
         format.html { redirect_to(@alumno) }
         format.xml  { render :xml => @alumno, :status => :created, :location => @alumno }
       else
@@ -61,7 +60,7 @@ class AlumnosController < ApplicationController
 
     respond_to do |format|
       if @alumno.update_attributes(params[:alumno])
-        flash[:notice] = 'Los datos del #{@alumno.nombre_completo} fueron actualizados'
+        flash[:notice] = "Los datos del #{@alumno.nombre_completo} fueron actualizados"
         format.html { redirect_to(@alumno) }
         format.xml  { head :ok }
       else

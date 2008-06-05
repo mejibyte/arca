@@ -1,7 +1,7 @@
 <% form_for([@alumno, @falta_de_asistencia]) do |f| %>
 <p>
   <b>Fecha</b><br />
-  <%=  f.date_select :fecha %>
+  <%= date_field :falta_de_asistencia, :fecha, :format => ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default_date], :value => @falta_de_asistencia.fecha %>
 </p>
 <p>
   <b>Motivo</b><br />

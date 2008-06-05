@@ -9,7 +9,7 @@
 <% form_tag( alumno_exalumno_path(@alumno), :method => :post ) do %>
   <p>
     <b>Fecha de retiro</b><br />
-    <%= date_select "exalumno", "fecha_retiro" %>
+    <%= date_field :exalumno, :fecha_retiro, :format => ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default_date], :value => @exalumno.fecha_retiro %>
   </p>
   <p>
     <b>Motivo</b><br />

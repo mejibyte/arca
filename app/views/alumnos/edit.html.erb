@@ -31,12 +31,12 @@
 
 <p>
   <b>Fecha ingreso</b><br />
-  <%= f.date_select :fecha_ingreso %>
+  <%= date_field :alumno, :fecha_ingreso, :format => ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default_date], :value => @alumno.fecha_ingreso %>
 </p>
 
 <p>
   <b>Fecha nacimiento</b><br />
-  <%= f.date_select :fecha_nacimiento %>
+  <%= date_field :alumno, :fecha_nacimiento, :format => ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS[:default_date], :value => @alumno.fecha_nacimiento %>
 </p>
 
 <p>

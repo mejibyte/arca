@@ -24,7 +24,7 @@ class LoginController < ApplicationController
         session[:usuario_id] = usuario.id
         uri = session[:original_uri]
         session[:original_uri] = nil
-        redirect_to(uri || { :action => "index" })
+        redirect_to(uri || {:controller => "alumnos", :action => "index" })
 
       else
         flash[:error] = "Combinación invalida usuario/clave"

@@ -3,13 +3,15 @@ class ExalumnosController < ApplicationController
 
   def load_alumno
     @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"})  unless params[:alumno_id].nil?
+   # @alumno = Persona.search(, @params[:buscar])  unless params[:alumno_id].nil?
+   # @alumno = Alumno.searchEx(params[:alumno_id],params[:buscar])unless params[:alumno_id].nil?
   end
 
   # GET /exalumnos
   # GET /exalumnos.xml
   def index
     @exalumnos = Exalumno.find :all
-
+    # @exalumnos = Exalumno.searchEx(@alumno,params[:buscar])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @exalumnos }

@@ -23,6 +23,7 @@ class Persona < ActiveRecord::Base
                                              "%#{s}%"] )
   end
 
+
   def self.limpiar_string_buscadora(s)
     s ||= ""
     s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")

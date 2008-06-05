@@ -17,9 +17,10 @@
       <li><%= link_to "Familias", familias_path %> </li>
       <li><%= link_to "Profesores", profesors_path %> </li>
       <li><%= link_to "Grupos", grupos_path %> </li>
+      <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
       <li><%= link_to "Exalumnos", exalumnos_path %> </li>
       <li><%= link_to "Transportadores", transportadors_path %> </li>
-      <li><%= link_to "Faltas de asistencia", falta_de_asistencias_path %> </li>
+      <li><%= link_to "Rutas", rutas_path %> </li>
       <li><%= link_to "Administrar Usuarios", :controller => "login",:action => "lista_usuarios" %>
         <% if session[:usuario_id].nil? -%>
         <% else -%>

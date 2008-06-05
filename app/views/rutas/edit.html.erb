@@ -1,0 +1,10 @@
+<h1>Editando ruta</h1>
+
+<%= error_messages_for :ruta %>
+
+<% form_for(@ruta) do |f| %>
+<%= render :partial => "form", :locals => {:f => f, :button_name => "Actualizar"} %>
+<% end %>
+
+<%= link_to "Regresar a transportador", @transportador %> |
+<%= link_to 'Regresar a la lista de rutas', rutas_path %>

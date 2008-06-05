@@ -1,0 +1,9 @@
+<h1>Nueva ruta</h1>
+
+<%= error_messages_for :ruta %>
+
+<% form_for(@ruta) do |f| %>
+<%= render :partial => "form", :locals => {:f => f, :button_name => "Crear"} %>
+<% end %>
+
+<%= link_to 'Regresar a la lista de rutas', rutas_path %>

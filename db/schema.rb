@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 18) do
+ActiveRecord::Schema.define(:version => 19) do
 
   create_table "exalumnos", :force => true do |t|
     t.date     "fecha_retiro"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(:version => 18) do
     t.integer  "grupo_id"
     t.integer  "tarifa_mensual"
     t.integer  "tarifa_individual"
+  end
+
+  create_table "rutas", :force => true do |t|
+    t.string   "placa_vehiculo"
+    t.string   "jornada"
+    t.text     "sector"
+    t.integer  "transportador_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

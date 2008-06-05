@@ -1,0 +1,19 @@
+  <p>
+    <b>Placa vehiculo</b><br />
+    <%= f.text_field :placa_vehiculo %>
+  </p>
+
+  <p>
+    <b>Jornada</b><br />
+    <%= f.select ( :jornada, {"Mañana" => "Mañana", "Tarde" => "Tarde"})%>
+  </p>
+
+  <p>
+    <b>Sector</b><br />
+    <%= f.text_area :sector %>
+  </p>
+
+  <%= hidden_field_tag "transportador_id", @transportador.id %>
+  <p>
+    <%= f.submit button_name %>
+  </p>

@@ -19,6 +19,24 @@
   <%=h @transportador.tarifa_individual %>
 </p>
 
+<p>
+  <b>Ruta:</b>
+  <div>
+    <% if @transportador.ruta.nil? %>
+    Ninguna | <%= link_to "Agregar ruta", new_transportador_ruta_path(@transportador) %>
+    <% else -%>
+    <ul>
+      <li><b>Sector: </b> <%= @transportador.ruta.sector %></li>
+      <li><b>Jornada: </b> <%= @transportador.ruta.jornada %></li>
+      <li><b>Placa del vehículo: </b> <%= @transportador.ruta.placa_vehiculo %></li>
+    </ul>
+    <%= link_to "Editar ruta", edit_transportador_ruta_path(@transportador) %> |
+    <%= link_to "Eliminar ruta", transportador_ruta_path(@transportador), :method => :delete, :confirm => "¿Está seguro?" %>
+    <% end -%>
+</p>
+</div>
 
+<br />
 <%= link_to 'Editar', edit_transportador_path(@transportador) %> |
-<%= link_to 'Regresar a la lista de transportadores', transportadors_path %>
+<%= link_to 'Regresar a la lista de transportadores', transportadors_path %> |
+<%= link_to 'Regresar a la lista de rutas', rutas_path %>

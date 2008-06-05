@@ -1,0 +1,26 @@
+<% if @ruta.nil? %>
+<p>
+  Ninguna <br />
+</p>
+
+<% else -%>
+<p>
+  <b>Placa vehiculo:</b>
+  <%=h @ruta.placa_vehiculo %>
+</p>
+
+<p>
+  <b>Jornada:</b>
+  <%=h @ruta.jornada %>
+</p>
+
+<p>
+  <b>Sector:</b>
+  <%=h @ruta.sector %>
+</p>
+
+
+<%= link_to 'Editar', edit_ruta_path(@ruta) %> |
+<% end -%>
+<%= link_to 'Regresar al transportador', transportador_path(@transportador) %> |
+<%= link_to 'Regresar a la lista de rutas', rutas_path %>

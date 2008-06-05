@@ -1,0 +1,25 @@
+<h1>Lista de rutas</h1>
+
+<table>
+  <tr>
+    <th>Transportador</th>
+    <th>Placa del vehículo</th>
+    <th>Jornada</th>
+    <th>Sector</th>
+  </tr>
+
+<% for ruta in @rutas %>
+  <tr>
+    <td><%= link_to ruta.transportador.nombre_completo, ruta.transportador %></td>
+    <td><%=h ruta.placa_vehiculo %></td>
+    <td><%=h ruta.jornada %></td>
+    <td><%=h ruta.sector %></td>
+    <td><%= link_to 'Editar', edit_ruta_path(ruta) %></td>
+    <td><%= link_to 'Eliminar', ruta, :confirm => "¿Estás seguro?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Ir a lista de transportadores", transportadors_path %>

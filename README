@@ -1,5 +1,3 @@
-Guarderia
-
 Para correr arca se necesita tener:
 1. Un browser que soporte javascript
 2. ruby en la version 1.8
@@ -9,8 +7,10 @@ Para iniciar la aplicacion:
 2. Acceda hasta el directorio de arca
 3. Teclee 
    	  script/server
-4. Para iniciar la aplicación habra su browser favorito y he ingrese a localhost:3000 o a 127.0.0.1:3000
-5. Listo ya a iniciado arca
+4. Para iniciar la aplicación localmente abra su browser favorito e ingrese a http://localhost:3000 o a http://127.0.0.1:3000
+5. Listo. Ya ha iniciado arca
 
 NOTA:
-Para mantenimientos mirar la documentacion que se encuentra en este en el directorio /doc/app/index.html
+Para mantenimientos mirar la documentación que se encuentra en el directorio /doc/app/index.html
+
+Sebastián Arcila - Andrés Mejía

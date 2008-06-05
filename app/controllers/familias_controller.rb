@@ -1,6 +1,5 @@
 class FamiliasController < ApplicationController
-  # GET /familias
-  # GET /familias.xml
+  # Indexa el nombre de todas las familias
   def index
     @familias = Familia.search(params[:buscar])
     respond_to do |format|
@@ -8,9 +7,7 @@ class FamiliasController < ApplicationController
       format.xml  { render :xml => @familias }
     end
   end
-
-  # GET /familias/1
-  # GET /familias/1.xml
+  # Muestra los detalles de la familia
   def show
     @familia = Familia.find(params[:id])
     @personas = @familia.personas_no_alumno
@@ -20,8 +17,7 @@ class FamiliasController < ApplicationController
     end
   end
 
-  # GET /familias/new
-  # GET /familias/new.xml
+  # Determina una nueva familia
   def new
     @familia = Familia.new
 
@@ -30,14 +26,13 @@ class FamiliasController < ApplicationController
       format.xml  { render :xml => @familia }
     end
   end
-
-  # GET /familias/1/edit
+  
+  # Edita el nombre de una familia
   def edit
     @familia = Familia.find(params[:id])
   end
 
-  # POST /familias
-  # POST /familias.xml
+  # Crea una nueva familia en la aplicación
   def create
     @familia = Familia.new(params[:familia])
 
@@ -54,8 +49,7 @@ class FamiliasController < ApplicationController
     end
   end
 
-  # PUT /familias/1
-  # PUT /familias/1.xml
+  # Actualiza la informacion de la familia
   def update
     @familia = Familia.find(params[:id])
 
@@ -72,8 +66,7 @@ class FamiliasController < ApplicationController
     end
   end
 
-  # DELETE /familias/1
-  # DELETE /familias/1.xml
+  # Elimina una familia
   def destroy
     @familia = Familia.find(params[:id])
     @familia.destroy
@@ -83,7 +76,8 @@ class FamiliasController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
+  
+  # Agrega niño/alumnos a la familia determinada
   def agregar_alumnos
     if request.get?
       @familia = Familia.find(params[:id])
@@ -104,7 +98,8 @@ class FamiliasController < ApplicationController
     end
   end
 
-    def quitar_alumnos
+  # Quita los niños/alumnos de la familia
+  def quitar_alumnos
     if request.get?
       @familia = Familia.find(params[:id])
       @alumnos = @familia.alumnos
@@ -123,6 +118,7 @@ class FamiliasController < ApplicationController
     end
   end
 
+  # Agrega las personas/familiares de un o varios niño en una familia
   def agregar_personas
     if request.get?
       @familia = Familia.find(params[:id])
@@ -142,8 +138,9 @@ class FamiliasController < ApplicationController
       redirect_to familia_path(@familia.id)
     end
   end
-
-    def quitar_personas
+  
+  # Quita personas/familiares de una familia
+  def quitar_personas
     if request.get?
       @familia = Familia.find(params[:id])
       @personas = Persona.find(:all, :conditions => {:type => nil, :familia_id => @familia.id } )

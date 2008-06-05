@@ -1,6 +1,7 @@
 class TransportadorsController < ApplicationController
-  # GET /transportadors
-  # GET /transportadors.xml
+
+
+  # Indexa los transportadores
   def index
     @transportadors = Transportador.find(:all, :order => "apellidos, nombres ASC")
 
@@ -10,8 +11,7 @@ class TransportadorsController < ApplicationController
     end
   end
 
-  # GET /transportadors/1
-  # GET /transportadors/1.xml
+  # Muestra la información de la persona
   def show
     @transportador = Transportador.find(params[:id])
 
@@ -21,8 +21,7 @@ class TransportadorsController < ApplicationController
     end
   end
 
-  # GET /transportadors/new
-  # GET /transportadors/new.xml
+  # Determina la informacion del nuevo transportador
   def new
     @transportador = Transportador.new
 
@@ -32,13 +31,12 @@ class TransportadorsController < ApplicationController
     end
   end
 
-  # GET /transportadors/1/edit
+  # Edita los datos del transportador
   def edit
     @transportador = Transportador.find(params[:id])
   end
 
-  # POST /transportadors
-  # POST /transportadors.xml
+  # Crea el nuevo transportador
   def create
     @transportador = Transportador.new(params[:transportador])
 
@@ -55,8 +53,7 @@ class TransportadorsController < ApplicationController
     end
   end
 
-  # PUT /transportadors/1
-  # PUT /transportadors/1.xml
+  # Actualiza la información del transportador  
   def update
     @transportador = Transportador.find(params[:id])
 
@@ -73,8 +70,7 @@ class TransportadorsController < ApplicationController
     end
   end
 
-  # DELETE /transportadors/1
-  # DELETE /transportadors/1.xml
+  # Elimina el transportador
   def destroy
     @transportador = Transportador.find(params[:id])
     @transportador.destroy

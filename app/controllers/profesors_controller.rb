@@ -1,6 +1,6 @@
 class ProfesorsController < ApplicationController
-  # GET /profesors
-  # GET /profesors.xml
+
+  #Indexa los profesores, se pueden filtrar por nombre y apellidos
   def index
     @profesors = Profesor.search(params[:buscar])
 
@@ -10,8 +10,7 @@ class ProfesorsController < ApplicationController
     end
   end
 
-  # GET /profesors/1
-  # GET /profesors/1.xml
+  # Muestra los detalles del profesor
   def show
     @profesor = Profesor.find(params[:id])
     @grupos = Grupo.find_all_by_profesor_id(params[:id])
@@ -22,8 +21,7 @@ class ProfesorsController < ApplicationController
     end
   end
 
-  # GET /profesors/new
-  # GET /profesors/new.xml
+  # Determina un nuevo profesor
   def new
     @profesor = Profesor.new
 
@@ -33,13 +31,12 @@ class ProfesorsController < ApplicationController
     end
   end
 
-  # GET /profesors/1/edit
+  # Edita la informacion del profesor
   def edit
     @profesor = Profesor.find(params[:id])
   end
 
-  # POST /profesors
-  # POST /profesors.xml
+  # Crea un nuevo profesor
   def create
     @profesor = Profesor.new(params[:profesor])
 
@@ -56,8 +53,7 @@ class ProfesorsController < ApplicationController
     end
   end
 
-  # PUT /profesors/1
-  # PUT /profesors/1.xml
+  # Actualiza los datos del profesor
   def update
     @profesor = Profesor.find(params[:id])
 
@@ -74,8 +70,7 @@ class ProfesorsController < ApplicationController
     end
   end
 
-  # DELETE /profesors/1
-  # DELETE /profesors/1.xml
+  # Elimina los datos del profesor
   def destroy
     @profesor = Profesor.find(params[:id])
     @profesor.destroy

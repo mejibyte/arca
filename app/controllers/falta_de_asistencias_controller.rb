@@ -1,11 +1,13 @@
 class FaltaDeAsistenciasController < ApplicationController
   before_filter :load_alumno
+
+  # Carga los datos del o de los alumnos con faltas de asistencias
   def load_alumno
     @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"}) unless params[:alumno_id].nil?
   end
 
-  # GET /falta_de_asistencias
-  # GET /falta_de_asistencias.xml
+  # En lista las faltas de asistencias de un alumno en particular
+  # Se puden filtrar por medio de la barra de busqueda
   def index
     if params[:alumno_id].nil?
       redirect_to index_all_falta_de_asistencias_path
@@ -25,8 +27,7 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
-  # GET /falta_de_asistencias/1
-  # GET /falta_de_asistencias/1.xml
+  # Muestra los detalles de la falta de asistencia
   def show
     @falta_de_asistencia = @alumno.falta_de_asistencias.find(params[:id])
 
@@ -36,8 +37,7 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
-  # GET /falta_de_asistencias/new
-  # GET /falta_de_asistencias/new.xml
+  # Determina una falta de asistencia para determinado alumno
   def new
     @falta_de_asistencia = @alumno.falta_de_asistencias.build
 
@@ -47,13 +47,13 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
-  # GET /falta_de_asistencias/1/edit
+  # Edita los datos de la faltas de asistencia de determinado alumno
   def edit
     @falta_de_asistencia = @alumno.falta_de_asistencias.find(params[:id])
   end
 
-  # POST /falta_de_asistencias
-  # POST /falta_de_asistencias.xml
+  
+  # Agrega una nueva falta de asistencia a un alumno en particular
   def create
     @falta_de_asistencia = @alumno.falta_de_asistencias.build(params[:falta_de_asistencia])
 
@@ -70,8 +70,7 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
-  # PUT /falta_de_asistencias/1
-  # PUT /falta_de_asistencias/1.xml
+  # Actualiza los datos de la falta de asistencia
   def update
     @falta_de_asistencia = @alumno.falta_de_asistencias.find(params[:id])
 
@@ -87,9 +86,7 @@ class FaltaDeAsistenciasController < ApplicationController
       end
     end
   end
-
-  # DELETE /falta_de_asistencias/1
-  # DELETE /falta_de_asistencias/1.xml
+  # Elimina una falta de asistencia determinada
   def destroy
     @falta_de_asistencia = @alumno.falta_de_asistencias.find(params[:id])
     @falta_de_asistencia.destroy
@@ -100,7 +97,8 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
-
+  # Despliega todas las faltas de asistencia
+  # Se pueden filtrar por fechas con las barras de busqueda
   def index_all
     @falta_de_asistencias = FaltaDeAsistencia.searchAll(params[:antes],params[:despues])
     if @falta_de_asistencias.nil?

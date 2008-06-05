@@ -6,8 +6,8 @@ class Usuario < ActiveRecord::Base
   validates_presence_of :confirmacion_clave
   validate :coincidencia_de_claves
   attr_accessor :confirmacion_clave
+
   #validates_confirmation_of :clave
-  
   def validate
     errors.add_to_base("Falta clave" ) if clave_encriptada.blank?
   end
@@ -21,21 +21,25 @@ class Usuario < ActiveRecord::Base
     end
     usuario
   end
+
   # 'clave' es un atributo virtual
   def clave
     @clave
   end
+
   def clave=(pwd)
     @clave = pwd
     return if pwd.blank?
     create_new_palabra_random
     self.clave_encriptada = Usuario.encriptar_clave(self.clave, self.palabra_random)
   end
+
   def after_destroy
     if Usuario.count.zero?
       raise "No se puede borrar el ultimo usuario"
     end
   end
+
 private
   def create_new_palabra_random
     self.palabra_random = self.object_id.to_s + rand.to_s

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery  :secret => '9c7d05aba77e9f7510a61df367d99a00'
 
   protected
-
+  # Metodo en el cual se valida y se maneja el ingreso de usuarios
   def authorize
     unless Usuario.find_by_id(session[:usuario_id]) or Usuario.count == 0
       session[:original_uri] = request.request_uri

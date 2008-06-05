@@ -1,3 +1,4 @@
+# Maneja la relación alumnos, transportadores, por medio de la ruta
 class Ruta < ActiveRecord::Base
 
   validates_presence_of :placa_vehiculo, :jornada, :sector
@@ -8,6 +9,7 @@ class Ruta < ActiveRecord::Base
 
 
   before_validation :upcase_placa
+
 
   def upcase_placa
     placa_vehiculo.upcase!

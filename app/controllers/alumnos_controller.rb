@@ -1,7 +1,7 @@
 
 class AlumnosController < ApplicationController
-  # GET /alumnos
-  # GET /alumnos.xml
+  # En lista los alumnos,
+  # Además puede filtrar la lista por medio de la barra de busqueda
   def index
     @alumnos = Alumno.search((params[:buscar]))
     respond_to do |format|
@@ -10,8 +10,7 @@ class AlumnosController < ApplicationController
     end
   end
 
-  # GET /alumnos/1
-  # GET /alumnos/1.xml
+  # Mustra los datos del alumno
   def show
     @alumno = Alumno.find(params[:id])
     @grupo = Grupo.find(@alumno.grupo_id) unless @alumno.grupo_id.nil?
@@ -22,8 +21,7 @@ class AlumnosController < ApplicationController
     end
   end
 
-  # GET /alumnos/new
-  # GET /alumnos/new.xml
+  # Define un alumno nuevo en la aplicación
   def new
     @alumno = Alumno.new
 
@@ -33,13 +31,12 @@ class AlumnosController < ApplicationController
     end
   end
 
-  # GET /alumnos/1/edit
+  # Edita los datos del alumno definido
   def edit
     @alumno = Alumno.find(params[:id])
   end
 
-  # POST /alumnos
-  # POST /alumnos.xml
+  # Crea un alumno en la aplicación
   def create
     @alumno = Alumno.new(params[:alumno])
 
@@ -56,8 +53,7 @@ class AlumnosController < ApplicationController
     end
   end
 
-  # PUT /alumnos/1
-  # PUT /alumnos/1.xml
+  # Actualiza los datos del alumno
   def update
     @alumno = Alumno.find(params[:id])
 
@@ -74,8 +70,7 @@ class AlumnosController < ApplicationController
     end
   end
 
-  # DELETE /alumnos/1
-  # DELETE /alumnos/1.xml
+  # Elimina el alumno de la aplicación
   def destroy
     @alumno = Alumno.find(params[:id])
     @alumno.destroy

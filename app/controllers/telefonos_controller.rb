@@ -1,6 +1,7 @@
 class TelefonosController < ApplicationController
   before_filter :load_persona
 
+  # Carga los datos de la persona
   def load_persona
     if params[:persona_id].nil?
       redirect_to personas_path
@@ -9,8 +10,7 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # GET /telefonos
-  # GET /telefonos.xml
+  # Muestra los telefonos de la persona
   def index
     @telefonos = @persona.telefonos.find(:all, :order => "tipo ASC")
 
@@ -20,8 +20,7 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # GET /telefonos/1
-  # GET /telefonos/1.xml
+  # Muestra el telefono especifico de la persona
   def show
     @telefono = @persona.telefonos.find(params[:id])
 
@@ -31,8 +30,7 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # GET /telefonos/new
-  # GET /telefonos/new.xml
+  # Determina un nuevo telefono para la persona
   def new
     @telefono = @persona.telefonos.build
 
@@ -42,13 +40,12 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # GET /telefonos/1/edit
+  # Edita el telefono seleccionado de la persona
   def edit
     @telefono = @persona.telefonos.find(params[:id])
   end
 
-  # POST /telefonos
-  # POST /telefonos.xml
+  # Crea un nuevo telefono para la persona
   def create
     @telefono = @persona.telefonos.build(params[:telefono])
 
@@ -65,8 +62,7 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # PUT /telefonos/1
-  # PUT /telefonos/1.xml
+  # Actualiza la informacion del telefono especifico de la persona especifica
   def update
     @telefono = @persona.telefonos.find(params[:id])
 
@@ -83,8 +79,7 @@ class TelefonosController < ApplicationController
     end
   end
 
-  # DELETE /telefonos/1
-  # DELETE /telefonos/1.xml
+  # Elimina el telefono seleccionado de la persona
   def destroy
     @telefono = @persona.telefonos.find(params[:id])
     @telefono.destroy

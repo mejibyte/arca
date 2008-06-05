@@ -1,11 +1,12 @@
 class RutasController < ApplicationController
   before_filter :load_transportador
-
+  
+  # Carga los datos del transportador
   def load_transportador
     @transportador = Transportador.find(params[:transportador_id]) unless params[:transportador_id].nil?
   end
-  # GET /rutas
-  # GET /rutas.xml
+  
+  #Indexa las rutas
   def index
     @rutas = Ruta.find(:all,:order => "sector ASC")
 
@@ -15,8 +16,7 @@ class RutasController < ApplicationController
     end
   end
 
-  # GET /rutas/1
-  # GET /rutas/1.xml
+  # Muestra todos los detalles de la ruta
   def show
 
     @ruta = @transportador.ruta if @transportador
@@ -29,8 +29,7 @@ class RutasController < ApplicationController
     end
   end
 
-  # GET /rutas/new
-  # GET /rutas/new.xml
+  # Crea una nueva ruta
   def new
     if @transportador.nil?
       flash[:error] = "Escoja un transportador y añada la ruta"
@@ -45,15 +44,14 @@ class RutasController < ApplicationController
     end
   end
 
-  # GET /rutas/1/edit
+  # Edita los datos de la ruta
   def edit
     @ruta = @transportador.ruta if @transportador
     @ruta ||= Ruta.find(params[:id])
     @transportador ||= @ruta.transportador
   end
 
-  # POST /rutas
-  # POST /rutas.xml
+  # Crea una nueva ruta
   def create
     @ruta = Ruta.new(params[:ruta])
     @ruta.transportador = @transportador
@@ -71,8 +69,7 @@ class RutasController < ApplicationController
     end
   end
 
-  # PUT /rutas/1
-  # PUT /rutas/1.xml
+  # Actualiza la información respectiva a una ruta
   def update
     @ruta = Ruta.find(params[:id])
 
@@ -89,8 +86,7 @@ class RutasController < ApplicationController
     end
   end
 
-  # DELETE /rutas/1
-  # DELETE /rutas/1.xml
+  # Elimina la ruta especificada
   def destroy
     @ruta = @transportador.ruta
     @ruta.destroy
@@ -101,6 +97,7 @@ class RutasController < ApplicationController
     end
   end
 
+  # Busca los alumno sin ruta, los indexa, para poderlos escoger y agregar a la ruta
   def agregar_alumnos
     @ruta = Ruta.find(params[:id])
     if request.get?
@@ -119,6 +116,7 @@ class RutasController < ApplicationController
     end
   end
 
+  # Elimina los alumnos seleccionados de la ruta
   def quitar_alumnos
     @ruta = Ruta.find(params[:id])
     if request.get?

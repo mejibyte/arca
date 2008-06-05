@@ -1,14 +1,13 @@
 class ExalumnosController < ApplicationController
   before_filter :load_alumno
-
+  # Carga los datos del alumno
   def load_alumno
     @alumno = Persona.find(params[:alumno_id], :conditions => { :type => "Alumno"})  unless params[:alumno_id].nil?
    # @alumno = Persona.search(, @params[:buscar])  unless params[:alumno_id].nil?
    # @alumno = Alumno.searchEx(params[:alumno_id],params[:buscar])unless params[:alumno_id].nil?
   end
 
-  # GET /exalumnos
-  # GET /exalumnos.xml
+  # Lista los exalumnos
   def index
     @exalumnos = Exalumno.find :all
     # @exalumnos = Exalumno.searchEx(@alumno,params[:buscar])
@@ -18,8 +17,7 @@ class ExalumnosController < ApplicationController
     end
   end
 
-  # GET /exalumnos/1
-  # GET /exalumnos/1.xml
+  # Muestra los datos de determinado alumno
   def show
     @exalumno = @alumno.exalumno
 
@@ -29,8 +27,7 @@ class ExalumnosController < ApplicationController
     end
   end
 
-  # GET /exalumnos/new
-  # GET /exalumnos/new.xml
+  # Determina un nuevo alumno en la aplicación
   def new
     @exalumno = Exalumno.new(:persona_id => @alumno.id)
 
@@ -40,13 +37,12 @@ class ExalumnosController < ApplicationController
     end
   end
 
-  # GET /exalumnos/1/edit
+  # Edita los datos del exalumno
   def edit
     @exalumno = @alumno.exalumno
   end
 
-  # POST /exalumnos
-  # POST /exalumnos.xml
+  # Crea un nuevo exalumno en la aplicación
   def create
     @exalumno = Exalumno.new(params[:exalumno])
     @exalumno.alumno = @alumno
@@ -64,8 +60,7 @@ class ExalumnosController < ApplicationController
     end
   end
 
-  # PUT /exalumnos/1
-  # PUT /exalumnos/1.xml
+  # Actualiza los datos del exalumno
   def update
     @exalumno = @alumno.exalumno
 
@@ -82,8 +77,7 @@ class ExalumnosController < ApplicationController
   end
 
 
-  # DELETE /exalumnos/1
-  # DELETE /exalumnos/1.xml
+  # Elimina el estado exalumno de un alumno
   def destroy
     @exalumno = @alumno.exalumno
     @exalumno.destroy

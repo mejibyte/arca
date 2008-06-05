@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
-  #  before_filter :authorize, :except => :login
 
+  # Crea un nuevo usuario
   def agregar_usuario
     @usuario = Usuario.new(params[:usuario])
     if request.post? and @usuario.save
@@ -12,7 +12,8 @@ class LoginController < ApplicationController
     end
 
   end
-
+  
+  # Maneja el login en la aplicación
   def login
     session[:usuario_id] = nil
     if Usuario.count == 0
@@ -32,6 +33,7 @@ class LoginController < ApplicationController
     end
   end
 
+  # Maneja la salida 'segura' de la aplicación
   def logout
     session[:usuario_id] = nil
     flash[:notice] = "Logged out"
@@ -39,10 +41,12 @@ class LoginController < ApplicationController
     redirect_to(uri ||{:action => "login"})
   end
 
+  # No lo utilizamos
   def index
 
   end
-
+  
+  # Elimina un usuario
   def borrar_usuario
     if request.post?
       usuario = Usuario.find(params[:id])
@@ -56,6 +60,7 @@ class LoginController < ApplicationController
     redirect_to(:action => :lista_usuarios)
   end
 
+  # Indexa los usuarios
   def lista_usuarios
     @todos_usuarios = Usuario.find(:all)
   end

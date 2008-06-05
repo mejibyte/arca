@@ -1,6 +1,6 @@
 class GruposController < ApplicationController
-  # GET /grupos
-  # GET /grupos.xml
+  
+  #Indexa los grupos
   def index
     @grupos = Grupo.search(params[:buscar])
 
@@ -10,8 +10,7 @@ class GruposController < ApplicationController
     end
   end
 
-  # GET /grupos/1
-  # GET /grupos/1.xml
+  # Muestra los detalles de un grupo
   def show
     @grupo = Grupo.find(params[:id])
     @profesor = @grupo.profesor
@@ -23,8 +22,7 @@ class GruposController < ApplicationController
     end
   end
 
-  # GET /grupos/new
-  # GET /grupos/new.xml
+  # Determina un nuevo grupo
   def new
     @grupo = Grupo.new
 
@@ -34,13 +32,12 @@ class GruposController < ApplicationController
     end
   end
 
-  # GET /grupos/1/edit
+  # Edita el nombre y jornada de un grupo
   def edit
     @grupo = Grupo.find(params[:id])
   end
 
-  # POST /grupos
-  # POST /grupos.xml
+  # Crea un nuevo grupo en la aplicación
   def create
     @grupo = Grupo.new(params[:grupo])
 
@@ -57,8 +54,7 @@ class GruposController < ApplicationController
     end
   end
 
-  # PUT /grupos/1
-  # PUT /grupos/1.xml
+  # Actualiza los datos del grupo
   def update
     @grupo = Grupo.find(params[:id])
 
@@ -75,8 +71,7 @@ class GruposController < ApplicationController
     end
   end
 
-  # DELETE /grupos/1
-  # DELETE /grupos/1.xml
+  # Elimina un grupo
   def destroy
     @grupo = Grupo.find(params[:id])
     @grupo.destroy
@@ -87,6 +82,7 @@ class GruposController < ApplicationController
     end
   end
 
+  # Quita el profesor del grupo
   def quitar_profesor
     @grupo = Grupo.find(params[:id])
     if request.put?
@@ -96,6 +92,7 @@ class GruposController < ApplicationController
     end
   end
 
+  # Agrega un profesor al grupo, de los profesores disponibles, se pueden filtrar con la busqueda
   def agregar_profesor
     @grupo = Grupo.find(params[:id])
     if request.get?
@@ -109,6 +106,7 @@ class GruposController < ApplicationController
     end
   end
 
+  # Agrega alumnos al grupo, que esten sin grupo, se pueden filtrar con la busqueda
   def agregar_alumnos
     @grupo = Grupo.find(params[:id])
     if request.get?
@@ -126,6 +124,7 @@ class GruposController < ApplicationController
     end
   end
 
+  # Quita los alumnos seleccionados del grupo
   def quitar_alumnos
     @grupo = Grupo.find(params[:id])
     if request.get?

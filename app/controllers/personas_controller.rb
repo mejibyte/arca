@@ -1,8 +1,8 @@
 class PersonasController < ApplicationController
 
+  #Muestra únicamente las personas "puras",
+  #no las heredadas, por eso el :type => nil
   def index
-    #Muestra únicamente las personas "puras",
-    #no las heredadas, por eso el :type => nil
     @personas = Persona.search((params[:buscar]))
     respond_to do |format|
       format.html
@@ -10,8 +10,7 @@ class PersonasController < ApplicationController
     end
   end
 
-  # GET /personas/1
-  # GET /personas/1.xml
+  # Muestra los detalles de la persona
   def show
     @persona = Persona.find(params[:id])
 
@@ -20,7 +19,8 @@ class PersonasController < ApplicationController
       format.xml  { render :xml => @alumno }
     end
   end
-
+  
+  # Define una nueva persona en la aplicación
   def new
     @persona = Persona.new
     respond_to do |format|
@@ -29,12 +29,12 @@ class PersonasController < ApplicationController
     end
   end
 
-  # GET /personas/1/edit
+  # Edita los datos de la persona
   def edit
     @persona = Persona.find(params[:id])
   end
 
-
+  # Crea una nueva persona
   def create
     @persona = Persona.new(params[:persona])
 
@@ -52,8 +52,7 @@ class PersonasController < ApplicationController
 
   end
 
-  # PUT /personas/1
-  # PUT /personas/1.xml
+  # Actualiza los datos de la persona
   def update
     @persona = Persona.find(params[:id])
 
@@ -70,8 +69,7 @@ class PersonasController < ApplicationController
     end
   end
 
-  # DELETE /alumnos/1
-  # DELETE /alumnos/1.xml
+  # Elimina una persona
   def destroy
     @persona = Persona.find(params[:id])
     @persona.destroy

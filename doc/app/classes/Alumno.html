@@ -96,10 +96,11 @@ cuidados_especiales
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000084">alumnos_sin_familia</a>&nbsp;&nbsp;
-      <a href="#M000085">alumnos_sin_grupo</a>&nbsp;&nbsp;
-      <a href="#M000087">limpiar_string_buscadora</a>&nbsp;&nbsp;
-      <a href="#M000086">search</a>&nbsp;&nbsp;
+      <a href="#M000085">alumnos_sin_familia</a>&nbsp;&nbsp;
+      <a href="#M000086">alumnos_sin_grupo</a>&nbsp;&nbsp;
+      <a href="#M000084">edad</a>&nbsp;&nbsp;
+      <a href="#M000088">limpiar_string_buscadora</a>&nbsp;&nbsp;
+      <a href="#M000087">search</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -121,11 +122,11 @@ cuidados_especiales
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000084" class="method-detail">
-        <a name="M000084"></a>
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
 
         <div class="method-heading">
-          <a href="#M000084" class="method-signature">
+          <a href="#M000085" class="method-signature">
           <span class="method-name">alumnos_sin_familia</span><span class="method-args">(campo)</span>
           </a>
         </div>
@@ -136,76 +137,17 @@ Busca los alumnos sin familia y permite filtrar por medio de sus nombres y
 apellidos su busqueda
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000084-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000084-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 11</span>
-11:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">alumnos_sin_familia</span>(<span class="ruby-identifier">campo</span>)
-12:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
-13:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
-14:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?&quot;</span>,
-15:                                            <span class="ruby-node">&quot;%#{s}%&quot;</span>],
-16:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
-17:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000085" class="method-detail">
-        <a name="M000085"></a>
-
-        <div class="method-heading">
-          <a href="#M000085" class="method-signature">
-          <span class="method-name">alumnos_sin_grupo</span><span class="method-args">(campo)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Busca los alumnos sin grupo y permite filtrar por medio de sus nombres y
-apellidos su busqueda
-</p>
-          <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000085-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000085-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 20</span>
-20:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">alumnos_sin_grupo</span>(<span class="ruby-identifier">campo</span>)
-21:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
-22:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
-23:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;grupo_id IS NULL AND LOWER(nombres || apellidos) LIKE ?&quot;</span>,
-24:                                            <span class="ruby-node">&quot;%#{s}%&quot;</span>],
-25:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
-26:     <span class="ruby-ivar">@alumnos</span>.<span class="ruby-identifier">delete_if</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">exalumno</span>.<span class="ruby-identifier">nil?</span> }
-27:   <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000087" class="method-detail">
-        <a name="M000087"></a>
-
-        <div class="method-heading">
-          <a href="#M000087" class="method-signature">
-          <span class="method-name">limpiar_string_buscadora</span><span class="method-args">(s)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Elimina los caracteres incompatibles con la busqueda
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000087-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000087-source">
-<pre>
-    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 39</span>
-39:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">s</span>)
-40:     <span class="ruby-identifier">s</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&quot;</span>
-41:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[ ]+/</span>, <span class="ruby-value str">&quot;%&quot;</span>).<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[áéíóúÁÉÍÓÚ]+/</span>, <span class="ruby-value str">&quot;%&quot;</span>)
-42:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 25</span>
+25:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">alumnos_sin_familia</span>(<span class="ruby-identifier">campo</span>)
+26:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
+27:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
+28:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?&quot;</span>,
+29:                                            <span class="ruby-node">&quot;%#{s}%&quot;</span>],
+30:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
+31:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -216,6 +158,65 @@ Elimina los caracteres incompatibles con la busqueda
 
         <div class="method-heading">
           <a href="#M000086" class="method-signature">
+          <span class="method-name">alumnos_sin_grupo</span><span class="method-args">(campo)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Busca los alumnos sin grupo y permite filtrar por medio de sus nombres y
+apellidos su busqueda
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000086-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000086-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 34</span>
+34:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">alumnos_sin_grupo</span>(<span class="ruby-identifier">campo</span>)
+35:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
+36:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
+37:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;grupo_id IS NULL AND LOWER(nombres || apellidos) LIKE ?&quot;</span>,
+38:                                            <span class="ruby-node">&quot;%#{s}%&quot;</span>],
+39:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
+40:     <span class="ruby-ivar">@alumnos</span>.<span class="ruby-identifier">delete_if</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">exalumno</span>.<span class="ruby-identifier">nil?</span> }
+41:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000088" class="method-detail">
+        <a name="M000088"></a>
+
+        <div class="method-heading">
+          <a href="#M000088" class="method-signature">
+          <span class="method-name">limpiar_string_buscadora</span><span class="method-args">(s)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Elimina los caracteres incompatibles con la busqueda
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000088-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000088-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 53</span>
+53:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">s</span>)
+54:     <span class="ruby-identifier">s</span> <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&quot;</span>
+55:     <span class="ruby-identifier">s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[ ]+/</span>, <span class="ruby-value str">&quot;%&quot;</span>).<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[áéíóúÁÉÍÓÚ]+/</span>, <span class="ruby-value str">&quot;%&quot;</span>)
+56:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000087" class="method-detail">
+        <a name="M000087"></a>
+
+        <div class="method-heading">
+          <a href="#M000087" class="method-signature">
           <span class="method-name">search</span><span class="method-args">(campo)</span>
           </a>
         </div>
@@ -225,17 +226,52 @@ Elimina los caracteres incompatibles con la busqueda
 Busca alumnos por medio de sus nombres y apellidos
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000086-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000086-source">
+            onclick="toggleCode('M000087-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000087-source">
 <pre>
-    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 30</span>
-30:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">campo</span>)
-31:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
-32:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
-33:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;LOWER(nombres || apellidos) LIKE ?&quot;</span>,
-34:                                              <span class="ruby-node">&quot;%#{s}%&quot;</span>],
-35:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
-36:   <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 44</span>
+44:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">campo</span>)
+45:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">limpiar_string_buscadora</span>(<span class="ruby-identifier">campo</span>)
+46:     <span class="ruby-ivar">@alumnos</span> = <span class="ruby-constant">Alumno</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">:all</span>,
+47:                            <span class="ruby-identifier">:conditions</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">&quot;LOWER(nombres || apellidos) LIKE ?&quot;</span>,
+48:                                              <span class="ruby-node">&quot;%#{s}%&quot;</span>],
+49:                            <span class="ruby-identifier">:order</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;apellidos, nombres ASC&quot;</span>)
+50:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000084" class="method-detail">
+        <a name="M000084"></a>
+
+        <div class="method-heading">
+          <a href="#M000084" class="method-signature">
+          <span class="method-name">edad</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retorna la <a href="Alumno.html#M000084">edad</a> de un alumno, en años
+cumplidos
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000084-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000084-source">
+<pre>
+    <span class="ruby-comment cmt"># File app/models/alumno.rb, line 14</span>
+14:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">edad</span>
+15:     <span class="ruby-identifier">t</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+16:     <span class="ruby-identifier">f</span> = <span class="ruby-identifier">fecha_nacimiento</span>
+17:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">month</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">month</span> <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">t</span>.<span class="ruby-identifier">month</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">month</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">day</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">day</span>) <span class="ruby-comment cmt"># No ha cumplido años todavía</span>
+18:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+19:     <span class="ruby-keyword kw">else</span>
+20:       <span class="ruby-identifier">t</span>.<span class="ruby-identifier">year</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">year</span>
+21:     <span class="ruby-keyword kw">end</span>
+22:   <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

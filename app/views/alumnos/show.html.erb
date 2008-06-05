@@ -45,6 +45,11 @@
 </p>
 
 <p>
+  <b>Edad:</b>
+  <%= pluralize @alumno.edad, "año" %>
+</p>
+
+<p>
   <b>Ruta:</b>
   <% if @alumno.ruta.nil? -%>
   Ninguna

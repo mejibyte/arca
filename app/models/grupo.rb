@@ -7,8 +7,9 @@ class Grupo < ActiveRecord::Base
   def self.search(grupo)
     s=limpiar_string_buscadora(grupo)
     @grupos = Grupo.find(:all,
-                             :conditions => ["LOWER(nombre) LIKE ?",
-                                             "%#{s}%"] )
+                         :conditions => ["LOWER(nombre) LIKE ?",
+                                         "%#{s}%"],
+                         :order => "nombre ASC")
   end
   def nombre_completo
     "#{nombre} (#{jornada})"

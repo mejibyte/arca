@@ -6,7 +6,8 @@ class Profesor < Persona
     s=limpiar_string_buscadora(profesor)
     @profesor = Profesor.find(:all,
                              :conditions => ["LOWER(nombres || apellidos) LIKE ?",
-                                             "%#{s}%"] )
+                                             "%#{s}%"],
+                              :order => "apellidos, nombres ASC")
   end
 
   def self.limpiar_string_buscadora(s)

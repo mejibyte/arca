@@ -2,7 +2,7 @@ class TransportadorsController < ApplicationController
   # GET /transportadors
   # GET /transportadors.xml
   def index
-    @transportadors = Transportador.find(:all)
+    @transportadors = Transportador.find(:all, :order => "apellidos, nombres ASC")
 
     respond_to do |format|
       format.html # index.html.erb

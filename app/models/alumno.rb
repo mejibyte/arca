@@ -8,13 +8,17 @@ class Alumno < Persona
   def self.alumnos_sin_familia(campo)
     s = limpiar_string_buscadora(campo)
     @alumnos = Alumno.find(:all,
-                           :conditions => ["familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?","%#{s}%"] )
+                           :conditions => ["familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?",
+                                           "%#{s}%"],
+                           :order => "apellidos, nombres ASC")
   end
 
   def self.alumnos_sin_grupo(campo)
     s = limpiar_string_buscadora(campo)
     @alumnos = Alumno.find(:all,
-                           :conditions => ["grupo_id IS NULL AND LOWER(nombres || apellidos) LIKE ?","%#{s}%"] )
+                           :conditions => ["grupo_id IS NULL AND LOWER(nombres || apellidos) LIKE ?",
+                                           "%#{s}%"],
+                           :order => "apellidos, nombres ASC")
     @alumnos.delete_if{ |a| not a.exalumno.nil? }
   end
 

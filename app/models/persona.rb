@@ -9,7 +9,9 @@ class Persona < ActiveRecord::Base
   def self.personas_sin_familia(persona)
     s = limpiar_string_buscadora(persona)
     @personas = Persona.find(:all,
-                             :conditions => ["type IS NULL AND familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?","%#{s}%"] )
+                             :conditions => ["type IS NULL AND familia_id IS NULL AND LOWER(nombres || apellidos) LIKE ?",
+                                             "%#{s}%"],
+                             :order => "apellidos, nombres ASC")
   end
 
   def nombre_completo
@@ -20,7 +22,8 @@ class Persona < ActiveRecord::Base
     s = limpiar_string_buscadora(campo)
     @personas = Persona.find(:all,
                              :conditions => ["type IS NULL AND LOWER(nombres || apellidos) LIKE ?",
-                                             "%#{s}%"] )
+                                             "%#{s}%"],
+                             :order => "apellidos, nombres ASC")
   end
 
 

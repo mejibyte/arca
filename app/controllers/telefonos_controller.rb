@@ -12,7 +12,7 @@ class TelefonosController < ApplicationController
   # GET /telefonos
   # GET /telefonos.xml
   def index
-    @telefonos = @persona.telefonos.find(:all)
+    @telefonos = @persona.telefonos.find(:all, :order => "tipo ASC")
 
     respond_to do |format|
       format.html # index.html.erb

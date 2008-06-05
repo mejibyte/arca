@@ -7,7 +7,7 @@ class RutasController < ApplicationController
   # GET /rutas
   # GET /rutas.xml
   def index
-    @rutas = Ruta.find(:all)
+    @rutas = Ruta.find(:all,:order => "sector ASC")
 
     respond_to do |format|
       format.html # index.html.erb

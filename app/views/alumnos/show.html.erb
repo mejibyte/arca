@@ -45,6 +45,16 @@
 </p>
 
 <p>
+  <b>Ruta:</b>
+  <% if @alumno.ruta.nil? -%>
+  Ninguna
+  <% else -%>
+  <%= link_to (@alumno.ruta.transportador.nombre_completo) , ruta_path(@alumno.ruta) %>
+  <% end -%>
+  | <%= link_to "Control de transportadores", transportadors_path %>
+</p>
+
+<p>
   <b>Marcado como exalumno:</b>
   <% if @alumno.exalumno.nil? -%>
   No | <%= link_to "Marcar como exalumno", new_alumno_exalumno_path(@alumno) %>

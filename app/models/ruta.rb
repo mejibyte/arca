@@ -4,6 +4,8 @@ class Ruta < ActiveRecord::Base
   validates_uniqueness_of :placa_vehiculo, :jornada, :scope => [:placa_vehiculo, :jornada]
 
   belongs_to :transportador
+  has_many :alumnos
+
 
   before_validation :upcase_placa
 

@@ -30,6 +30,7 @@
       <li><b>Jornada: </b> <%= @transportador.ruta.jornada %></li>
       <li><b>Placa del vehículo: </b> <%= @transportador.ruta.placa_vehiculo %></li>
     </ul>
+    <%= link_to "Detalles de ruta", ruta_path(@transportador.ruta) %> |
     <%= link_to "Editar ruta", edit_transportador_ruta_path(@transportador) %> |
     <%= link_to "Eliminar ruta", transportador_ruta_path(@transportador), :method => :delete, :confirm => "¿Está seguro?" %>
     <% end -%>

@@ -2,6 +2,7 @@ class Alumno < Persona
   validates_presence_of :fecha_nacimiento, :fecha_ingreso, :cuidados_especiales
   belongs_to :familia
   belongs_to :grupo
+  belongs_to :ruta
   has_one :exalumno, :dependent => :destroy, :foreign_key => :persona_id
 
   def self.alumnos_sin_familia(campo)
@@ -29,6 +30,6 @@ class Alumno < Persona
     s ||= ""
     s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
   end
-  
+
 
 end

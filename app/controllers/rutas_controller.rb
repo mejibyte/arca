@@ -21,6 +21,7 @@ class RutasController < ApplicationController
 
     @ruta = @transportador.ruta if @transportador
     @ruta ||= Ruta.find(params[:id])
+    @alumnos = @ruta.alumnos
 
     respond_to do |format|
       format.html # show.html.erb
@@ -99,4 +100,40 @@ class RutasController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def agregar_alumnos
+    @ruta = Ruta.find(params[:id])
+    if request.get?
+      @alumnos = Alumno.find :all, :conditions => { :ruta_id => nil}, :order => "apellidos, nombres ASC"
+      @alumnos.delete_if { |a| a.exalumno }
+    end
+    if request.put?
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @ruta.alumnos << a
+        end
+        flash[:notice] = "Se agregaron los alumnos a la ruta" if @ruta.save
+      end
+      redirect_to ruta_path(@ruta)
+    end
+  end
+
+  def quitar_alumnos
+    @ruta = Ruta.find(params[:id])
+    if request.get?
+      @alumnos = @ruta.alumnos
+    end
+    if request.put?
+      unless params[:alumno_ids].nil?
+        @alumnos = Alumno.find(params[:alumno_ids])
+        for a in @alumnos
+          @ruta.alumnos.delete(a)
+        end
+        flash[:notice] = "Se quitaron los alumnos de la ruta" if @ruta.save
+      end
+      redirect_to ruta_path(@ruta)
+    end
+  end
+
 end

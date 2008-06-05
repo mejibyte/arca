@@ -14,6 +14,7 @@
     <td><%=h ruta.placa_vehiculo %></td>
     <td><%=h ruta.jornada %></td>
     <td><%=h ruta.sector %></td>
+    <td><%= link_to 'Detalles', ruta_path(ruta) %></td>
     <td><%= link_to 'Editar', edit_ruta_path(ruta) %></td>
     <td><%= link_to 'Eliminar', ruta, :confirm => "¿Estás seguro?", :method => :delete %></td>
   </tr>

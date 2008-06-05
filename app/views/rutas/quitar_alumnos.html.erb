@@ -1,0 +1,9 @@
+<h1>Quitar alumnos de la ruta de <%= link_to @ruta.transportador.nombre_completo, ruta_path(@ruta) %></h1>
+
+<% form_tag quitar_alumnos_ruta_path, :method => :put do %>
+<ul>
+  <%=  render(:partial => "alumno_checkbox", :collection => @alumnos) %>
+</ul>
+<%= hidden_field_tag "id", @ruta.id %>
+<%= submit_tag "Quitar" %> <br />
+<% end %>

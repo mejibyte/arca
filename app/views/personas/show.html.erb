@@ -1,16 +1,7 @@
+<h1><%= @persona.nombre_completo %></h1>
 <p>
   <b>Cédula:</b>
   <%=h @persona.cedula %>
-</p>
-
-<p>
-  <b>Nombres:</b>
-  <%=h @persona.nombres %>
-</p>
-
-<p>
-  <b>Apellidos:</b>
-  <%=h @persona.apellidos %>
 </p>
 
 <p>
@@ -27,6 +18,15 @@
   <% end -%>
   <% end -%>
   <%= link_to "Control de teléfonos", persona_telefonos_path(@persona) %>
+</p>
+
+<p>
+  <b>Familia:</b><br />
+  <% if @persona.familia.nil? %>
+  Ninguna | <%= link_to "Ir a familias", familias_path %>
+  <% else -%>
+  <%= link_to @persona.familia.nombre, familia_path(@persona.familia) %>
+  <% end -%>
 </p>
 <%= link_to 'Editar', edit_persona_path(@persona) %> |
 <%= link_to 'Regresar a la lista de las personas', personas_path %>

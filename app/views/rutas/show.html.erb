@@ -1,9 +1,14 @@
+<h1>Ruta</h1>
 <% if @ruta.nil? %>
 <p>
   Ninguna <br />
 </p>
 
 <% else -%>
+<p>
+  <b>Transportador:</b>
+  <%= link_to @ruta.transportador.nombre_completo, @ruta.transportador %>
+</p>
 <p>
   <b>Placa vehiculo:</b>
   <%=h @ruta.placa_vehiculo %>
@@ -19,8 +24,16 @@
   <%=h @ruta.sector %>
 </p>
 
+<p>
+<h3>Alumnos</h3>
+<%=  render( :partial => "alumno", :collection => @alumnos ) %>
+</p>
+<br />
+<%= link_to "Agregar alumnos", agregar_alumnos_ruta_path, :method => :get %> | <%= link_to "Quitar alumnos", quitar_alumnos_ruta_path, :method => :get %><br />
+
+<br />
 
 <%= link_to 'Editar', edit_ruta_path(@ruta) %> |
 <% end -%>
-<%= link_to 'Regresar al transportador', transportador_path(@transportador) %> |
+<%= link_to 'Regresar al transportador', transportador_path(@ruta.transportador) %> |
 <%= link_to 'Regresar a la lista de rutas', rutas_path %>

@@ -1,5 +1,9 @@
-<h1>Faltas de asistencia de <%= link_to "todos los alumnos", alumnos_path %> </h1>
 
+<h1>Faltas de asistencia de <%= link_to "todos los alumnos", alumnos_path %> </h1>
+<% form_tag index_all_falta_de_asistencias_path, :method => :get do %>
+<%= text_field_tag :buscar, params[:buscar] %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
 <table>
   <tr>
     <th>Alumno</th>

@@ -15,7 +15,7 @@ Desde <%= text_field_tag :antes, params[:antes] %> Hasta <%= text_field_tag :des
   <tr>
     <td><%=h falta_de_asistencia.fecha %></td>
     <td><%=h falta_de_asistencia.motivo %></td>
-    <td><%= link_to 'Ver', [@alumno, falta_de_asistencia] %></td>
+    <td><%= link_to 'Detalles', [@alumno, falta_de_asistencia] %></td>
     <td><%= link_to 'Editar', [:edit, @alumno, falta_de_asistencia] %></td>
     <td><%= link_to 'Eliminar', [@alumno, falta_de_asistencia], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

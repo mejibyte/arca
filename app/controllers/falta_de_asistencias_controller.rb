@@ -10,9 +10,14 @@ class FaltaDeAsistenciasController < ApplicationController
     if params[:alumno_id].nil?
       redirect_to index_all_falta_de_asistencias_path
     else
-      # @falta_de_asistencias = @alumno.falta_de_asistencias.find(:all)
-      
-      @falta_de_asistencias = FaltaDeAsistencia.search(@alumno,params[:buscar],params[:buscar2])
+
+      @falta_de_asistencias = FaltaDeAsistencia.search(@alumno,params[:antes],params[:despues])
+      if @falta_de_asistencias.nil?
+        unless (params[:antes].nil? or params[:antes].blank?) and (params[:despues].nil? or params[:despues].blank?)
+          flash[:error] = "Fechas inválidas. Asegúrese de haber ingresado dos fechas en formato AAAA-MM-DD y de sean fechas válidas (Por ejemplo 30 de Febrero no es una fecha válida)"
+        end
+        @falta_de_asistencias = @alumno.falta_de_asistencias.find :all, :order => "fecha ASC"
+      end
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @falta_de_asistencias }
@@ -95,8 +100,15 @@ class FaltaDeAsistenciasController < ApplicationController
     end
   end
 
+
   def index_all
-    @falta_de_asistencias = FaltaDeAsistencia.searchAll(params[:buscar],params[:buscar2])
+    @falta_de_asistencias = FaltaDeAsistencia.searchAll(params[:antes],params[:despues])
+    if @falta_de_asistencias.nil?
+      unless (params[:antes].nil? or params[:antes].blank?) and (params[:despues].nil? or params[:despues].blank?)
+        flash[:error] = "Fechas inválidas. Asegúrese de haber ingresado dos fechas en formato AAAA-MM-DD y de sean fechas válidas (Por ejemplo 30 de Febrero no es una fecha válida)"
+      end
+      @falta_de_asistencias = FaltaDeAsistencia.find :all, :order => "fecha ASC"
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @falta_de_asistencias }

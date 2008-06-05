@@ -1,5 +1,10 @@
 <h1>Faltas de asistencia de <%= link_to @alumno.nombre_completo, alumno_path(@alumno) %> </h1>
 
+<% form_tag alumno_falta_de_asistencia_path(@alumno,@falta_de_asistencia), :method => :get do %>
+Desde <%= text_field_tag :buscar, "aaaa-mm-dd" %> Hasta <%= text_field_tag :buscar2, "aaaa-mm-dd" %>
+<%= submit_tag "Buscar", :name => nil %>
+<% end %>
+
 <table>
   <tr>
     <th>Fecha</th>

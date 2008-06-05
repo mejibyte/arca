@@ -29,5 +29,6 @@ class Alumno < Persona
     s ||= ""
     s.gsub(/[ ]+/, "%").downcase.gsub(/[áéíóúÁÉÍÓÚ]+/, "%")
   end
+  
 
 end

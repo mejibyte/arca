@@ -10,8 +10,9 @@ class FaltaDeAsistenciasController < ApplicationController
     if params[:alumno_id].nil?
       redirect_to index_all_falta_de_asistencias_path
     else
-      @falta_de_asistencias = @alumno.falta_de_asistencias.find(:all)
-
+      # @falta_de_asistencias = @alumno.falta_de_asistencias.find(:all)
+      
+      @falta_de_asistencias = FaltaDeAsistencia.search(@alumno,params[:buscar],params[:buscar2])
       respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @falta_de_asistencias }
@@ -95,7 +96,7 @@ class FaltaDeAsistenciasController < ApplicationController
   end
 
   def index_all
-    @falta_de_asistencias = FaltaDeAsistencia.find :all
+    @falta_de_asistencias = FaltaDeAsistencia.searchAll(params[:buscar],params[:buscar2])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @falta_de_asistencias }

@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :falta_de_asistencias, :collection => { :index_all => :get }
 
+#  map.resources :falta_de_asistencias, menber => {}
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

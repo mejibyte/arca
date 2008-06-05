@@ -5,5 +5,6 @@ class Exalumno < ActiveRecord::Base
   validates_uniqueness_of :persona_id # Un alumno no se puede retirar dos veces
 
   belongs_to :alumno, :foreign_key => :persona_id
+   
 
 end

@@ -20,7 +20,7 @@
   <tr>
     <td><%= alumno.exalumno.nil? ? "No" : "Sí" %></td>
     <td><%=h alumno.cedula %></td>
-    <td><%=h alumno.nombres %></td>
+    <td><%= link_to alumno.nombres, alumno %></td>
     <td><%=h alumno.apellidos %></td>
     <td><%=h alumno.direccion %></td>
     <td><%=h alumno.cuidados_especiales %></td>

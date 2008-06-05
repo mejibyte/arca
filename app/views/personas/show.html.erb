@@ -14,7 +14,7 @@
   Ninguno | <%= link_to "Agregar teléfono", new_persona_telefono_path(@persona) %> <br />
   <% else -%>
   <% for t in @persona.telefonos -%>
-  <%= h t.numero %> <br />
+  <%= h t.numero %> - <%= h t.tipo %><br />
   <% end -%>
   <% end -%>
   <%= link_to "Control de teléfonos", persona_telefonos_path(@persona) %>
